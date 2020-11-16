@@ -3,6 +3,7 @@ import 'normalize.css';
 // import styled from 'styled-components';
 import GlobalStyles from '../styles/GlobalStyles';
 import Fonts from '../styles/Fonts';
+import Nav from './Nav';
 
 // here children == the different pages
 export default function Layout({ children }) {
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
       {/* <SEO /> */}
       <GlobalStyles />
       <Fonts />
+      <Nav />
       {children}
     </>
   );

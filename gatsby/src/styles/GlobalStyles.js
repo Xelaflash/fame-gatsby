@@ -16,7 +16,8 @@ const GlobalStyles = createGlobalStyle`
   html {
     background: url(${bg}) no-repeat center center fixed;
     background-size: cover;
-    height: 100%;
+    min-height: 100vh;
+    font-size:10px;
   }
 
   body {
