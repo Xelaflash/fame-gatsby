@@ -1,0 +1,50 @@
+{
+  "name": "fame-festival-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fame Festival Barbados website",
+  "main": "package.json",
+  "author": "Alexandre Gros",
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "sanity start"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
+  },
+  "dependencies": {
+    "@sanity/base": "1.150.7",
+    "@sanity/components": "1.150.7",
+    "@sanity/core": "1.150.7",
+    "@sanity/default-layout": "1.150.7",
+    "@sanity/default-login": "1.150.1",
+    "@sanity/desk-tool": "1.150.7",
+    "@sanity/google-maps-input": "1.150.1",
+    "@sanity/structure": "1.150.1",
+    "@sanity/vision": "1.150.6",
+    "prop-types": "^15.7",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-icons": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.1.2"
+  }
+}
