@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    background-color: transparent;
     font-size: 2rem;
   }
 
@@ -44,15 +45,10 @@ const GlobalStyles = createGlobalStyle`
       --cast: 4px;
     }
   }
-
-  .m-bottom-20 {
-    margin-bottom: 20px;
-  }
-
-  /* .gatsby-image-wrapper img[src*=base64\\,] {
+  .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
-  } */
+  }
 
   /* Scrollbar Styles */
   body::-webkit-scrollbar {
