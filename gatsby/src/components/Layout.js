@@ -3,6 +3,7 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 // import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 import GlobalStyles from '../styles/GlobalStyles';
 import Fonts from '../styles/Fonts';
 import Nav from './Nav';
@@ -17,7 +18,7 @@ export default function Layout({ children }) {
       <Fonts />
       <Logo />
       <Nav />
-      {children}
+      <Container>{children}</Container>
     </>
   );
 }

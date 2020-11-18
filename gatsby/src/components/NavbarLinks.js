@@ -31,42 +31,42 @@ const NavbarLinks = () => (
     <ul>
       <li>
         <span className="mark">
-          <NavItem to="/">Food</NavItem>
+          <NavItem to="/food">Food</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">Art</NavItem>
+          <NavItem to="/art">Art</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">Music</NavItem>
+          <NavItem to="/music">Music</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">Environment</NavItem>
+          <NavItem to="/environment">Environment</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">Festival</NavItem>
+          <NavItem to="/festival">Festival</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">Community</NavItem>
+          <NavItem to="/community">Community</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">About Us</NavItem>
+          <NavItem to="/about">About Us</NavItem>
         </span>
       </li>
       <li>
         <span className="mark">
-          <NavItem to="/">Weekly Talk</NavItem>
+          <NavItem to="/weeklyTalk">Weekly Talk</NavItem>
         </span>
       </li>
     </ul>

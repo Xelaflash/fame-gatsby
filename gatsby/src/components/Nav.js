@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import NavbarLinks from './NavbarLinks';
-import Logo from './Logo';
 
 const Navigation = styled.nav`
   text-transform: uppercase;

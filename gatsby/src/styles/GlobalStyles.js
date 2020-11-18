@@ -3,14 +3,22 @@ import bg from '../assets/images/background.png';
 
 const GlobalStyles = createGlobalStyle`
   :root {
-    --red: #FD1015;
     --black: #2E2E2E;
-    --yellow: #ffc600;
-    --green: #1EDD88;
     --white: #fff;
     --grey: #efefef;
     --darkGrey: #0E0000;
     --lightGrey: #F4F4F4;
+    --red: #eb624d;
+    --darkOrange: #fc7d3a;
+    --orange: #fea433;
+    --yellow: #ffc600;
+    --violet: #955c90;
+    --pink: #c65f6b;
+    --blueGrey: #4e5b6c;
+    --lightGreen: #6bac22;
+    --darkGreen: #3e7520;
+    /* --green: #1EDD88;*/
+    /* --red: #FD1015; */
   }
 
   html {
