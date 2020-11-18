@@ -1,6 +1,6 @@
 import React from 'react';
 import 'normalize.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import styled from 'styled-components';
 import { Container } from 'react-bootstrap';

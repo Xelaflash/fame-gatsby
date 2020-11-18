@@ -1,10 +1,10 @@
 import React from 'react';
+import CarouselWrapper from '../components/Carousel';
 
 export default function HomePage() {
   return (
     <div>
-      <h1>Welcome to the homepage</h1>
-      <p>rien just testing</p>
+      <CarouselWrapper />
     </div>
   );
 }
