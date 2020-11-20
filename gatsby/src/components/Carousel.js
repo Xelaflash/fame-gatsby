@@ -27,7 +27,7 @@ export default function CarouselWrapper() {
           name
           image {
             asset {
-              fluid(maxWidth: 800) {
+              fluid(maxWidth: 800, maxHeight: 450) {
                 ...GatsbySanityImageFluid
               }
             }
