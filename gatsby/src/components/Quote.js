@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 const QuoteStyles = styled.div`
@@ -42,7 +41,7 @@ const QuoteStyles = styled.div`
   }
 `;
 
-function SingleQuote({ quote }) {
+export default function Quote({ quote }) {
   return (
     <QuoteStyles>
       <div className="blockquote">
@@ -51,30 +50,3 @@ function SingleQuote({ quote }) {
     </QuoteStyles>
   );
 }
-
-export default function Quote() {
-  const data = useStaticQuery(graphql`
-    query {
-      quotes: allSanityQuotes {
-        nodes {
-          id
-          quoteText
-        }
-      }
-    }
-  `);
-  const quotes = data.quotes.nodes;
-  return (
-    <>
-      {quotes.map((quote) => (
-        <SingleQuote key={quote.id} quote={quote} />
-      ))}
-    </>
-  );
-}
-
-/* <QuoteStyles>
-<div className="blockquote">
-  <h1>Have you ever explored all your sens at once ?</h1>
-</div>
-</QuoteStyles> */

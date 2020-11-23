@@ -12,5 +12,11 @@ export default {
       type: 'string',
       description: 'Quote for the home page',
     },
+    {
+      name: 'quoteId',
+      title: 'Quote ref',
+      type: 'string',
+      description: 'Reference of the Quote (Technical purpose)',
+    },
   ],
 };
