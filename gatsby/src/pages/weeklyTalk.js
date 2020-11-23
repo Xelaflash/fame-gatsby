@@ -3,7 +3,7 @@ import React from 'react';
 export default function weeklyTalk() {
   return (
     <>
-      <h1>weeklyTalk page</h1>
+      <h1>weekly Talk page</h1>
     </>
   );
 }

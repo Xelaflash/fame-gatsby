@@ -2,17 +2,19 @@ import { MdHome as icon } from 'react-icons/md';
 
 export default {
   // Computer name
-  name: 'homepagePics',
+  name: 'carouselPics',
   // visible name
-  title: 'HomePage pictures',
+  title: 'Pictures for Carousel',
   type: 'document',
   icon,
+  fieldsets: [{ name: 'carouselPics', title: 'Pictures for Carousel' }],
   fields: [
     {
       name: 'name',
       title: 'Picture Name',
       type: 'string',
       description: 'short description of the picture',
+      fieldset: 'carouselPics',
     },
     {
       name: 'image',
@@ -22,6 +24,7 @@ export default {
         // permet de sélectionner une zone de la photo pour le cropping
         hotspot: true,
       },
+      fieldset: 'carouselPics',
     },
   ],
 };

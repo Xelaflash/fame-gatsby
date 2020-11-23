@@ -21,7 +21,7 @@ const CarouselStyle = styled.div`
 export default function CarouselWrapper() {
   const data = useStaticQuery(graphql`
     query {
-      carouselPics: allSanityHomepagePics {
+      carouselPics: allSanityCarouselPics {
         nodes {
           id
           name
@@ -40,16 +40,9 @@ export default function CarouselWrapper() {
 
   return (
     <CarouselStyle>
-      <Carousel
-        showArrows="true"
-        controls="true"
-        justify-self="end"
-        align-self="center"
-        control-prev-icon-color="invert(100%)"
-        control-next-icon-color="invert(100%)"
-      >
+      <Carousel>
         {pics.map((pic) => (
-          <Carousel.Item>
+          <Carousel.Item key={pic.id}>
             <Img
               fluid={pic.image.asset.fluid}
               alt={pic.name}
