@@ -8,6 +8,7 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Fonts from '../styles/Fonts';
 import Nav from './Nav';
 import Logo from './Logo';
+import Footer from './Footer';
 
 // here children == the different pages
 export default function Layout({ children }) {
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
       <Logo />
       <Nav />
       <Container>{children}</Container>
+      <Footer />
     </>
   );
 }

@@ -67,11 +67,13 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
   }
-
-  .tilt {
-    transform: rotate(-2deg);
-    position: relative;
-    display: inline-block;
+  .sr-only {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    top: auto;
+    overflow: hidden;
   }
 `;
 
