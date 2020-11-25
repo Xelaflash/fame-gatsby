@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import font from '../assets/fonts/northen.ttf';
 
 const Typography = createGlobalStyle`
-
   @font-face {
     font-family: northen;
     src: url(${font});
@@ -10,13 +9,12 @@ const Typography = createGlobalStyle`
 
   :root {
     --headings-font: "northen", Helvetica, Arial, sans-serif;
-    --body-font: 'Lato', sans-serif;
-}
+    --body-font: 'Open Sans', sans-serif;
+  }
 
-html {
+  body {
     font-family: var(--body-font);
     color: var(--black);
-    font-size:16px;
   }
 
   h1,h2,h3,h4,h5,h6 {
@@ -33,10 +31,10 @@ html {
   }
   mark, .mark {
     background: var(--yellow);
-    padding: 0 2px 2px 2px;
+    padding: 10px 0 7px;
     margin: 0;
     display: inline;
-    line-height: 1;
+    line-height: 1.5;
     border-radius:3px;
     box-shadow: 1px 1px 10px -2px rgba(0,0,0,0.6);
   }

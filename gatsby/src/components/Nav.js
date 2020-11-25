@@ -32,7 +32,7 @@ const Navigation = styled.nav`
       transform: rotate(var(--rotate));
     }
   }
-  @media (max-width: 850px) {
+  @media (max-width: 858px) {
     --columns: 4;
     ul {
       width: 100%;

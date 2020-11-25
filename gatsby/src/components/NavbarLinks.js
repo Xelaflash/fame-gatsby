@@ -11,7 +11,7 @@ const NavItem = styled(Link)`
   transition: all 200ms ease-in;
   position: relative;
   font-family: var(--headings-font);
-  font-size: 2rem;
+  font-size: 3rem;
   letter-spacing: 2px;
 
   :hover {
@@ -20,8 +20,8 @@ const NavItem = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    padding: 20px 0;
-    font-size: 1.5rem;
+    padding: 10px 0;
+    font-size: 2rem;
     z-index: 6;
   }
 `;
