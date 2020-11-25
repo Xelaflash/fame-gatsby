@@ -9,7 +9,7 @@ const QuoteStyles = styled.div`
     color: var(--white);
     padding: 30px 0;
     width: 100%;
-    max-width: 700px;
+    max-width: 600px;
     z-index: 1;
     margin: 80px auto;
     border-top: solid 1px;
@@ -22,6 +22,8 @@ const QuoteStyles = styled.div`
     font-size: 3.5rem;
     font-weight: 800;
     letter-spacing: 3px;
+    max-width: 80%;
+    margin: auto;
   }
 
   /* Blockquote right double quotes */

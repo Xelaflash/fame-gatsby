@@ -19,8 +19,8 @@ export default function HomePage() {
 
   return (
     <>
-      <CarouselWrapper />
       <Quote quote={quotes.quote1} />
+      <CarouselWrapper />
       <Cards />
       <Quote quote={quotes.quote2} />
     </>
