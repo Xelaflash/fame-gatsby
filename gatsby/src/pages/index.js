@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 // import styled from 'styled-components';
-import Card from '../components/Card';
+import Cards from '../components/Cards';
 import CarouselWrapper from '../components/Carousel';
 import Quote from '../components/Quote';
 
@@ -21,7 +21,7 @@ export default function HomePage() {
     <>
       <CarouselWrapper />
       <Quote quote={quotes.quote1} />
-      <Card />
+      <Cards />
       <Quote quote={quotes.quote2} />
     </>
   );

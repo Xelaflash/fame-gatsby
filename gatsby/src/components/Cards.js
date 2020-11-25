@@ -5,7 +5,7 @@ const CardStyles = styled.div`
   border: 1px solid red;
 `;
 
-export default function Card() {
+export default function Cards() {
   return (
     <CardStyles>
       <p>

@@ -17,9 +17,9 @@ const QuoteStyles = styled.div`
   }
 
   /* Blockquote header */
-  .blockquote h1 {
+  .blockquote h2 {
     color: var(--white);
-    font-size: 40px;
+    font-size: 3.5rem;
     font-weight: 800;
     letter-spacing: 3px;
   }
@@ -31,7 +31,7 @@ const QuoteStyles = styled.div`
     color: var(--white);
     font-size: 10rem;
     line-height: 0;
-    bottom: -43px;
+    bottom: -26px;
     right: 30px;
   }
   @media all and (min-width: 600px) {
@@ -45,7 +45,7 @@ export default function Quote({ quote }) {
   return (
     <QuoteStyles>
       <div className="blockquote">
-        <h1>{quote.quoteText}</h1>
+        <h2>{quote.quoteText}</h2>
       </div>
     </QuoteStyles>
   );
