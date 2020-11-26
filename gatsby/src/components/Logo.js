@@ -5,7 +5,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 
 const LogoWrap = styled.div`
   .gatsby-image-wrapper {
-    height: 150px;
+    height: 120px;
     width: auto;
     margin-top: 10px;
   }

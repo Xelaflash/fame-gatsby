@@ -8,6 +8,7 @@ const CardStyles = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
   padding: 2rem;
   /* grid-auto-rows: auto 280px; */
   .card-home {
@@ -25,7 +26,8 @@ const CardStyles = styled.div`
     border-radius: 10px;
     text-align: center;
     padding: 20px;
-    box-shadow: 0px 0px 10px 0px rgb(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     transition: transform 0.15s linear;
     margin: 20px;
     img {

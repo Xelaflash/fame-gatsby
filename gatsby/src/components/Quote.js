@@ -8,9 +8,7 @@ const QuoteStyles = styled.div`
     font-weight: 800;
     color: var(--white);
     padding: 30px 0;
-    width: 100%;
     max-width: 600px;
-    z-index: 1;
     margin: 80px auto;
     border-top: solid 1px;
     border-bottom: solid 1px;
@@ -36,9 +34,13 @@ const QuoteStyles = styled.div`
     bottom: -26px;
     right: 30px;
   }
-  @media all and (min-width: 600px) {
-    .blockquote h1 {
-      font-size: 50px;
+  @media (max-width: 768px) {
+    .blockquote {
+      max-width: 80%;
+    }
+    .blockquote h2 {
+      font-size: 2.5rem;
+      max-width: 100%;
     }
   }
 `;
