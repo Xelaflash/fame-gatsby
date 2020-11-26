@@ -3,6 +3,7 @@ import React from 'react';
 // import styled from 'styled-components';
 import Cards from '../components/Cards';
 import CarouselWrapper from '../components/Carousel';
+import HomeGallery from '../components/HomeGallery';
 import Quote from '../components/Quote';
 
 export default function HomePage() {
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Quote quote={quotes.quote1} />
       <CarouselWrapper />
       <Cards />
+      <HomeGallery />
       <Quote quote={quotes.quote2} />
     </>
   );

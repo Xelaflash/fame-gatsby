@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import bg from '../assets/images/background.png';
+import brush from '../assets/images/brush.svg';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -61,7 +62,8 @@ const GlobalStyles = createGlobalStyle`
   hr {
     border: 0;
     height: 8px;
-    color: red;
+    background-image: url(${brush});
+    background-size: 1500px;
   }
 
   img {
