@@ -9,7 +9,7 @@ const QuoteStyles = styled.div`
     color: var(--white);
     padding: 30px 0;
     max-width: 600px;
-    margin: 80px auto;
+    margin: 60px auto;
     border-top: solid 1px;
     border-bottom: solid 1px;
   }

@@ -77,6 +77,11 @@ const GlobalStyles = createGlobalStyle`
     top: auto;
     overflow: hidden;
   }
+
+  .homeLogo {
+    margin: 40px auto;
+    display:block;
+  }
 `;
 
 export default GlobalStyles;

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const CarouselStyle = styled.div`
   margin: 0 auto 50px;
-  max-width: 850px;
+  /* max-width: 850px; */
   .carousel .carousel-inner {
     border-radius: 3px;
     box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.8);
