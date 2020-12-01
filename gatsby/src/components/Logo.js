@@ -5,18 +5,18 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 
 const LogoWrap = styled.div`
   .gatsby-image-wrapper {
-    height: 120px;
+    height: 150px;
     width: auto;
-    margin-top: 10px;
+    margin: 10px auto 25px auto;
   }
 `;
 
 const Logo = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "logo-round-black" }, extension: { eq: "png" }) {
+      file(name: { eq: "logo-text" }, extension: { eq: "png" }) {
         childImageSharp {
-          fluid(maxHeight: 200, pngQuality: 80) {
+          fluid(maxHeight: 150, pngQuality: 100) {
             ...GatsbyImageSharpFluid
           }
         }

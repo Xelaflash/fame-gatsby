@@ -12,7 +12,8 @@ const PartnersStyles = styled.div`
   margin: -20px auto 40px auto;
   .gatsby-image-wrapper {
     height: auto;
-    width: 200px;
+    width: 180px;
+    margin: 10px;
   }
 `;
 

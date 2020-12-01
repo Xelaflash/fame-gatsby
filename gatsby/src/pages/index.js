@@ -1,12 +1,18 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import Cards from '../components/Cards';
 import CarouselWrapper from '../components/Carousel';
 import HomeGallery from '../components/HomeGallery';
 import Quote from '../components/Quote';
 import Partners from '../components/Partners';
-import fameLogoText from '../assets/images/logo-text.png';
+
+const HomeStyles = styled.div`
+  p {
+    max-width: 90%;
+    margin: auto;
+  }
+`;
 
 export default function HomePage() {
   const quotes = useStaticQuery(graphql`
@@ -21,8 +27,7 @@ export default function HomePage() {
   `);
 
   return (
-    <>
-      <img src={fameLogoText} alt="" height="200" className="homeLogo" />
+    <HomeStyles>
       <p>
         F.A.M.E is a movement of <strong>Food</strong>, <strong>Art </strong>
         and <strong>Music</strong> lovers that want to get people together to
@@ -41,6 +46,6 @@ export default function HomePage() {
       <HomeGallery />
       <Partners />
       <Quote quote={quotes.quote2} />
-    </>
+    </HomeStyles>
   );
 }
