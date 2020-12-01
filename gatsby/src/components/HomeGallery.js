@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { SRLWrapper } from 'simple-react-lightbox';
 import styled from 'styled-components';
 import BrushStroke from './BrushStroke';
 
@@ -45,21 +46,34 @@ const HomeGallery = () => {
   `);
 
   const clImages = data.allCloudinaryMedia.edges;
+
+  const options = {
+    settings: {
+      overlayColor: '#fea433',
+      autoplaySpeed: 1500,
+      transitionSpeed: 900,
+    },
+    caption: {
+      showCaption: false,
+    },
+  };
   return (
     <>
       <HomeGalleryStyles>
         <h2>A glimpse at the pasts Festivals</h2>
         <BrushStroke />
-        <div className="image-grid">
-          {clImages.map((image, index) => (
-            <div className="image-item" key={`${index}-cl`}>
-              <img
-                src={image.node.secure_url}
-                alt="F.A.M.E - Festival pictures"
-              />
-            </div>
-          ))}
-        </div>
+        <SRLWrapper options={options}>
+          <div className="image-grid">
+            {clImages.map((image, index) => (
+              <div className="image-item" key={`${index}-cl`}>
+                <img
+                  src={image.node.secure_url}
+                  alt="F.A.M.E - Festival pictures"
+                />
+              </div>
+            ))}
+          </div>
+        </SRLWrapper>
       </HomeGalleryStyles>
     </>
   );

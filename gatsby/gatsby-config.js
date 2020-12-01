@@ -23,14 +23,10 @@ export default {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`300`, `400`, `700`],
-          },
-        ],
+        fonts: [`open sans\:300,400,700`],
+        display: 'swap',
       },
     },
     {

@@ -40,7 +40,7 @@ export default function CarouselWrapper() {
 
   return (
     <CarouselStyle>
-      <Carousel>
+      <Carousel controls={false} indicators={false} interval={4000}>
         {pics.map((pic) => (
           <Carousel.Item key={pic.id}>
             <Img
