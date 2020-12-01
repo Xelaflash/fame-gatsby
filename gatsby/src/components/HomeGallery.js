@@ -29,6 +29,7 @@ const HomeGalleryStyles = styled.div`
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.4);
+    cursor: pointer;
   }
 `;
 
