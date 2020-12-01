@@ -6,13 +6,6 @@ import BrushStroke from './BrushStroke';
 
 const HomeGalleryStyles = styled.div`
   text-align: center;
-  h2 {
-    color: var(--white);
-    text-align: center;
-    margin: 60px auto 10px auto;
-    font-size: 4rem;
-    letter-spacing: 2px;
-  }
   .image-grid {
     display: grid;
     grid-gap: 10px;
@@ -61,7 +54,7 @@ const HomeGallery = () => {
   return (
     <>
       <HomeGalleryStyles>
-        <h2>A glimpse at the pasts Festivals</h2>
+        <h2 className="title ">A glimpse at the pasts Festivals</h2>
         <BrushStroke />
         <SRLWrapper options={options}>
           <div className="image-grid">

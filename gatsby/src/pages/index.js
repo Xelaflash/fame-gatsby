@@ -5,6 +5,7 @@ import Cards from '../components/Cards';
 import CarouselWrapper from '../components/Carousel';
 import HomeGallery from '../components/HomeGallery';
 import Quote from '../components/Quote';
+import Partners from '../components/Partners';
 import fameLogoText from '../assets/images/logo-text.png';
 
 export default function HomePage() {
@@ -38,6 +39,7 @@ export default function HomePage() {
       <CarouselWrapper />
       <Cards />
       <HomeGallery />
+      <Partners />
       <Quote quote={quotes.quote2} />
     </>
   );

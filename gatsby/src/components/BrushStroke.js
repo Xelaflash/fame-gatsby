@@ -4,6 +4,7 @@ import brush from '../assets/images/brush.svg';
 
 const BrushStrokeStyles = styled.div`
   margin: 0 auto 30px auto;
+  text-align: center;
   img {
     height: 20px;
   }

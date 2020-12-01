@@ -4,7 +4,7 @@ import { MdHome as icon } from 'react-icons/md';
 //  Build a custom sidebar
 export default function sidebar() {
   return S.list()
-    .title(`Content`)
+    .title(`Website Content`)
     .items([
       // create a sub item
       S.listItem()
@@ -32,15 +32,15 @@ export default function sidebar() {
                     'Quotes to be displayed in Home page'
                   )
                 ),
+              S.listItem()
+                .title('Partners Logo')
+                .schemaType('partners')
+                .child(
+                  S.documentTypeList('partners').title(
+                    'Partners logo to display on Homepage'
+                  )
+                ),
             ])
-          // S.editor()
-          //   .schemaType('carouselPics')
-          //   // Make a new doc id so we don't have a random string of characters
-          //   .documentId('homePageDatas')
         ),
-      // add in the rest of our document items
-      // ...S.documentTypeListItems().filter(
-      //   (item) => item.getId() !== 'HomePage'
-      // ),
     ]);
 }

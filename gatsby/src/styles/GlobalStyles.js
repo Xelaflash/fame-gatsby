@@ -82,6 +82,14 @@ const GlobalStyles = createGlobalStyle`
     margin: 40px auto;
     display:block;
   }
+
+  .title {
+    color: var(--white);
+    text-align: center;
+    margin: 60px auto 10px auto;
+    font-size: 4rem;
+    letter-spacing: 2px;
+  }
 `;
 
 export default GlobalStyles;
