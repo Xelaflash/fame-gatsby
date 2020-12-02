@@ -29,7 +29,7 @@ const HomeGalleryStyles = styled.div`
 const HomeGallery = () => {
   const data = useStaticQuery(graphql`
     query CloudinaryImages {
-      allCloudinaryMedia {
+      allCloudinaryMedia(filter: { public_id: { glob: "cloudinaryImg/*" } }) {
         edges {
           node {
             secure_url

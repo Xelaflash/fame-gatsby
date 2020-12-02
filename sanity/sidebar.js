@@ -1,6 +1,7 @@
 import react from 'react';
 import S from '@sanity/desk-tool/structure-builder';
-import { MdHome as icon } from 'react-icons/md';
+import { MdHome as iconHome } from 'react-icons/md';
+import { FaImages as iconBanner } from 'react-icons/fa';
 //  Build a custom sidebar
 export default function sidebar() {
   return S.list()
@@ -9,7 +10,7 @@ export default function sidebar() {
       // create a sub item
       S.listItem()
         .title('Home page')
-        .icon(icon)
+        .icon(iconHome)
         .child(
           S.list()
             .title('Home Page')
@@ -38,6 +39,23 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('partners').title(
                     'Partners logo to display on Homepage'
+                  )
+                ),
+            ])
+        ),
+      S.listItem()
+        .title('Banner Images')
+        .icon(iconBanner)
+        .child(
+          S.list()
+            .title('Banner Images')
+            .items([
+              S.listItem()
+                .title('Banner Images')
+                .schemaType('bannerImgs')
+                .child(
+                  S.documentTypeList('bannerImgs').title(
+                    'Pictures for Pages Banners'
                   )
                 ),
             ])
