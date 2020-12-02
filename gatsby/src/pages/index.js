@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
@@ -12,6 +12,26 @@ const HomeStyles = styled.div`
   p {
     max-width: 90%;
     margin: auto;
+  }
+
+  .cta {
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 40px auto 0 auto;
+    background: transparent;
+    font-family: var(--headings-font);
+    box-shadow: 0px 34px 30px -19px rgba(0, 0, 0, 0.6);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    color: var(--black);
+    cursor: pointer;
+    letter-spacing: 1px;
+    outline: none;
+    border: solid 2px var(--darkGreen);
+    padding: 1rem;
+    font-weight: lighter;
+    &:hover {
+      box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+    }
   }
 `;
 
@@ -43,6 +63,10 @@ export default function HomePage() {
           discovery of a sustainable lifestyle : fresh & local food, healthy
           recipes, self-care & artistic practices…
         </p>
+        <button type="button" className="cta">
+          <Link to="/community">Check our community</Link>
+        </button>
+
         <Quote quote={quotes.quote1} />
         <CarouselWrapper />
         <Cards />

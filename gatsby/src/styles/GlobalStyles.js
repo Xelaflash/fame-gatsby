@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     border-width: 1px;
   }
 
-  button {
+  /* button {
     background: var(--red);
     color: white;
     border: 0;
@@ -53,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
     &:hover {
       --cast: 4px;
     }
-  }
+  } */
   .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
