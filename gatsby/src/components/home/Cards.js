@@ -1,8 +1,8 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import fameLogoText from '../assets/images/logo-text.png';
-import weeklyLogo from '../assets/images/weekly-talk-white.png';
+import fameLogoText from '../../assets/images/logo-text.png';
+import weeklyLogo from '../../assets/images/weekly-talk-white.png';
 
 const CardStyles = styled.div`
   display: grid;

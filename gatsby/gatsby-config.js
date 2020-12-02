@@ -11,6 +11,7 @@ export default {
     description: `F.A.M.E. DEDICATED TO FOOD, ART, MUSIC & ENVIRONMENT are festivals, gatherings & pop ups organized in Barbados!`,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     {

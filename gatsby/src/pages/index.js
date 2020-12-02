@@ -1,11 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
-import Cards from '../components/Cards';
-import CarouselWrapper from '../components/Carousel';
-import HomeGallery from '../components/HomeGallery';
-import Quote from '../components/Quote';
-import Partners from '../components/Partners';
+import SEO from '../components/SEO';
+import CarouselWrapper from '../components/home/Carousel';
+import Cards from '../components/home/Cards';
+import HomeGallery from '../components/home/HomeGallery';
+import Quote from '../components/home/Quote';
+import Partners from '../components/home/Partners';
 
 const HomeStyles = styled.div`
   p {
@@ -27,25 +28,28 @@ export default function HomePage() {
   `);
 
   return (
-    <HomeStyles>
-      <p>
-        F.A.M.E is a movement of <strong>Food</strong>, <strong>Art </strong>
-        and <strong>Music</strong> lovers that want to get people together to
-        enjoy gatherings with respect for the Environment. <br />
-        Our team organises Festivals, Pop ups & Charity events. Our middle term
-        focus is the Caribbean and South America where local artists get podiums
-        next to international names. <br />
-        Our main priority is the creation of awareness for environmental local
-        issues, for self-respect and healthy lifestyle through the promotion &
-        discovery of a sustainable lifestyle : fresh & local food, healthy
-        recipes, self-care & artistic practices…
-      </p>
-      <Quote quote={quotes.quote1} />
-      <CarouselWrapper />
-      <Cards />
-      <HomeGallery />
-      <Partners />
-      <Quote quote={quotes.quote2} />
-    </HomeStyles>
+    <>
+      <SEO title="Home" />
+      <HomeStyles>
+        <p>
+          F.A.M.E is a movement of <strong>Food</strong>, <strong>Art </strong>
+          and <strong>Music</strong> lovers that want to get people together to
+          enjoy gatherings with respect for the Environment. <br />
+          Our team organises Festivals, Pop ups & Charity events. Our middle
+          term focus is the Caribbean and South America where local artists get
+          podiums next to international names. <br />
+          Our main priority is the creation of awareness for environmental local
+          issues, for self-respect and healthy lifestyle through the promotion &
+          discovery of a sustainable lifestyle : fresh & local food, healthy
+          recipes, self-care & artistic practices…
+        </p>
+        <Quote quote={quotes.quote1} />
+        <CarouselWrapper />
+        <Cards />
+        <HomeGallery />
+        <Partners />
+        <Quote quote={quotes.quote2} />
+      </HomeStyles>
+    </>
   );
 }

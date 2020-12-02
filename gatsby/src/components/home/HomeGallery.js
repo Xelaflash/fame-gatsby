@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { SRLWrapper } from 'simple-react-lightbox';
 import styled from 'styled-components';
-import BrushStroke from './BrushStroke';
+import BrushStroke from '../BrushStroke';
 
 const HomeGalleryStyles = styled.div`
   text-align: center;
