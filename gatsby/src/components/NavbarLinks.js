@@ -10,7 +10,7 @@ const NavItem = styled(Link)`
   margin: 0 1vw;
   transition: all 200ms ease-in;
   font-family: var(--headings-font);
-  font-size: 3rem;
+  font-size: 2rem;
   letter-spacing: 2px;
   :hover {
     text-decoration: none;
@@ -18,11 +18,7 @@ const NavItem = styled(Link)`
   }
   .gatsby-image-wrapper {
     margin-left: 10px;
-    top: 8px;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 2.5rem;
+    top: 4px;
   }
 `;
 
@@ -30,7 +26,7 @@ const NavbarLinks = () => {
   const icons = useStaticQuery(graphql`
     fragment icons on file {
       childImageSharp {
-        fixed(height: 32) {
+        fixed(height: 30) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
@@ -41,14 +37,14 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 32) {
+          fixed(height: 30) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       iconArt: file(name: { eq: "icon-art-black" }, extension: { eq: "png" }) {
         childImageSharp {
-          fixed(height: 32) {
+          fixed(height: 30) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -58,7 +54,7 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 32) {
+          fixed(height: 30) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -68,16 +64,17 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 32) {
+          fixed(height: 30) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
     }
   `);
+  const url = typeof window !== 'undefined' ? window.location.pathname : '';
   return (
     <>
-      <ul>
+      <ul style={url === '/' ? { width: '70%', margin: 'auto' } : {}}>
         <li>
           <div className="mark">
             <NavItem to="/food">

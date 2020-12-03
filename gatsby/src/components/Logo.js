@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const LogoWrap = styled.div`
+  text-align: center;
   .gatsby-image-wrapper {
     height: 250px;
     width: auto;
@@ -11,7 +12,7 @@ const LogoWrap = styled.div`
   }
   @media (max-width: 812px) {
     .gatsby-image-wrapper {
-      height: 150px;
+      height: 125px;
       margin: 50px auto 30px auto;
     }
   }
@@ -31,7 +32,7 @@ const Logo = () => {
   `);
 
   return (
-    <LogoWrap as={Link} to="/">
+    <LogoWrap>
       <Img
         fluid={data.file.childImageSharp.fluid}
         alt="logo"

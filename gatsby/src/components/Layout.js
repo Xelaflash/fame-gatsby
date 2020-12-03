@@ -17,7 +17,6 @@ export default function Layout({ children }) {
       {/* <SEO /> */}
       <GlobalStyles />
       <Fonts />
-      <Logo />
       <Nav />
       <SimpleReactLightbox>
         <Container>{children}</Container>
