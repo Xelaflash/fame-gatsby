@@ -24,48 +24,6 @@ const NavHomeStyles = styled.div`
   margin-bottom: 40px;
 `;
 
-const NavLinksStyles = styled.nav`
-  text-transform: uppercase;
-  ul {
-    /* margin: 0 auto; */
-    padding: 0 10px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* 2rem == 20px 'cause e set the base font size to 10px in global styles */
-    grid-gap: 1rem;
-    align-items: center;
-    text-align: center;
-    list-style: none;
-  }
-  li {
-    transform: rotate(var(--rotate));
-    order: 1;
-    width: fit-content;
-    margin: auto;
-    &:nth-child(odd) {
-      --rotate: -2deg;
-    }
-    &:nth-child(even) {
-      --rotate: 2deg;
-    }
-    &:hover {
-      --rotate: 3deg;
-      transform: rotate(var(--rotate));
-    }
-  }
-  @media (max-width: 1000px) {
-    ul {
-      grid-gap: 1.5rem;
-    }
-  }
-  @media (max-width: 812px) {
-    --columns: 2;
-    ul {
-      grid-template-columns: repeat(var(--columns), 1fr);
-    }
-  }
-`;
-
 const LogoRoundStyles = styled.div`
   width: 110px;
   @media (max-width: 400px) {
@@ -103,11 +61,7 @@ const Navbar = () => {
     return (
       <NavHomeStyles>
         <Logo />
-        <NavLinksStyles>
-          <div>
-            <NavbarLinks />
-          </div>
-        </NavLinksStyles>
+        <NavbarLinks />
       </NavHomeStyles>
     );
   }
@@ -115,11 +69,7 @@ const Navbar = () => {
   return (
     <NavStyles>
       <LogoRound />
-      <NavLinksStyles>
-        <div>
-          <NavbarLinks />
-        </div>
-      </NavLinksStyles>
+      <NavbarLinks />
     </NavStyles>
   );
 };

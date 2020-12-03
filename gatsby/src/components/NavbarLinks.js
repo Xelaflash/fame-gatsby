@@ -3,6 +3,48 @@ import styled from 'styled-components';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
+const NavLinksStyles = styled.nav`
+  text-transform: uppercase;
+  ul {
+    /* margin: 0 auto; */
+    padding: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 2rem == 20px 'cause e set the base font size to 10px in global styles */
+    grid-gap: 1rem;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+  }
+  li {
+    transform: rotate(var(--rotate));
+    order: 1;
+    width: fit-content;
+    margin: auto;
+    &:nth-child(odd) {
+      --rotate: -2deg;
+    }
+    &:nth-child(even) {
+      --rotate: 2deg;
+    }
+    &:hover {
+      --rotate: 3deg;
+      transform: rotate(var(--rotate));
+    }
+  }
+  @media (max-width: 1000px) {
+    ul {
+      grid-gap: 1.5rem;
+    }
+  }
+  @media (max-width: 812px) {
+    --columns: 2;
+    ul {
+      grid-template-columns: repeat(var(--columns), 1fr);
+    }
+  }
+`;
+
 const NavItem = styled(Link)`
   text-decoration: none;
   color: var(--black);
@@ -10,7 +52,7 @@ const NavItem = styled(Link)`
   margin: 0 1vw;
   transition: all 200ms ease-in;
   font-family: var(--headings-font);
-  font-size: 2rem;
+  font-size: 2.2rem;
   letter-spacing: 2px;
   :hover {
     text-decoration: none;
@@ -26,7 +68,7 @@ const NavbarLinks = () => {
   const icons = useStaticQuery(graphql`
     fragment icons on file {
       childImageSharp {
-        fixed(height: 30) {
+        fixed(height: 25) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
@@ -37,14 +79,14 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 30) {
+          fixed(height: 25) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       iconArt: file(name: { eq: "icon-art-black" }, extension: { eq: "png" }) {
         childImageSharp {
-          fixed(height: 30) {
+          fixed(height: 25) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -54,7 +96,7 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 30) {
+          fixed(height: 25) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -64,7 +106,7 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 30) {
+          fixed(height: 25) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -73,8 +115,14 @@ const NavbarLinks = () => {
   `);
   const url = typeof window !== 'undefined' ? window.location.pathname : '';
   return (
-    <>
-      <ul style={url === '/' ? { width: '70%', margin: 'auto' } : {}}>
+    <NavLinksStyles>
+      <ul
+        style={
+          url === '/' && window.innerWidth > 980
+            ? { maxWidth: '900px', margin: 'auto' }
+            : {}
+        }
+      >
         <li>
           <div className="mark">
             <NavItem to="/food">
@@ -140,7 +188,7 @@ const NavbarLinks = () => {
           </div>
         </li>
       </ul>
-    </>
+    </NavLinksStyles>
   );
 };
 
