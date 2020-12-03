@@ -21,6 +21,8 @@ const Navigation = styled.nav`
   li {
     transform: rotate(var(--rotate));
     order: 1;
+    width: fit-content;
+    margin: auto;
     &:nth-child(odd) {
       --rotate: -2deg;
     }
@@ -32,16 +34,17 @@ const Navigation = styled.nav`
       transform: rotate(var(--rotate));
     }
   }
-  @media (max-width: 858px) {
-    --columns: 4;
+  @media (max-width: 1000px) {
     ul {
       width: 100%;
-      grid-template-rows: auto auto;
-      grid-template-columns: repeat(var(--columns), 1fr);
-      justify-items: center;
+      grid-gap: 1.5rem;
     }
-    @media (max-width: 700px) {
-      --columns: 2;
+  }
+  @media (max-width: 790px) {
+    --columns: 2;
+    ul {
+      width: 80%;
+      grid-template-columns: repeat(var(--columns), 1fr);
     }
   }
 `;

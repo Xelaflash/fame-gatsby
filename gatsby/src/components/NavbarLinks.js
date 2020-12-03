@@ -21,8 +21,7 @@ const NavItem = styled(Link)`
     top: 8px;
   }
 
-  @media (max-width: 768px) {
-    padding: 10px 0;
+  @media (max-width: 900px) {
     font-size: 2.5rem;
   }
 `;
@@ -31,7 +30,7 @@ const NavbarLinks = () => {
   const icons = useStaticQuery(graphql`
     fragment icons on file {
       childImageSharp {
-        fixed(height: 35) {
+        fixed(height: 32) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
@@ -42,14 +41,14 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 35) {
+          fixed(height: 32) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
       }
       iconArt: file(name: { eq: "icon-art-black" }, extension: { eq: "png" }) {
         childImageSharp {
-          fixed(height: 35) {
+          fixed(height: 32) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -59,7 +58,7 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 35) {
+          fixed(height: 32) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -69,7 +68,7 @@ const NavbarLinks = () => {
         extension: { eq: "png" }
       ) {
         childImageSharp {
-          fixed(height: 35) {
+          fixed(height: 32) {
             ...GatsbyImageSharpFixed_withWebp
           }
         }
@@ -80,7 +79,7 @@ const NavbarLinks = () => {
     <>
       <ul>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/food">
               Food
               <Img
@@ -88,10 +87,10 @@ const NavbarLinks = () => {
                 alt="Icon food - FAME"
               />
             </NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/art">
               Art
               <Img
@@ -99,10 +98,10 @@ const NavbarLinks = () => {
                 alt="Icon art - FAME"
               />
             </NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/music">
               Music
               <Img
@@ -110,10 +109,10 @@ const NavbarLinks = () => {
                 alt="Icon Music - FAME"
               />
             </NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/environment">
               Environment
               <Img
@@ -121,27 +120,27 @@ const NavbarLinks = () => {
                 alt="Icon Environment - FAME"
               />
             </NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/festival">Festival</NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/community">Community</NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/about">About Us</NavItem>
-          </span>
+          </div>
         </li>
         <li>
-          <span className="mark">
+          <div className="mark">
             <NavItem to="/weeklyTalk">Weekly Talk</NavItem>
-          </span>
+          </div>
         </li>
       </ul>
     </>

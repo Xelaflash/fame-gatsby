@@ -9,6 +9,12 @@ const LogoWrap = styled.div`
     width: auto;
     margin: 100px auto 30px auto;
   }
+  @media (max-width: 812px) {
+    .gatsby-image-wrapper {
+      height: 150px;
+      margin: 50px auto 30px auto;
+    }
+  }
 `;
 
 const Logo = () => {
