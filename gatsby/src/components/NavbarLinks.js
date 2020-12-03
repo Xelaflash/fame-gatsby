@@ -1,76 +1,151 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 const NavItem = styled(Link)`
   text-decoration: none;
   color: var(--black);
-  display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;
   transition: all 200ms ease-in;
-  position: relative;
   font-family: var(--headings-font);
   font-size: 3rem;
   letter-spacing: 2px;
-
   :hover {
     text-decoration: none;
     color: var(--black);
+  }
+  .gatsby-image-wrapper {
+    margin-left: 10px;
+    top: 8px;
   }
 
   @media (max-width: 768px) {
     padding: 10px 0;
     font-size: 2.5rem;
-    z-index: 6;
   }
 `;
 
-const NavbarLinks = () => (
-  <>
-    <ul>
-      <li>
-        <span className="mark">
-          <NavItem to="/food">Food</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/art">Art</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/music">Music</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/environment">Environment</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/festival">Festival</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/community">Community</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/about">About Us</NavItem>
-        </span>
-      </li>
-      <li>
-        <span className="mark">
-          <NavItem to="/weeklyTalk">Weekly Talk</NavItem>
-        </span>
-      </li>
-    </ul>
-  </>
-);
+const NavbarLinks = () => {
+  const icons = useStaticQuery(graphql`
+    fragment icons on file {
+      childImageSharp {
+        fixed(height: 35) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    query {
+      iconFood: file(
+        name: { eq: "icon-food-black" }
+        extension: { eq: "png" }
+      ) {
+        childImageSharp {
+          fixed(height: 35) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+      iconArt: file(name: { eq: "icon-art-black" }, extension: { eq: "png" }) {
+        childImageSharp {
+          fixed(height: 35) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+      iconMusic: file(
+        name: { eq: "icon-music-black" }
+        extension: { eq: "png" }
+      ) {
+        childImageSharp {
+          fixed(height: 35) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+      iconEnvironment: file(
+        name: { eq: "icon-environment-black" }
+        extension: { eq: "png" }
+      ) {
+        childImageSharp {
+          fixed(height: 35) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+    }
+  `);
+  return (
+    <>
+      <ul>
+        <li>
+          <span className="mark">
+            <NavItem to="/food">
+              Food
+              <Img
+                fixed={icons.iconFood.childImageSharp.fixed}
+                alt="Icon food - FAME"
+              />
+            </NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/art">
+              Art
+              <Img
+                fixed={icons.iconArt.childImageSharp.fixed}
+                alt="Icon art - FAME"
+              />
+            </NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/music">
+              Music
+              <Img
+                fixed={icons.iconMusic.childImageSharp.fixed}
+                alt="Icon Music - FAME"
+              />
+            </NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/environment">
+              Environment
+              <Img
+                fixed={icons.iconEnvironment.childImageSharp.fixed}
+                alt="Icon Environment - FAME"
+              />
+            </NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/festival">Festival</NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/community">Community</NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/about">About Us</NavItem>
+          </span>
+        </li>
+        <li>
+          <span className="mark">
+            <NavItem to="/weeklyTalk">Weekly Talk</NavItem>
+          </span>
+        </li>
+      </ul>
+    </>
+  );
+};
 
 export default NavbarLinks;

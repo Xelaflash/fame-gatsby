@@ -26,7 +26,6 @@ const Typography = createGlobalStyle`
   a {
     color: var(--black);
     text-decoration: none;
-    /* text-decoration-color: var(--red); */
     /* Chrome renders this weird with this font, so we turn it off */
     text-decoration-skip-ink: none;
     &:hover {
@@ -36,12 +35,11 @@ const Typography = createGlobalStyle`
   }
   mark, .mark {
     background: var(--yellow);
-    padding: 10px 0 7px;
+    padding: 10px 10px 7px 10px;
     margin: 0;
-    display: inline;
     line-height: 1.5;
     border-radius:3px;
-    box-shadow: 1px 1px 10px -2px rgba(0,0,0,0.6);
+    box-shadow: 1px 1px 10px -2px rgba(0,0,0,0.8);
   }
 
   .center {
