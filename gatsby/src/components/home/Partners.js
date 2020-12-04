@@ -11,8 +11,6 @@ const PartnersStyles = styled.div`
   justify-content: space-around;
   margin: -20px auto 40px auto;
   .gatsby-image-wrapper {
-    /* height: 110px;
-    width: 90px; */
     margin: 10px;
   }
 `;

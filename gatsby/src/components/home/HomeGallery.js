@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import { SRLWrapper } from 'simple-react-lightbox';
 import styled from 'styled-components';
 import BrushStroke from '../BrushStroke';
@@ -16,7 +17,12 @@ const HomeGalleryStyles = styled.div`
   .image-grid .image-item:nth-child(5n) {
     grid-column-end: span 2;
   }
-  .image-grid img {
+  .image-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-img {
     display: flex;
     width: 100%;
     height: 100%;
@@ -26,30 +32,37 @@ const HomeGalleryStyles = styled.div`
     cursor: pointer;
     transition: opacity 0.25s ease-in-out;
     &:hover {
-      opacity: 0.7;
+      opacity: 0.9;
     }
   }
+
   @media (min-width: 576px) {
     .image-grid {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   }
 `;
 
 const HomeGallery = () => {
   const data = useStaticQuery(graphql`
-    query CloudinaryImages {
-      allCloudinaryMedia(filter: { public_id: { glob: "cloudinaryImg/*" } }) {
-        edges {
-          node {
-            secure_url
+    query {
+      galleryImgs: allSanityHomeGallery {
+        nodes {
+          id
+          name
+          image {
+            asset {
+              fluid(maxWidth: 1024) {
+                aspectRatio
+                ...GatsbySanityImageFluid
+              }
+            }
           }
         }
       }
     }
   `);
-
-  const clImages = data.allCloudinaryMedia.edges;
+  const pics = data.galleryImgs.nodes;
 
   const options = {
     settings: {
@@ -61,6 +74,7 @@ const HomeGallery = () => {
       showCaption: false,
     },
   };
+
   return (
     <>
       <HomeGalleryStyles>
@@ -68,11 +82,13 @@ const HomeGallery = () => {
         <BrushStroke />
         <SRLWrapper options={options}>
           <div className="image-grid">
-            {clImages.map((image, index) => (
-              <div className="image-item" key={`${index}-cl`}>
-                <img
-                  src={image.node.secure_url}
-                  alt="F.A.M.E - Festival pictures"
+            {pics.map((image, index) => (
+              <div className="image-item">
+                <Img
+                  key={`${index}-cl`}
+                  fluid={image.image.asset.fluid}
+                  alt={`${image.name} - F.A.M.E Festival`}
+                  className="gallery-img"
                 />
               </div>
             ))}

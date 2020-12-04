@@ -24,6 +24,14 @@ export default function sidebar() {
                   )
                 ),
               S.listItem()
+                .title('Gallery')
+                .schemaType('homeGallery')
+                .child(
+                  S.documentTypeList('homeGallery').title(
+                    'Pictures for Home page Gallery'
+                  )
+                ),
+              S.listItem()
                 .title('Quotes')
                 .schemaType('quotes')
                 // When you open this list item, list out the documents
