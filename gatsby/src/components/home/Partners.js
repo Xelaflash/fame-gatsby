@@ -11,8 +11,8 @@ const PartnersStyles = styled.div`
   justify-content: space-around;
   margin: -20px auto 40px auto;
   .gatsby-image-wrapper {
-    height: auto;
-    width: 180px;
+    /* height: 110px;
+    width: 90px; */
     margin: 10px;
   }
 `;
@@ -26,8 +26,8 @@ export default function Partners() {
           name
           image {
             asset {
-              fluid(maxWidth: 200) {
-                ...GatsbySanityImageFluid
+              fixed(width: 140) {
+                ...GatsbySanityImageFixed
               }
             }
           }
@@ -43,7 +43,7 @@ export default function Partners() {
       <PartnersStyles>
         {partnersLogo.map((partner) => (
           <Img
-            fluid={partner.image.asset.fluid}
+            fixed={partner.image.asset.fixed}
             alt={partner.name}
             className=""
             key={partner.id}

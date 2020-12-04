@@ -35,7 +35,7 @@ const Typography = createGlobalStyle`
   }
   mark, .mark {
     background: var(--yellow);
-    padding: 2px 10px;
+    padding: 2px 5px;
     margin: 0;
     border-radius:3px;
     box-shadow: 1px 1px 10px -2px rgba(0,0,0,0.8);

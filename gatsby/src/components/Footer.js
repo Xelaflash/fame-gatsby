@@ -12,42 +12,38 @@ export default function Footer() {
         <div className="footer-grid">
           <img src={logo} alt="Fame Logo" height="100" />
           <div className="footer-links">
-            <ul>
-              <li>
-                <Link to="/food">Food</Link>
-              </li>
-              <li>
-                <Link to="/art">Art</Link>
-              </li>
-              <li>
-                <Link to="/music">Music</Link>
-              </li>
-              <li>
-                <Link to="/environment">Environment</Link>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <Link to="/festival">Festival</Link>
-              </li>
-              <li>
-                <Link to="/community">Community</Link>
-              </li>
-              <li>
-                <Link to="/about">About Us</Link>
-              </li>
-              <li>
-                <Link to="/weeklyTalk">Weekly Talk</Link>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-              <li>
-                <Link to="/privacy">Privacy Policy</Link>
-              </li>
-            </ul>
+            <div className="footer-lists">
+              <ul>
+                <li>
+                  <Link to="/food">Food</Link>
+                </li>
+                <li>
+                  <Link to="/art">Art</Link>
+                </li>
+                <li>
+                  <Link to="/music">Music</Link>
+                </li>
+                <li>
+                  <Link to="/environment">Environment</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-lists">
+              <ul>
+                <li>
+                  <Link to="/festival">Festival</Link>
+                </li>
+                <li>
+                  <Link to="/community">Community</Link>
+                </li>
+                <li>
+                  <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/weeklyTalk">Weekly Talk</Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div className="separator-gradient-footer" />
@@ -59,6 +55,9 @@ export default function Footer() {
                 <span>F.A.M.E.</span>
                 {new Date().getFullYear()}. All rights reserved
               </p>
+            </div>
+            <div className="privacy">
+              <Link to="/privacy">Privacy Policy</Link>
             </div>
             <div className="social-links">
               <a

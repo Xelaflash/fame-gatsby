@@ -8,9 +8,10 @@ const HomeGalleryStyles = styled.div`
   text-align: center;
   .image-grid {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 1rem;
+    justify-items: center;
+    margin: 0;
+    padding: 0;
   }
   .image-grid .image-item:nth-child(5n) {
     grid-column-end: span 2;
@@ -23,6 +24,15 @@ const HomeGalleryStyles = styled.div`
     border-radius: 5px;
     box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.4);
     cursor: pointer;
+    transition: opacity 0.25s ease-in-out;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  @media (min-width: 576px) {
+    .image-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
   }
 `;
 
