@@ -17,10 +17,14 @@ export default function SEO({
           title
           description
           siteUrl
+          keywords
         }
       }
     }
   `);
+  const keywordsList = keywords
+    ? keywords.join(', ')
+    : site.siteMetadata.keywords;
   return (
     // title template will append whatever you put in the end of any title tag
     <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
@@ -34,7 +38,8 @@ export default function SEO({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charset="utf-8" />
       <meta name="description" content={site.siteMetadata.description} />
-      <meta name="keywords" content={keywords.join(',')} />
+      <meta name="keywords" content={keywordsList} />
+
       {/* Open graph */}
       {location && <meta property="og:url" content={location.href} />}
       <meta property="og:title" content={title} key="og:title " />
