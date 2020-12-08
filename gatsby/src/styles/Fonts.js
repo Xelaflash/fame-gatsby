@@ -33,6 +33,16 @@ const Typography = createGlobalStyle`
       text-decoration: none;
     }
   }
+  .text-link {
+    color: var(--black);
+    text-decoration: underline;
+    /* Chrome renders this weird with this font, so we turn it off */
+    text-decoration-skip-ink: none;
+    &:hover {
+      color: var(--black);
+      text-decoration: none;
+    }
+  }
   mark, .mark {
     background: var(--yellow);
     padding: 2px 5px;
@@ -41,9 +51,14 @@ const Typography = createGlobalStyle`
     box-shadow: 1px 1px 10px -2px rgba(0,0,0,0.8);
   }
 
-  .center {
+  .title {
+    color: var(--white);
     text-align: center;
+    margin: 60px auto -5px auto;
+    font-size: 4rem;
+    letter-spacing: 2px;
   }
+
 `;
 
 export default Typography;

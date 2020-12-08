@@ -2,7 +2,14 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default function SEO({ children, location, description, title, image }) {
+export default function SEO({
+  children,
+  location,
+  description,
+  title,
+  image,
+  keywords,
+}) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -27,6 +34,7 @@ export default function SEO({ children, location, description, title, image }) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charset="utf-8" />
       <meta name="description" content={site.siteMetadata.description} />
+      <meta name="keywords" content={keywords.join(',')} />
       {/* Open graph */}
       {location && <meta property="og:url" content={location.href} />}
       <meta property="og:title" content={title} key="og:title " />
