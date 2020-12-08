@@ -40,7 +40,6 @@
     "gatsby-transformer-sharp": "^2.6.0",
     "isomorphic-fetch": "^3.0.0",
     "netlify-cli": "^2.68.5",
-    "netlify-lambda": "^2.0.1",
     "normalize.css": "^8.0.1",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
