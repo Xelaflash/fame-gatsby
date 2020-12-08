@@ -1,11 +1,12 @@
 import styled from 'styled-components';
+import underline from '../assets/images/underline.svg';
 
 const FooterStyles = styled.div`
   box-shadow: 0px -2px 10px -3px rgba(0, 0, 0, 0.6);
   padding: 25px 0 0;
 
   .footer-grid {
-    margin: 0 auto 40px auto;
+    margin: 0 auto 20px auto;
     img {
       margin: 0 100px;
     }
@@ -39,6 +40,57 @@ const FooterStyles = styled.div`
       padding-inline-start: 10px;
     }
   }
+  .contact {
+    margin: -2rem auto 2.5rem auto;
+    text-align: center;
+    .underline_svg {
+      position: relative;
+      margin-left: 5px;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.35rem;
+        left: -0.5rem;
+        right: -0.5rem;
+        height: 0.5rem;
+        z-index: -1;
+        width: 97%;
+        margin: auto;
+        background-image: url(${underline});
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+    a {
+      position: relative;
+      text-decoration: none;
+      overflow: hidden;
+      span {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        overflow: hidden;
+        transform: translateX(-100%);
+        transition: transform 275ms ease;
+        &::before {
+          display: inline-block;
+          content: attr(data-content);
+          color: white;
+          transform: translateX(100%);
+          transition: transform 275ms ease;
+        }
+      }
+      &:hover {
+        span {
+          transform: translateX(0);
+          &::before {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
+  }
+
   .separator-gradient-footer {
     height: 5px;
     position: relative;

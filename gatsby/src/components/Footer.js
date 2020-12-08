@@ -46,6 +46,15 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        <div className="contact">
+          A question, a remark? Please
+          <span className="underline_svg">
+            <a href="mailto:welovefamefestival@gmail.com" aria-label="E-mail">
+              <span data-content="contact us" aria-hidden="true" />
+              contact us
+            </a>
+          </span>
+        </div>
         <div className="separator-gradient-footer" />
         <Container>
           <div className="footer-social">
