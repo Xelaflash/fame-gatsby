@@ -83,9 +83,8 @@ const HomeGallery = () => {
         <SRLWrapper options={options}>
           <div className="image-grid">
             {pics.map((image, index) => (
-              <div className="image-item">
+              <div className="image-item" key={`${index}`}>
                 <Img
-                  key={`${index}-cl`}
                   fluid={image.image.asset.fluid}
                   alt={`${image.name} - F.A.M.E Festival`}
                   className="gallery-img"
