@@ -23,7 +23,8 @@ const StyledBackgroundSection = styled(HeroBanner)`
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+  box-shadow: inset 0px 0px 10px 0 rgba(0, 0, 0, 0.9);
   /* for placing of the h1 */
   display: flex;
   align-items: flex-end;
