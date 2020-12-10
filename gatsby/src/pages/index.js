@@ -49,7 +49,7 @@ export default function HomePage() {
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO />
       <HomeStyles>
         <p>
           F.A.M.E is a movement of <strong>Food</strong>, <strong>Art </strong>

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import NavbarLinks from './NavbarLinks';
-import Logo from './Logo';
 
 const NavStyles = styled.div`
   text-align: center;
@@ -18,10 +17,6 @@ const NavStyles = styled.div`
   @media (min-width: 900px) {
     padding: 0 40px;
   }
-`;
-
-const NavHomeStyles = styled.div`
-  margin-bottom: 40px;
 `;
 
 const LogoRoundStyles = styled.div`
@@ -55,23 +50,11 @@ const LogoRound = () => {
   );
 };
 
-const Navbar = () => {
-  const url = typeof window !== 'undefined' ? window.location.pathname : '';
-  if (url === '/') {
-    return (
-      <NavHomeStyles>
-        <Logo />
-        <NavbarLinks />
-      </NavHomeStyles>
-    );
-  }
-
-  return (
-    <NavStyles>
-      <LogoRound />
-      <NavbarLinks />
-    </NavStyles>
-  );
-};
+const Navbar = () => (
+  <NavStyles>
+    <LogoRound />
+    <NavbarLinks />
+  </NavStyles>
+);
 
 export default Navbar;
