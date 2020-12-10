@@ -6,22 +6,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './src/components/Layout';
 import HomeLayout from './src/components/HomeLayout';
 
-export function wrapPageElement({ element }) {
+exports.wrapRootElement = ({ element }) => {
   const url = typeof window !== 'undefined' ? window.location.pathname : '';
-  if (url === '/') {
+  if (url !== '/') {
     return (
-      <HomeLayout>
+      <Layout>
         <GlobalStyles />
         <Fonts />
         {element}
-      </HomeLayout>
+      </Layout>
     );
   }
   return (
-    <Layout>
+    <HomeLayout>
       <GlobalStyles />
       <Fonts />
       {element}
-    </Layout>
+    </HomeLayout>
   );
-}
+};
