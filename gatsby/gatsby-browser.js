@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './src/components/Layout';
 import HomeLayout from './src/components/HomeLayout';
 
-export function wrapRootElement = ({ element }) => {
+export function wrapRootElement({ element }) {
   const url = typeof window !== 'undefined' ? window.location.pathname : '';
   if (url !== '/') {
     return (
@@ -24,4 +24,4 @@ export function wrapRootElement = ({ element }) => {
       {element}
     </HomeLayout>
   );
-};
+}
