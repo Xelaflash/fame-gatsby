@@ -5,26 +5,23 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './src/components/Layout';
 import HomeLayout from './src/components/HomeLayout';
-import Footer from './src/components/Footer';
 
 export function wrapPageElement({ element }) {
   const url = typeof window !== 'undefined' ? window.location.pathname : '';
-  if (url === '/') {
+  if (url !== '/') {
     return (
-      <HomeLayout>
+      <Layout>
         <GlobalStyles />
         <Fonts />
         {element}
-        <Footer />
-      </HomeLayout>
+      </Layout>
     );
   }
   return (
-    <Layout>
+    <HomeLayout>
       <GlobalStyles />
       <Fonts />
       {element}
-      <Footer />
-    </Layout>
+    </HomeLayout>
   );
 }

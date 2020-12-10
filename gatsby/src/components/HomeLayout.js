@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import { Container } from 'react-bootstrap';
 import HomeNav from './HomeNav';
+import Footer from './Footer';
 
-// here children == the different pages
 export default function HomeLayout({ children }) {
   useEffect(() => {
     console.log('HomeLayout mounted');
@@ -17,6 +17,7 @@ export default function HomeLayout({ children }) {
       <SimpleReactLightbox>
         <Container>{children}</Container>
       </SimpleReactLightbox>
+      <Footer />
     </>
   );
 }

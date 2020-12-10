@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import Nav from './Nav';
+import Footer from './Footer';
 
 export default function HomeLayout({ children }) {
   useEffect(() => {
@@ -13,6 +14,7 @@ export default function HomeLayout({ children }) {
     <>
       <Nav />
       <Container>{children}</Container>
+      <Footer />
     </>
   );
 }
