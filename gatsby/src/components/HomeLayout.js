@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SimpleReactLightbox from 'simple-react-lightbox';
@@ -10,6 +10,12 @@ import Footer from './Footer';
 
 // here children == the different pages
 export default function HomeLayout({ children }) {
+  useEffect(() => {
+    console.log('HomeLayout mounted');
+    return () => {
+      console.log('HomeLayout unmounted');
+    };
+  }, []);
   return (
     <>
       <GlobalStyles />

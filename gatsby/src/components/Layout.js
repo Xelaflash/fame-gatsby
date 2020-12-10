@@ -8,6 +8,12 @@ import Nav from './Nav';
 import Footer from './Footer';
 
 export default function HomeLayout({ children }) {
+  useEffect(() => {
+    console.log('Layout mounted');
+    return () => {
+      console.log('Layout unmounted');
+    };
+  }, []);
   return (
     <>
       <GlobalStyles />
