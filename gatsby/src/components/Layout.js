@@ -11,11 +11,8 @@ export default function HomeLayout({ children }) {
   }, []);
   return (
     <>
-      <GlobalStyles />
-      <Fonts />
       <Nav />
       <Container>{children}</Container>
-      <Footer />
     </>
   );
 }
