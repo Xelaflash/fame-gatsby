@@ -48,7 +48,13 @@ const QuoteStyles = styled.div`
 export default function Quote({ quote }) {
   return (
     <QuoteStyles>
-      <div className="blockquote">
+      <div
+        className="blockquote"
+        data-aos="zoom-in-right"
+        data-aos-delay="100"
+        data-aos-offset="200"
+        data-aos-duration="1000"
+      >
         <h2>{quote.quoteText}</h2>
       </div>
     </QuoteStyles>

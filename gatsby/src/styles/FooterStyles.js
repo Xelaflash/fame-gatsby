@@ -215,6 +215,9 @@ const FooterStyles = styled.div`
         font-size: 2.2rem;
       }
     }
+    .contact {
+      font-size: 1.8rem;
+    }
     .footer-social {
       margin: 20px 0;
       text-align: center;

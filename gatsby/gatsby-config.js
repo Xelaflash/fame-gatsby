@@ -10,6 +10,7 @@ export default {
     siteUrl: `https://welovefame.com`,
     description: `F.A.M.E. DEDICATED TO FOOD, ART, MUSIC & ENVIRONMENT are festivals, gatherings & pop ups organized in Barbados!`,
     keywords: `FAME, Barbados, Bajan, food,art, music, environment, festival, community`,
+    image: 'static/meta_image.png',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -28,7 +29,7 @@ export default {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`open sans\:300,400,700`],
+        fonts: [`open sans\:300,400,700`, `Montserrat\:800`],
         display: 'swap',
       },
     },
