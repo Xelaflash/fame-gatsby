@@ -6,15 +6,15 @@ import Img from 'gatsby-image';
 const NavLinksStyles = styled.nav`
   text-transform: uppercase;
   ul {
-    /* margin: 0 auto; */
     padding: 0 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* 2rem == 20px 'cause e set the base font size to 10px in global styles */
     grid-gap: 1rem;
     align-items: center;
     text-align: center;
     list-style: none;
+    max-width: 900px;
+    margin: auto;
   }
   li {
     transform: rotate(var(--rotate));
@@ -116,13 +116,7 @@ const NavbarLinks = () => {
   const url = typeof window !== 'undefined' ? window.location.pathname : '';
   return (
     <NavLinksStyles>
-      <ul
-        style={
-          url === '/' && window.innerWidth > 980
-            ? { maxWidth: '900px', margin: 'auto' }
-            : {}
-        }
-      >
+      <ul>
         <li>
           <div className="mark">
             <NavItem to="/food">
