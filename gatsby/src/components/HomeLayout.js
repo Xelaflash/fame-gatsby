@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import SimpleReactLightbox from 'simple-react-lightbox';
-import Nav from './Nav';
+import { Container } from 'react-bootstrap';
+import HomeNav from './HomeNav';
 import Footer from './Footer';
 
 export default function HomeLayout({ children }) {
   return (
     <>
-      <Nav />
+      <HomeNav />
       <SimpleReactLightbox>
         <Container>{children}</Container>
       </SimpleReactLightbox>

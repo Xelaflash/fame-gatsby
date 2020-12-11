@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
+import Layout from '../components/Layout';
 
 const FoodStyles = styled.div`
   p {
@@ -43,7 +44,7 @@ export default function Food() {
   `);
   const bannerImg = data.bannerImg.image.asset.fluid;
   return (
-    <>
+    <Layout>
       <FoodStyles>
         <SEO
           title="Food"
@@ -138,6 +139,6 @@ export default function Food() {
         </div>
         <Quote quote={data.quote3} />
       </FoodStyles>
-    </>
+    </Layout>
   );
 }
