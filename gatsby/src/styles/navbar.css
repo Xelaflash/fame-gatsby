@@ -1,0 +1,19 @@
+.navbar {
+  text-align: center;
+  margin: 10px auto 20px auto;
+  padding: 0 10px;
+}
+
+@media (min-width: 813px) {
+  .navbar {
+    margin: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 900px) {
+  .navbar {
+    padding: 0 40px;
+  }
+}

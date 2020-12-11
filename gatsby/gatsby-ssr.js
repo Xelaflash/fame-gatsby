@@ -5,9 +5,19 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './src/components/Layout';
 
-export function wrapPageElement({ element }) {
+// export function wrapPageElement({ element }) {
+//   return (
+//     <Layout>
+//       <GlobalStyles />
+//       <Fonts />
+//       {element}
+//     </Layout>
+//   );
+// }
+
+export function wrapPageElement({ element, props }) {
   return (
-    <Layout>
+    <Layout {...props}>
       <GlobalStyles />
       <Fonts />
       {element}
