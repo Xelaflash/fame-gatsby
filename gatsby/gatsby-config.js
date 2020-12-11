@@ -28,7 +28,7 @@ export default {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`open sans\:300,400,700`],
+        fonts: [`open sans\:300,400,700`, `Montserrat\:800`],
         display: 'swap',
       },
     },

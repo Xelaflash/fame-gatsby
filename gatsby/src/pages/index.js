@@ -22,16 +22,19 @@ const HomeStyles = styled.div`
     background: transparent;
     font-family: var(--headings-font);
     box-shadow: 0px 34px 30px -19px rgba(0, 0, 0, 0.6);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    border-radius: 50px;
     color: var(--black);
     cursor: pointer;
     letter-spacing: 1px;
     outline: none;
-    border: solid 2px var(--darkGreen);
-    padding: 1rem;
+    border: solid 2px var(--white);
+    padding: 12px 20px;
     font-weight: lighter;
     &:hover {
       box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+    }
+    a {
+      color: white;
     }
   }
 `;

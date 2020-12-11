@@ -18,8 +18,6 @@ const GlobalStyles = createGlobalStyle`
     --blueGrey: #4e5b6c;
     --lightGreen: #6bac22;
     --darkGreen: #3e7520;
-    /* --green: #1EDD88;*/
-    /* --red: #FD1015; */
   }
 
   html {
