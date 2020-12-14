@@ -6,23 +6,15 @@ const HeroBanner = ({ pageTitle, bannerImg, className }) => (
   <BackgroundImage
     Tag="section"
     fluid={bannerImg}
+    backgroundColor="#040e18"
     className={className}
-    preserveStackingContext
   >
     <h1>{pageTitle}</h1>
   </BackgroundImage>
 );
 const StyledBackgroundSection = styled(HeroBanner)`
+  width: 100%;
   height: 50vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* To override bootstrap container */
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
   box-shadow: inset 0px 0px 10px 0 rgba(0, 0, 0, 0.9);
   /* for placing of the h1 */

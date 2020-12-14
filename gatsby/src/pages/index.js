@@ -65,7 +65,7 @@ export default function HomePage() {
 
   return (
     <>
-      <SEO title="" />
+      <SEO title=" " />
       <HomeLayout>
         <HomeStyles>
           <p id="intro_text">
