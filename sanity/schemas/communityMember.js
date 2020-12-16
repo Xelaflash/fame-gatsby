@@ -62,6 +62,23 @@ export default {
       title: 'Category of the community member',
       type: 'reference',
       to: [{ type: 'category' }],
+      fieldset: 'communityMember',
     },
   ],
+  // Customize the preview field in sanity studio
+  preview: {
+    select: {
+      media: 'image',
+      title: 'name',
+      tag: 'category.category',
+    },
+    prepare(selection) {
+      const { title, tag, media } = selection;
+      return {
+        media,
+        title,
+        subtitle: `${tag}`,
+      };
+    },
+  },
 };
