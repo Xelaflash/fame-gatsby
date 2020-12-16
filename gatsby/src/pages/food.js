@@ -7,11 +7,12 @@ import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
 import Layout from '../components/Layout';
+import RecipeList from '../components/food/RecipesList';
 
 const FoodStyles = styled.div`
   p {
-    margin: 20px auto;
-    width: 90%;
+    margin: 40px auto 20px auto;
+    width: 80%;
   }
   .growing {
     margin: 0 auto 40px auto;
@@ -140,6 +141,7 @@ export default function Food() {
             </p>
           </div>
           <Quote quote={data.quote3} />
+          {/* <RecipeList recipes={recipes} /> */}
         </Container>
       </FoodStyles>
     </Layout>

@@ -2,6 +2,11 @@ import react from 'react';
 import S from '@sanity/desk-tool/structure-builder';
 import { MdHome as iconHome } from 'react-icons/md';
 import { FaImages as iconBanner } from 'react-icons/fa';
+import {
+  IoMdPricetags as iconCategory,
+  IoIosPeople as communityIcon,
+} from 'react-icons/io';
+
 //  Build a custom sidebar
 export default function sidebar() {
   return S.list()
@@ -67,6 +72,17 @@ export default function sidebar() {
                   )
                 ),
             ])
+        ),
+      S.listItem()
+        .title('Fame Category')
+        .icon(iconCategory)
+        .child(S.documentTypeList('category').title('Category')),
+
+      S.listItem()
+        .title('Community')
+        .icon(communityIcon)
+        .child(
+          S.documentTypeList('communityMember').title('Fame community Members')
         ),
     ]);
 }

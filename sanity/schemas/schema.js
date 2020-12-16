@@ -7,6 +7,8 @@ import quote from './quote';
 import partners from './partners';
 import bannerImgs from './bannerImgs';
 import homeGallery from './homeGallery';
+import category from './category';
+import communityMember from './communityMember';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,5 +22,7 @@ export default createSchema({
     partners,
     bannerImgs,
     homeGallery,
+    category,
+    communityMember,
   ]),
 });
