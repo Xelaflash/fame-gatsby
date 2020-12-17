@@ -1,4 +1,4 @@
-import { IoMdPricetags as icon } from 'react-icons/md';
+import { IoIosPricetags as icon } from 'react-icons/io';
 
 export default {
   // Computer name

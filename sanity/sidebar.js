@@ -1,25 +1,54 @@
 import react from 'react';
 import S from '@sanity/desk-tool/structure-builder';
 import { MdHome as iconHome } from 'react-icons/md';
-import { FaImages as iconBanner } from 'react-icons/fa';
-import {
-  IoMdPricetags as iconCategory,
-  IoIosPeople as communityIcon,
-} from 'react-icons/io';
+import { FaCarrot as iconFood } from 'react-icons/fa';
+import { IoMdSettings as settingsIcon } from 'react-icons/io';
 
 //  Build a custom sidebar
 export default function sidebar() {
   return S.list()
-    .title(`Website Content`)
+    .title(`FAME Website Content`)
     .items([
-      // create a sub item
+      // First item on the sidebar
+      S.listItem()
+        .title('Settings')
+        .icon(settingsIcon)
+        .child(
+          S.list()
+            .title('Website shared Data')
+            .items([
+              // second column items
+              S.listItem()
+                .title('Banner Images')
+                .schemaType('bannerImgs')
+                .child(
+                  S.documentTypeList('bannerImgs').title(
+                    'Images for the pages Banners'
+                  )
+                ),
+              S.listItem()
+                .title('Community Members')
+                .schemaType('communityMember')
+                .child(
+                  S.documentTypeList('communityMember').title('FAME Members')
+                ),
+              S.listItem()
+                .title('Categories (technical)')
+                .schemaType('category')
+                .child(S.documentTypeList('category').title('FAME Categories')),
+            ])
+        ),
+
+      // Second item on the sidebar
       S.listItem()
         .title('Home page')
         .icon(iconHome)
         .child(
+          // second column of sidebar
           S.list()
-            .title('Home Page')
+            .title('Home Page Data')
             .items([
+              // third column
               S.listItem()
                 .title('Carousel Pics')
                 .schemaType('carouselPics')
@@ -56,33 +85,23 @@ export default function sidebar() {
                 ),
             ])
         ),
+      // third item on the sidebar
       S.listItem()
-        .title('Banner Images')
-        .icon(iconBanner)
+        .title('Food Page')
+        .icon(iconFood)
         .child(
           S.list()
-            .title('Banner Images')
+            .title('FoodPage')
             .items([
               S.listItem()
-                .title('Banner Images')
-                .schemaType('bannerImgs')
+                .title('Recipes')
+                .schemaType('recipe')
                 .child(
-                  S.documentTypeList('bannerImgs').title(
-                    'Pictures for Pages Banners'
+                  S.documentTypeList('recipe').title(
+                    'Recipes for the Food page'
                   )
                 ),
             ])
-        ),
-      S.listItem()
-        .title('Fame Category')
-        .icon(iconCategory)
-        .child(S.documentTypeList('category').title('Category')),
-
-      S.listItem()
-        .title('Community')
-        .icon(communityIcon)
-        .child(
-          S.documentTypeList('communityMember').title('Fame community Members')
         ),
     ]);
 }
