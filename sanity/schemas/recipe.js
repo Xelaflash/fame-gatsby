@@ -27,7 +27,7 @@ export default {
     {
       name: 'prepTime',
       title: 'Preparation Time',
-      subtitle: 'in minutes',
+      description: 'in minutes',
       type: 'number',
     },
     {
