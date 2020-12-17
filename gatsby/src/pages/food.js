@@ -42,9 +42,33 @@ export default function Food() {
       quote3: sanityQuotes(quoteId: { eq: "Quote3" }) {
         quoteText
       }
+      recipes: allSanityRecipe {
+        nodes {
+          id
+          slug {
+            current
+          }
+          image {
+            asset {
+              fixed(width: 300) {
+                ...GatsbySanityImageFixed
+              }
+            }
+          }
+          name
+          prepTime
+          servings
+          ingredients
+          recipeSteps
+          creator {
+            name
+          }
+        }
+      }
     }
   `);
   const bannerImg = data.bannerImg.image.asset.fluid;
+  const recipes = data.recipes.nodes;
   return (
     <Layout>
       <FoodStyles>
@@ -141,7 +165,7 @@ export default function Food() {
             </p>
           </div>
           <Quote quote={data.quote3} />
-          {/* <RecipeList recipes={recipes} /> */}
+          <RecipeList recipes={recipes} />
         </Container>
       </FoodStyles>
     </Layout>

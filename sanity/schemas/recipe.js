@@ -40,13 +40,22 @@ export default {
       name: 'recipeSteps',
       title: 'Recipe Steps',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{ type: 'string' }],
     },
     {
       name: 'creator',
       title: 'Creator of the recipe',
       type: 'reference',
       to: [{ type: 'communityMember' }],
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: '100',
+      },
     },
   ],
 };

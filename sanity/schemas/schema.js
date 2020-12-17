@@ -28,3 +28,6 @@ export default createSchema({
     recipe,
   ]),
 });
+
+// sanity documents query "*[_type == 'recipe']{_id, name}" ==> croq query
+// sanity documents delete "id" ==> to delete a record
