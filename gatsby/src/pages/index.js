@@ -90,6 +90,7 @@ export default function HomePage() {
             data-aos-delay="150"
             data-aos-offset="200"
             data-aos-duration="600"
+            data-aos-once="true"
           >
             <iframe
               className="embed-responsive-item"

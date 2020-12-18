@@ -50,8 +50,8 @@ export default function Food() {
           }
           image {
             asset {
-              fixed(width: 300) {
-                ...GatsbySanityImageFixed
+              fluid(maxWidth: 380) {
+                ...GatsbySanityImageFluid
               }
             }
           }
@@ -62,6 +62,13 @@ export default function Food() {
           recipeSteps
           creator {
             name
+            image {
+              asset {
+                fluid(maxWidth: 150) {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
           }
         }
       }

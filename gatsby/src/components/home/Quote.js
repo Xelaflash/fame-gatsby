@@ -54,6 +54,7 @@ export default function Quote({ quote }) {
         data-aos-delay="100"
         data-aos-offset="200"
         data-aos-duration="1000"
+        data-aos-once="true"
       >
         <h2>{quote.quoteText}</h2>
       </div>
