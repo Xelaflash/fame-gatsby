@@ -1,40 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { BsBook } from 'react-icons/bs';
 import { MdPersonOutline } from 'react-icons/md';
 import { Link } from 'gatsby';
+import Glide from '@glidejs/glide';
+import '../../styles/styles.scss';
 
 const RecipesGridStyles = styled.div`
   margin: 0 auto 40px auto;
-  display: grid;
-  grid-template-columns: 380px;
-  gap: 4rem;
-  max-width: 90%;
-  /* grid-auto-rows: auto auto 300px; */
+  width: 90%;
 `;
 
 const RecipeStyles = styled.div`
-  position: relative;
+  margin: 10px 5px;
+  width: 320px;
   background: var(--white);
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
+
   .recipe_pic {
-    height: 250px;
+    height: 200px;
     box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
   }
   .recipe_card_content {
     padding: 20px;
     h4 {
-      font-size: 3rem;
+      font-size: 2.3rem;
       font-family: var(--body-font);
       font-weight: bold;
       letter-spacing: 1px;
     }
     .creator_name {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: lighter;
       color: #808080;
       padding-left: 5px;
@@ -44,7 +44,7 @@ const RecipeStyles = styled.div`
     }
     .recipe_header {
       display: flex;
-      padding: 1em 0;
+      padding-bottom: 1em;
       margin: 0;
       justify-content: space-between;
     }
@@ -52,7 +52,7 @@ const RecipeStyles = styled.div`
       text-align: center;
     }
     .value {
-      font-size: 25px;
+      font-size: 20px;
       color: #ff4f87;
       font-weight: bolder;
     }
@@ -61,11 +61,10 @@ const RecipeStyles = styled.div`
       font-weight: lighter;
       width: 100%;
       letter-spacing: 2px;
-      font-size: 18px;
+      font-size: 16px;
     }
     .recipe_link {
       text-align: center;
-      margin-bottom: 10px;
     }
     .recipe_button {
       text-transform: uppercase;
@@ -81,6 +80,7 @@ const RecipeStyles = styled.div`
       }
       a {
         color: white;
+        font-size: 18px;
       }
     }
   }
@@ -88,67 +88,85 @@ const RecipeStyles = styled.div`
 
 function SingleRecipe({ recipe }) {
   return (
-    <>
-      <RecipeStyles>
-        <Img
-          fluid={recipe.image.asset.fluid}
-          alt={recipe.name}
-          className="recipe_pic"
-        />
-        <div className="recipe_card_content">
-          <h4>{recipe.name}</h4>
-          {/* TODO: put link to creator card in community page */}
-          <span className="creator_name">{recipe.creator.name}</span>
-          <hr className="separator_grey" />
-          <div className="recipe_header">
-            <div className="recipe_details_items">
-              <div className="recipe_details_items_top">
-                <AiOutlineClockCircle
-                  size="25px"
-                  style={{ marginRight: '10px', marginTop: '-8px' }}
-                />
-                <span className="value">{recipe.prepTime}</span>
-              </div>
-              <p className="unit">Minutes</p>
+    <RecipeStyles>
+      <Img
+        fluid={recipe.image.asset.fluid}
+        alt={recipe.name}
+        className="recipe_pic"
+      />
+      <div className="recipe_card_content">
+        <h4>{recipe.name}</h4>
+        {/* TODO: put link to creator card in community page */}
+        <span className="creator_name">{recipe.creator.name}</span>
+        <hr className="separator_grey" />
+        <div className="recipe_header">
+          <div className="recipe_details_items">
+            <div className="recipe_details_items_top">
+              <AiOutlineClockCircle
+                size="25px"
+                style={{ marginRight: '10px', marginTop: '-8px' }}
+              />
+              <span className="value">{recipe.prepTime}</span>
             </div>
-            <div className="recipe_details_items">
-              <div className="recipe_details_items_top">
-                <BsBook
-                  size="25px"
-                  style={{ marginRight: '10px', marginTop: '-8px' }}
-                />
-                <span className="value">{recipe.ingredients.length}</span>
-              </div>
-              <p className="unit">Ingredients</p>
-            </div>
-            <div className="recipe_details_items">
-              <div className="recipe_details_items_top">
-                <MdPersonOutline
-                  size="25px"
-                  style={{ marginRight: '10px', marginTop: '-8px' }}
-                />
-                <span className="value">{recipe.servings}</span>
-              </div>
-              <p className="unit">Servings</p>
-            </div>
+            <p className="unit">Minutes</p>
           </div>
-          <div className="recipe_link">
-            <button type="button" className="recipe_button">
-              <Link to={`/recipe/${recipe.slug.current}`}>View recipe</Link>
-            </button>
+          <div className="recipe_details_items">
+            <div className="recipe_details_items_top">
+              <BsBook
+                size="25px"
+                style={{ marginRight: '10px', marginTop: '-8px' }}
+              />
+              <span className="value">{recipe.ingredients.length}</span>
+            </div>
+            <p className="unit">Ingredients</p>
+          </div>
+          <div className="recipe_details_items">
+            <div className="recipe_details_items_top">
+              <MdPersonOutline
+                size="25px"
+                style={{ marginRight: '10px', marginTop: '-8px' }}
+              />
+              <span className="value">{recipe.servings}</span>
+            </div>
+            <p className="unit">Servings</p>
           </div>
         </div>
-      </RecipeStyles>
-    </>
+        <div className="recipe_link">
+          <button type="button" className="recipe_button">
+            <Link to={`/recipe/${recipe.slug.current}`}>View recipe</Link>
+          </button>
+        </div>
+      </div>
+    </RecipeStyles>
   );
 }
 
 export default function RecipeList({ recipes }) {
+  useEffect(() => {
+    const slider = document.querySelector('.glide');
+    if (slider) {
+      const glide = new Glide(slider, {
+        focusAt: 'center',
+        perView: 3,
+        type: 'carousel',
+      });
+      glide.mount();
+    }
+  }, []);
+
   return (
     <RecipesGridStyles>
-      {recipes.map((recipe) => (
-        <SingleRecipe key={recipe.id} recipe={recipe} />
-      ))}
+      <div className="glide">
+        <div className="glide__track" data-glide-el="track">
+          <ul className="glide__slides">
+            {recipes.map((recipe) => (
+              <li className="glide__slide" key={recipe.id}>
+                <SingleRecipe key={recipe.id} recipe={recipe} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </RecipesGridStyles>
   );
 }
