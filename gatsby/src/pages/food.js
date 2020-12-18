@@ -23,6 +23,16 @@ const FoodStyles = styled.div`
     margin: 0 auto 20px auto;
     height: 350px;
   }
+  .recipes {
+    margin: 0 auto 40px auto;
+    text-align: center;
+    h3 {
+      color: white;
+      font-size: 4rem;
+      margin: 20px auto 40px auto;
+      text-decoration: underline;
+    }
+  }
 `;
 
 export default function Food() {
@@ -112,7 +122,7 @@ export default function Food() {
               We are HUNGRY for change.
             </p>
           </div>
-          <div className="growing">
+          <section className="growing">
             <h2 className="title">Growing</h2>
             <BrushStroke />
             <p>
@@ -148,8 +158,8 @@ export default function Food() {
             >
               Put link to weekly talk tagged Food
             </a>
-          </div>
-          <div className="preparing">
+          </section>
+          <section className="preparing">
             <h2 className="title">Preparing</h2>
             <BrushStroke />
             <p>
@@ -170,9 +180,12 @@ export default function Food() {
               </a>{' '}
               page.
             </p>
-          </div>
-          <Quote quote={data.quote3} />
-          <RecipeList recipes={recipes} />
+            <Quote quote={data.quote3} />
+            <div className="recipes">
+              <h3>Recipes</h3>
+              <RecipeList recipes={recipes} />
+            </div>
+          </section>
         </Container>
       </FoodStyles>
     </Layout>

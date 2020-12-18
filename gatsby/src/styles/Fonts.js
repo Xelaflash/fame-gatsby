@@ -55,7 +55,7 @@ const Typography = createGlobalStyle`
     color: var(--white);
     text-align: center;
     margin: 60px auto -5px auto;
-    font-size: 4rem;
+    font-size: 5.5rem;
     letter-spacing: 2px;
   }
 `;

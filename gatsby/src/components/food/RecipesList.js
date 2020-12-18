@@ -27,7 +27,7 @@ const RecipeStyles = styled.div`
   }
   .recipe_card_content {
     padding: 20px;
-    h3 {
+    h4 {
       font-size: 3rem;
       font-family: var(--body-font);
       font-weight: bold;
@@ -96,7 +96,7 @@ function SingleRecipe({ recipe }) {
           className="recipe_pic"
         />
         <div className="recipe_card_content">
-          <h3>{recipe.name}</h3>
+          <h4>{recipe.name}</h4>
           {/* TODO: put link to creator card in community page */}
           <span className="creator_name">{recipe.creator.name}</span>
           <hr className="separator_grey" />
