@@ -1,20 +1,36 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { BsBook } from 'react-icons/bs';
 import { MdPersonOutline } from 'react-icons/md';
-import { Link } from 'gatsby';
-import Glide from '@glidejs/glide';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import Glide, {
+  Breakpoints,
+  Swipe,
+  Controls,
+} from '@glidejs/glide/dist/glide.modular.esm';
 import '../../styles/styles.scss';
 
 const RecipesGridStyles = styled.div`
   margin: 0 auto 40px auto;
-  width: 90%;
+
+  .glide__arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 40px auto -10px auto;
+  }
+  .glide__arrow {
+    border-radius: 50%;
+    padding: 10px;
+    position: relative;
+  }
 `;
 
 const RecipeStyles = styled.div`
-  margin: 10px 5px;
+  margin: 20px auto;
   width: 320px;
   background: var(--white);
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
@@ -22,6 +38,7 @@ const RecipeStyles = styled.div`
 
   .recipe_pic {
     height: 200px;
+    width: auto;
     box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.3);
     border-radius: 4px;
   }
@@ -146,17 +163,45 @@ export default function RecipeList({ recipes }) {
     const slider = document.querySelector('.glide');
     if (slider) {
       const glide = new Glide(slider, {
-        focusAt: 'center',
-        perView: 3,
         type: 'carousel',
+        focusAt: 'center',
+        gap: 10,
+        perView: 4,
+        breakpoints: {
+          700: {
+            perView: 1,
+          },
+          900: {
+            perView: 2,
+          },
+          1100: {
+            perView: 3,
+          },
+        },
       });
-      glide.mount();
+      glide.mount({ Breakpoints, Swipe, Controls });
     }
-  }, []);
+  });
 
   return (
     <RecipesGridStyles>
       <div className="glide">
+        <div className="glide__arrows" data-glide-el="controls">
+          <button
+            type="button"
+            className="glide__arrow glide__arrow--left"
+            data-glide-dir="<"
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            type="button"
+            className="glide__arrow glide__arrow--right"
+            data-glide-dir=">"
+          >
+            <FaArrowRight />
+          </button>
+        </div>
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {recipes.map((recipe) => (

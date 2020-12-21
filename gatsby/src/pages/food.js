@@ -29,7 +29,7 @@ const FoodStyles = styled.div`
     h3 {
       color: white;
       font-size: 4rem;
-      margin: 20px auto 40px auto;
+      margin: 20px auto 0 auto;
       text-decoration: underline;
     }
   }
@@ -60,7 +60,7 @@ export default function Food() {
           }
           image {
             asset {
-              fluid(maxWidth: 380) {
+              fluid(maxHeight: 400) {
                 ...GatsbySanityImageFluid
               }
             }
