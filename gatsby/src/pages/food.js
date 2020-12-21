@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { Container } from 'react-bootstrap';
+import AOS from 'aos';
 import SEO from '../components/SEO';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
@@ -35,57 +36,13 @@ const FoodStyles = styled.div`
   }
 `;
 
-export default function Food() {
-  const data = useStaticQuery(graphql`
-    query {
-      bannerImg: sanityBannerImgs(name: { eq: "food" }) {
-        id
-        name
-        image {
-          asset {
-            fluid(maxWidth: 1920) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-      }
-      quote3: sanityQuotes(quoteId: { eq: "Quote3" }) {
-        quoteText
-      }
-      recipes: allSanityRecipe {
-        nodes {
-          id
-          slug {
-            current
-          }
-          image {
-            asset {
-              fluid(maxHeight: 400) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          name
-          prepTime
-          servings
-          ingredients
-          recipeSteps
-          creator {
-            name
-            image {
-              asset {
-                fluid(maxWidth: 150) {
-                  ...GatsbySanityImageFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+export default function Food({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const recipes = data.recipes.nodes;
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <Layout>
       <FoodStyles>
@@ -191,3 +148,45 @@ export default function Food() {
     </Layout>
   );
 }
+
+export const query = graphql`
+  query {
+    bannerImg: sanityBannerImgs(name: { eq: "food" }) {
+      id
+      name
+      image {
+        asset {
+          fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+    quote3: sanityQuotes(quoteId: { eq: "Quote3" }) {
+      quoteText
+    }
+    recipes: allSanityRecipe {
+      nodes {
+        id
+        slug {
+          current
+        }
+        image {
+          asset {
+            fluid(maxHeight: 400) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        name
+        prepTime
+        servings
+        ingredients
+        recipeSteps
+        creator {
+          name
+        }
+      }
+    }
+  }
+`;

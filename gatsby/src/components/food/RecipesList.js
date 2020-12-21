@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -11,7 +11,8 @@ import Glide, {
   Swipe,
   Controls,
 } from '@glidejs/glide/dist/glide.modular.esm';
-import '../../styles/styles.scss';
+import '../../styles/SliderStyles.scss';
+import '../../styles/RecipeHeaderStyles.scss';
 
 const RecipesGridStyles = styled.div`
   margin: 0 auto 40px auto;
@@ -58,27 +59,6 @@ const RecipeStyles = styled.div`
     }
     .separator_grey {
       border-top: 1px solid #c0c0c0;
-    }
-    .recipe_header {
-      display: flex;
-      padding-bottom: 1em;
-      margin: 0;
-      justify-content: space-between;
-    }
-    .recipe_details_items_top {
-      text-align: center;
-    }
-    .value {
-      font-size: 20px;
-      color: #ff4f87;
-      font-weight: bolder;
-    }
-    .unit {
-      margin: -4px 0 10px 5px;
-      font-weight: lighter;
-      width: 100%;
-      letter-spacing: 2px;
-      font-size: 16px;
     }
     .recipe_link {
       text-align: center;
@@ -150,7 +130,7 @@ function SingleRecipe({ recipe }) {
         </div>
         <div className="recipe_link">
           <button type="button" className="recipe_button">
-            <Link to={`/recipe/${recipe.slug.current}`}>View recipe</Link>
+            <Link to={`/food/${recipe.slug.current}`}>View recipe</Link>
           </button>
         </div>
       </div>
@@ -158,34 +138,36 @@ function SingleRecipe({ recipe }) {
   );
 }
 
+const sliderConfig = {
+  type: 'carousel',
+  gap: 10,
+  perView: 4,
+  breakpoints: {
+    700: {
+      perView: 1,
+    },
+    900: {
+      perView: 2,
+    },
+    1100: {
+      perView: 3,
+    },
+  },
+};
+
 export default function RecipeList({ recipes }) {
+  const ref = useRef();
   useEffect(() => {
     const slider = document.querySelector('.glide');
+    const glide = new Glide(ref.current, sliderConfig);
     if (slider) {
-      const glide = new Glide(slider, {
-        type: 'carousel',
-        focusAt: 'center',
-        gap: 10,
-        perView: 4,
-        breakpoints: {
-          700: {
-            perView: 1,
-          },
-          900: {
-            perView: 2,
-          },
-          1100: {
-            perView: 3,
-          },
-        },
-      });
       glide.mount({ Breakpoints, Swipe, Controls });
     }
-  });
+  }, [ref]);
 
   return (
     <RecipesGridStyles>
-      <div className="glide">
+      <div className="glide" ref={ref}>
         <div className="glide__arrows" data-glide-el="controls">
           <button
             type="button"

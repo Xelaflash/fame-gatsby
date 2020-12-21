@@ -1,0 +1,21 @@
+.recipe_header {
+  display: flex;
+  padding-bottom: 1em;
+  margin: 0;
+  justify-content: space-between;
+}
+.recipe_details_items_top {
+  text-align: center;
+}
+.value {
+  font-size: 20px;
+  color: #ff4f87;
+  font-weight: bolder;
+}
+.unit {
+  margin: -4px 0 10px 5px;
+  font-weight: lighter;
+  width: 100%;
+  letter-spacing: 2px;
+  font-size: 16px;
+}

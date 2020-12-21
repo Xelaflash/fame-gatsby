@@ -16,7 +16,7 @@ async function turnRecipesIntoPages({ graphql, actions }) {
   `);
   data.recipes.nodes.forEach((recipe) => {
     actions.createPage({
-      path: `/recipe/${recipe.slug.current}`,
+      path: `/food/${recipe.slug.current}`,
       component: recipeTemplate,
 
       context: {
