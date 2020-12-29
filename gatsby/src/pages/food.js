@@ -8,10 +8,10 @@ import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
 import Layout from '../components/Layout';
-import RecipeList from '../components/food/RecipesList';
+import RecipeSlider from '../components/food/RecipesList';
 
 const FoodStyles = styled.div`
-  p {
+  .food-texts {
     margin: 40px auto 20px auto;
     width: 80%;
   }
@@ -62,7 +62,7 @@ export default function Food({ data }) {
         <HeroBanner pageTitle="Food" bannerImg={bannerImg} />
         <Container>
           <div>
-            <p>
+            <p className="food-texts">
               FOOD is an essential part of everyone’s lives. Its nutrients offer
               the energy to grow and develop the body and mind. Good nutrition
               is health, it allows us to move, think, and learn. While there are
@@ -82,7 +82,7 @@ export default function Food({ data }) {
           <section className="growing">
             <h2 className="title">Growing</h2>
             <BrushStroke />
-            <p>
+            <p className="food-texts">
               Barbados is still very dependent on food coming from overseas. We
               feel it is important to support all the local initiatives that are
               promoting food growing especially the{' '}
@@ -119,7 +119,7 @@ export default function Food({ data }) {
           <section className="preparing">
             <h2 className="title">Preparing</h2>
             <BrushStroke />
-            <p>
+            <p className="food-texts">
               It is a pleasure to select organically grown ingredients to
               prepare a wholesome and healthy meal. Local farmers have food
               items made with love, share in this love by sourcing your
@@ -140,7 +140,7 @@ export default function Food({ data }) {
             <Quote quote={data.quote3} />
             <div className="recipes">
               <h3>Recipes</h3>
-              <RecipeList recipes={recipes} />
+              <RecipeSlider recipes={recipes} />
             </div>
           </section>
         </Container>

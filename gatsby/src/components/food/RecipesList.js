@@ -1,32 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { BsBook } from 'react-icons/bs';
 import { MdPersonOutline } from 'react-icons/md';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import Glide, {
-  Breakpoints,
-  Swipe,
-  Controls,
-} from '@glidejs/glide/dist/glide.modular.esm';
-import '../../styles/SliderStyles.scss';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import '../../styles/RecipeHeaderStyles.scss';
 
 const RecipesGridStyles = styled.div`
-  margin: 0 auto 40px auto;
+  margin: 20px auto 40px auto;
+  cursor: grab;
 
-  .glide__arrows {
+  .slick-track {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 40px auto -10px auto;
+    align-items: stretch;
   }
-  .glide__arrow {
-    border-radius: 50%;
-    padding: 10px;
-    position: relative;
+  .slick-prev {
+    left: -50px;
+  }
+  .slick-next {
+    right: -45px;
+  }
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 30px;
   }
 `;
 
@@ -138,62 +138,42 @@ function SingleRecipe({ recipe }) {
   );
 }
 
-const sliderConfig = {
-  type: 'carousel',
-  gap: 10,
-  perView: 4,
-  breakpoints: {
-    700: {
-      perView: 1,
-    },
-    900: {
-      perView: 2,
-    },
-    1100: {
-      perView: 3,
-    },
-  },
-};
-
-export default function RecipeList({ recipes }) {
-  const ref = useRef();
-  useEffect(() => {
-    const slider = document.querySelector('.glide');
-    const glide = new Glide(ref.current, sliderConfig);
-    if (slider) {
-      glide.mount({ Breakpoints, Swipe, Controls });
-    }
-  }, [ref]);
-
+export default function RecipeSlider({ recipes }) {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    lazyLoad: true,
+    initialSlide: 0,
+    swipeToSlide: true,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
     <RecipesGridStyles>
-      <div className="glide" ref={ref}>
-        <div className="glide__arrows" data-glide-el="controls">
-          <button
-            type="button"
-            className="glide__arrow glide__arrow--left"
-            data-glide-dir="<"
-          >
-            <FaArrowLeft />
-          </button>
-          <button
-            type="button"
-            className="glide__arrow glide__arrow--right"
-            data-glide-dir=">"
-          >
-            <FaArrowRight />
-          </button>
-        </div>
-        <div className="glide__track" data-glide-el="track">
-          <ul className="glide__slides">
-            {recipes.map((recipe) => (
-              <li className="glide__slide" key={recipe.id}>
-                <SingleRecipe key={recipe.id} recipe={recipe} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Slider {...settings}>
+        {recipes.map((recipe) => (
+          <div key={recipe.id}>
+            <SingleRecipe key={recipe.id} recipe={recipe} />
+          </div>
+        ))}
+      </Slider>
     </RecipesGridStyles>
   );
 }
