@@ -20,12 +20,31 @@ const RecipePageStyle = styled.div`
     margin-bottom: 20px;
   }
 
+  .recipe_creator {
+    color: var(--white);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    font-weight: lighter;
+    letter-spacing: 1px;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 0.8);
+    margin: 10px auto;
+  }
+
   #single_recipe {
     color: white;
-    width: 50%;
-
     margin: 20px auto 0;
     padding: 10px;
+  }
+  @media (min-width: 768px) {
+    #single_recipe {
+      width: 55%;
+    }
   }
   .single_recipe_value {
     color: var(--darkGreen);
@@ -40,10 +59,10 @@ const RecipePageStyle = styled.div`
     max-height: 600px;
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.6) 0px 20px 30px -10px;
-  }
-  .gatsby-image-wrapper {
-    border-radius: 4px;
-    height: 400px;
+    .gatsby-image-wrapper {
+      border-radius: 4px;
+      height: 400px;
+    }
   }
 
   .recipe_title {
@@ -86,6 +105,15 @@ export default function SingleRecipePage({ data: { recipe } }) {
         <RecipePageStyle>
           <h1 className="recipe_title centered">{recipe.name}</h1>
           <BrushStroke />
+          <div className="recipe_creator centered">
+            {/* TODO: put link to creator card in community page */}
+            <Img
+              fluid={recipe.creator.image.asset.fluid}
+              alt={recipe.creator.name}
+              className="avatar"
+            />
+            By {recipe.creator.name}
+          </div>
           <div className="recipe_header centered" id="single_recipe">
             <div className="recipe_details_items">
               <div className="recipe_details_items_top">
@@ -162,6 +190,13 @@ export const query = graphql`
       recipeSteps
       creator {
         name
+        image {
+          asset {
+            fluid(maxHeight: 600) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
       }
 
       image {
