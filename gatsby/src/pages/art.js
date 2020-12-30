@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { Container } from 'react-bootstrap';
+import AOS from 'aos';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
+import Quote from '../components/home/Quote';
 
 export default function art({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <Layout>
       <SEO
@@ -53,9 +59,15 @@ export default function art({ data }) {
             >
               Instagram
             </a>{' '}
-            page for Art Posts and join our Weekly Talk in which every week a
-            different artists will share her/his passion.
+            page for Art Posts and join our
+            <Link to="/weeklyTalk" className="underline_svg link_white">
+              Weekly Talk
+            </Link>{' '}
+            in which every week a different artists will share her/his passion.
           </p>
+          <Quote quote={data.quote4} />
+          <Quote quote={data.quote5} />
+          <Quote quote={data.quote6} />
         </div>
       </Container>
     </Layout>
@@ -74,6 +86,18 @@ export const query = graphql`
           }
         }
       }
+    }
+    quote4: sanityQuotes(quoteId: { eq: "Quote4" }) {
+      quoteText
+      quoteAuthor
+    }
+    quote5: sanityQuotes(quoteId: { eq: "Quote5" }) {
+      quoteText
+      quoteAuthor
+    }
+    quote6: sanityQuotes(quoteId: { eq: "Quote6" }) {
+      quoteText
+      quoteAuthor
     }
   }
 `;

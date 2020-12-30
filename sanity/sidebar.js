@@ -33,6 +33,14 @@ export default function sidebar() {
                   S.documentTypeList('communityMember').title('FAME Members')
                 ),
               S.listItem()
+                .title('Quotes')
+                .schemaType('quotes')
+                .child(
+                  S.documentTypeList('quotes').title(
+                    'Quotes to be displayed in Home page'
+                  )
+                ),
+              S.listItem()
                 .title('Categories (technical)')
                 .schemaType('category')
                 .child(S.documentTypeList('category').title('FAME Categories')),
@@ -63,16 +71,6 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('homeGallery').title(
                     'Pictures for Home page Gallery'
-                  )
-                ),
-              S.listItem()
-                .title('Quotes')
-                .schemaType('quotes')
-                // When you open this list item, list out the documents
-                // of the type category"
-                .child(
-                  S.documentTypeList('quotes').title(
-                    'Quotes to be displayed in Home page'
                   )
                 ),
               S.listItem()

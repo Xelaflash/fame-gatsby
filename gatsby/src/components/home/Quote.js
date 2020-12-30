@@ -17,10 +17,10 @@ const QuoteStyles = styled.div`
   /* Blockquote header */
   .blockquote h2 {
     color: var(--white);
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 800;
     letter-spacing: 3px;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto 15px auto;
   }
 
@@ -50,7 +50,7 @@ const QuoteStyles = styled.div`
 
   @media (max-width: 768px) {
     .blockquote {
-      max-width: 80%;
+      max-width: 90%;
     }
     .blockquote h2 {
       font-size: 2.5rem;
