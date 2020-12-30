@@ -21,7 +21,7 @@ const QuoteStyles = styled.div`
     font-weight: 800;
     letter-spacing: 3px;
     max-width: 80%;
-    margin: auto;
+    margin: 0 auto 15px auto;
   }
 
   /* Blockquote right double quotes */
@@ -34,6 +34,20 @@ const QuoteStyles = styled.div`
     bottom: -26px;
     right: 30px;
   }
+
+  .author {
+    font-weight: lighter;
+    font-family: var(--body-font);
+    letter-spacing: 1px;
+    font-style: italic;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    opacity: 0.8;
+    font-size: 14px;
+  }
+
   @media (max-width: 768px) {
     .blockquote {
       max-width: 80%;
@@ -57,6 +71,7 @@ export default function Quote({ quote }) {
         data-aos-once="true"
       >
         <h2>{quote.quoteText}</h2>
+        <p className="author">- {quote.quoteAuthor} -</p>
       </div>
     </QuoteStyles>
   );

@@ -31,3 +31,4 @@ export default createSchema({
 
 // sanity documents query "*[_type == 'recipe']{_id, name}" ==> croq query
 // sanity documents delete "id" ==> to delete a record
+// sanity graphql deploy ==> After all schema changes

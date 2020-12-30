@@ -160,6 +160,7 @@ export const query = graphql`
     }
     quote3: sanityQuotes(quoteId: { eq: "Quote3" }) {
       quoteText
+      quoteAuthor
     }
     recipes: allSanityRecipe {
       nodes {

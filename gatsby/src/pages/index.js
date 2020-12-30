@@ -56,9 +56,11 @@ export default function HomePage() {
     query {
       quote1: sanityQuotes(quoteId: { eq: "Quote1" }) {
         quoteText
+        quoteAuthor
       }
       quote2: sanityQuotes(quoteId: { eq: "Quote2" }) {
         quoteText
+        quoteAuthor
       }
     }
   `);

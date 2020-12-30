@@ -13,6 +13,12 @@ export default {
       description: 'Quote for the home page',
     },
     {
+      name: 'quoteAuthor',
+      title: 'Quote Author',
+      type: 'string',
+      description: "Author's name",
+    },
+    {
       name: 'quoteId',
       title: 'Quote ref',
       type: 'string',
