@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import underline from '../assets/images/underline.svg';
 
 const FooterStyles = styled.div`
   box-shadow: 0px -2px 10px -3px rgba(0, 0, 0, 0.6);
@@ -43,24 +42,7 @@ const FooterStyles = styled.div`
   .contact {
     margin: -2rem auto 2.5rem auto;
     text-align: center;
-    .underline_svg {
-      position: relative;
-      margin-left: 5px;
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -0.35rem;
-        left: -0.5rem;
-        right: -0.5rem;
-        height: 0.5rem;
-        z-index: -1;
-        width: 97%;
-        margin: auto;
-        background-image: url(${underline});
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    }
+
     a {
       position: relative;
       text-decoration: none;

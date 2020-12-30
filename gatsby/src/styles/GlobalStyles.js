@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import bg from '../assets/images/background.png';
 import brush from '../assets/images/brush.svg';
+import underline from '../assets/images/underline.svg';
 
 const GlobalStyles = createGlobalStyle`
   :root {
@@ -84,6 +85,31 @@ const GlobalStyles = createGlobalStyle`
     margin: 40px auto 20px auto;
     width: 80%;
   }
+  .underline_svg {
+    position: relative;
+    margin-left: 5px;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -0.35rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      height: 0.5rem;
+      z-index: -1;
+      width: 97%;
+      margin: auto;
+      background-image: url(${underline});
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  .link_white {
+    transition: all 0.3s ease;
+    &:hover {
+    color: var(--white);
+    }
+  }
+
 `;
 
 export default GlobalStyles;

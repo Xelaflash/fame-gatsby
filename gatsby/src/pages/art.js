@@ -43,6 +43,19 @@ export default function art({ data }) {
             children through art, to find fertile ways to express their feelings
             and points of view. Art is a storyteller.
           </p>
+          <p className="paragraphTexts">
+            Keep an Eye on our
+            <a
+              href="https://www.instagram.com/famefestival_barbados/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline_svg link_white"
+            >
+              Instagram
+            </a>{' '}
+            page for Art Posts and join our Weekly Talk in which every week a
+            different artists will share her/his passion.
+          </p>
         </div>
       </Container>
     </Layout>
