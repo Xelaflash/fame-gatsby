@@ -80,6 +80,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 40px auto;
     display:block;
   }
+  .paragraphTexts {
+    margin: 40px auto 20px auto;
+    width: 80%;
+  }
 `;
 
 export default GlobalStyles;
