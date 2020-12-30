@@ -1,6 +1,6 @@
 import react from 'react';
 import S from '@sanity/desk-tool/structure-builder';
-import { MdHome as iconHome } from 'react-icons/md';
+import { MdHome as iconHome, MdPalette as iconArt } from 'react-icons/md';
 import { FaCarrot as iconFood } from 'react-icons/fa';
 import { IoMdSettings as settingsIcon } from 'react-icons/io';
 
@@ -97,6 +97,24 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('recipe').title(
                     'Recipes for the Food page'
+                  )
+                ),
+            ])
+        ),
+      // fourth item on the sidebar
+      S.listItem()
+        .title('Art Page')
+        .icon(iconArt)
+        .child(
+          S.list()
+            .title('ArtPage')
+            .items([
+              S.listItem()
+                .title('Art page Gallery')
+                .schemaType('artGallery')
+                .child(
+                  S.documentTypeList('artGallery').title(
+                    'Art images for the Art page Gallery'
                   )
                 ),
             ])
