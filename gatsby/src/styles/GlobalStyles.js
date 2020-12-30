@@ -109,6 +109,14 @@ const GlobalStyles = createGlobalStyle`
     color: var(--white);
     }
   }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 0.8);
+    margin: 10px auto;
+  }
 
 `;
 
