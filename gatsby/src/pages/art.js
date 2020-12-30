@@ -11,6 +11,43 @@ import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
 
 const ArtPageStyle = styled.div`
+  /* gallery grid */
+  .image-grid {
+    display: grid;
+    grid-gap: 1rem;
+    justify-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .image-grid .image-item:nth-child(5n) {
+    grid-column-end: span 2;
+  }
+  .image-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery-img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: opacity 0.25s ease-in-out;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .image-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
+  /* end gallery grid */
+
   .artist_list {
     display: flex;
     align-items: center;
@@ -26,6 +63,7 @@ const ArtPageStyle = styled.div`
 export default function Art({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const artists = data.artists.nodes;
+  const artGallery = data.artGalleryImgs.nodes;
 
   useEffect(() => {
     AOS.init();
@@ -69,7 +107,7 @@ export default function Art({ data }) {
             </p>
             <Quote quote={data.quote4} />
             <p className="paragraphTexts">
-              Keep an Eye on our
+              Keep an Eye on our{' '}
               <a
                 href="https://www.instagram.com/famefestival_barbados/?hl=en"
                 target="_blank"
@@ -107,6 +145,21 @@ export default function Art({ data }) {
             <section className="art_gallery">
               <h2 className="title">Art Gallery</h2>
               <BrushStroke />
+              <div className="art_gallery_grid">
+                {artGallery.map((artImg, id) => (
+                  <div className="single_artImg" key={`${id}`}>
+                    <h4>{artImg.name}</h4>
+                    <p>by {artImg.artist.name}</p>
+                    <p>{artImg.artDescription}</p>
+                    <Img
+                      fluid={artImg.image.asset.fluid}
+                      alt={`${artImg.name} - F.A.M.E Art`}
+                      className=""
+                    />
+                  </div>
+                ))}
+                <p>rien</p>
+              </div>
             </section>
 
             <Quote quote={data.quote6} />
@@ -126,6 +179,23 @@ export const query = graphql`
         asset {
           fluid(maxWidth: 1920) {
             ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+    artGalleryImgs: allSanityArtGallery {
+      nodes {
+        id
+        name
+        artDescription
+        artist {
+          name
+        }
+        image {
+          asset {
+            fluid(maxWidth: 1024) {
+              ...GatsbySanityImageFluid
+            }
           }
         }
       }
