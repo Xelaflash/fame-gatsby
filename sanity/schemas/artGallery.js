@@ -24,8 +24,7 @@ export default {
     {
       name: 'artDescription',
       title: 'Art image Description',
-      type: 'array',
-      of: [{ type: 'block' }],
+      type: 'text',
     },
     {
       name: 'artist',

@@ -26,10 +26,12 @@ const ArtPageStyle = styled.div`
 export default function Art({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const artists = data.artists.nodes;
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
   return (
     <Layout>
       <ArtPageStyle>
@@ -101,6 +103,12 @@ export default function Art({ data }) {
               </div>
             </section>
             <Quote quote={data.quote5} />
+
+            <section className="art_gallery">
+              <h2 className="title">Art Gallery</h2>
+              <BrushStroke />
+            </section>
+
             <Quote quote={data.quote6} />
           </div>
         </Container>
