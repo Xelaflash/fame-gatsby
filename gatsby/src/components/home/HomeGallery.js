@@ -15,7 +15,7 @@ const HomeGalleryStyles = styled.div`
     margin: 0;
     padding: 0;
   }
-  .image-grid .image-item:nth-child(4n) {
+  .image-grid .image-item:nth-child(5n) {
     grid-column-end: span 2;
   }
   .image-item {

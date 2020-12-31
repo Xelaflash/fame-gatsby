@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { Container } from 'react-bootstrap';
 import AOS from 'aos';
-import Gallery from 'react-photo-gallery';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
@@ -14,15 +11,60 @@ import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
 
 const ArtPageStyle = styled.div`
-  /* gallery grid */
-  .art_gallery_grid img {
-    box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.4);
-    border-radius: 4px;
+  /* Masonry grid */
+  .art_gallery_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 1rem;
+    transition: all 0.5s ease-in-out;
+  }
+  /* Masonry item */
+  .gallery_brick {
+    position: relative;
+    margin: 5px;
     cursor: pointer;
-    transition: 0.5s ease;
-    &:hover {
-      opacity: 0.8;
+    .art_img {
+      box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.4);
+      border-radius: 4px;
+      width: 100%;
+      height: 100%;
     }
+  }
+
+  /* .art_gallery_grid .gallery_brick:nth-child(4n) {
+    grid-row-end: span 2;
+    grid-column-end: span 2;
+  } */
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: var(--blueGrey);
+  }
+
+  .gallery_brick:hover .overlay {
+    opacity: 1;
+  }
+
+  .overlay_text {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  .overlay-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .artist_list {
     display: flex;
@@ -36,46 +78,11 @@ const ArtPageStyle = styled.div`
   }
 `;
 
-function ArtModal(props) {
-  return (
-    <Modal
-      {...props}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <h4>Centered Modal</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
-  );
-}
-
 export default function Art({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const artists = data.artists.nodes;
   const artGallery = data.artGalleryImgs.nodes;
 
-  const galleryPhotos = artGallery.map((artImg) => ({
-    src: artImg.image.asset.url,
-    width: artImg.image.asset.metadata.dimensions.width,
-    height: artImg.image.asset.metadata.dimensions.height,
-  }));
-
-  const [modalShow, setModalShow] = useState(false);
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -138,7 +145,7 @@ export default function Art({ data }) {
             <div className="artist_list">
               {/* TODO: put link to creator card in community page */}
               {artists.map((artist, index) => (
-                <div className="single_artist" key={`${index}`}>
+                <div className="single_artist" key={`${index}-fame`}>
                   <Img
                     fluid={artist.image.asset.fluid}
                     alt={`${artist.name} - F.A.M.E Art`}
@@ -155,16 +162,28 @@ export default function Art({ data }) {
             <h2 className="title">Art Gallery</h2>
             <BrushStroke />
             <div className="art_gallery_grid">
-              <Gallery
-                photos={galleryPhotos}
-                direction="column"
-                margin={5}
-                onClick={() => setModalShow(true)}
-              />
-              <ArtModal show={modalShow} onHide={() => setModalShow(false)} />
+              {artGallery.map((artImg, id) => (
+                <div className="gallery_brick" key={id}>
+                  <Img
+                    fluid={artImg.image.asset.fluid}
+                    alt={`${artImg.name} - F.A.M.E Art`}
+                    className="art_img"
+                  />
+                  <div className="overlay">
+                    <div className="overlay-inner">
+                      {/* TODO: put link to creator card in community page */}
+                      <Img
+                        fluid={artImg.artist.image.asset.fluid}
+                        alt={`${artImg.artist.name} - F.A.M.E Art`}
+                        className="avatar"
+                      />
+                      <p className="overlay_text">{artImg.artist.name}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
-
           <Quote quote={data.quote6} />
         </Container>
       </ArtPageStyle>
@@ -192,15 +211,18 @@ export const query = graphql`
         artDescription
         artist {
           name
+          image {
+            asset {
+              fluid(maxWidth: 400) {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
         }
         image {
           asset {
-            url
-            metadata {
-              dimensions {
-                height
-                width
-              }
+            fluid(maxHeight: 800) {
+              ...GatsbySanityImageFluid
             }
           }
         }
