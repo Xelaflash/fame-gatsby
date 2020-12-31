@@ -31,10 +31,9 @@ const ArtPageStyle = styled.div`
     }
   }
 
-  /* .art_gallery_grid .gallery_brick:nth-child(4n) {
-    grid-row-end: span 2;
+  .art_gallery_grid .gallery_brick:nth-child(5n) {
     grid-column-end: span 2;
-  } */
+  }
 
   .overlay {
     position: absolute;
@@ -213,7 +212,7 @@ export const query = graphql`
           name
           image {
             asset {
-              fluid(maxWidth: 400) {
+              fluid(maxWidth: 300) {
                 ...GatsbySanityImageFluid
               }
             }
@@ -221,7 +220,7 @@ export const query = graphql`
         }
         image {
           asset {
-            fluid(maxHeight: 800) {
+            fluid(maxWidth: 1024) {
               ...GatsbySanityImageFluid
             }
           }
@@ -247,7 +246,7 @@ export const query = graphql`
         name
         image {
           asset {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 300) {
               ...GatsbySanityImageFluid
             }
           }
