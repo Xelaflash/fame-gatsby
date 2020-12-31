@@ -7,6 +7,7 @@ import BrushStroke from '../BrushStroke';
 
 const HomeGalleryStyles = styled.div`
   text-align: center;
+  /* Css for gallery grid */
   .image-grid {
     display: grid;
     grid-gap: 1rem;
@@ -14,7 +15,7 @@ const HomeGalleryStyles = styled.div`
     margin: 0;
     padding: 0;
   }
-  .image-grid .image-item:nth-child(5n) {
+  .image-grid .image-item:nth-child(4n) {
     grid-column-end: span 2;
   }
   .image-item {
@@ -41,6 +42,7 @@ const HomeGalleryStyles = styled.div`
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   }
+  /* End gallery grid */
 `;
 
 const HomeGallery = () => {
