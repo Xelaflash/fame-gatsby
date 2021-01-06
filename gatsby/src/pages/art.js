@@ -9,6 +9,7 @@ import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
+import ArtImgModal from '../components/food/ArtImgModal';
 
 const ArtPageStyle = styled.div`
   /* Masonry grid */
@@ -84,10 +85,6 @@ export default function Art({ data }) {
 
   const [showModal, setShowModal] = useState(false);
   const [activeItem, setActiveItem] = useState('');
-
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
 
   const handleShow = (item) => {
     setActiveItem(item);
@@ -202,12 +199,12 @@ export default function Art({ data }) {
               ))}
             </div>
             <div className="art_modal">
-              <Modal centered show={showModal} onHide={toggleModal}>
-                <Modal.Header closeButton>
-                  <Modal.Title>{activeItem.name}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>{activeItem.artDescription}</Modal.Body>
-              </Modal>
+              <ArtImgModal
+                centered
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                activeItem={activeItem}
+              />
             </div>
           </section>
           <Quote quote={data.quote6} />
