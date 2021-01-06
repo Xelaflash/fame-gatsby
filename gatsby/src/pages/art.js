@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { Container } from 'react-bootstrap';
+import { Container, Modal } from 'react-bootstrap';
 import AOS from 'aos';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
@@ -81,6 +81,18 @@ export default function Art({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const artists = data.artists.nodes;
   const artGallery = data.artGalleryImgs.nodes;
+
+  const [showModal, setShowModal] = useState(false);
+  const [activeItem, setActiveItem] = useState('');
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const handleShow = (item) => {
+    setActiveItem(item);
+    setShowModal(true);
+  };
 
   useEffect(() => {
     AOS.init();
@@ -162,7 +174,14 @@ export default function Art({ data }) {
             <BrushStroke />
             <div className="art_gallery_grid">
               {artGallery.map((artImg, id) => (
-                <div className="gallery_brick" key={id}>
+                <div
+                  className="gallery_brick"
+                  key={id}
+                  onClick={() => handleShow(artImg)}
+                  onKeyPress={() => handleShow(artImg)}
+                  role="button"
+                  tabIndex={0}
+                >
                   <Img
                     fluid={artImg.image.asset.fluid}
                     alt={`${artImg.name} - F.A.M.E Art`}
@@ -173,7 +192,7 @@ export default function Art({ data }) {
                       {/* TODO: put link to creator card in community page */}
                       <Img
                         fluid={artImg.artist.image.asset.fluid}
-                        alt={`${artImg.artist.name} - F.A.M.E Art`}
+                        alt={`${artImg.artist.name} - F.A.M.E Artist`}
                         className="avatar"
                       />
                       <p className="overlay_text">{artImg.artist.name}</p>
@@ -181,6 +200,14 @@ export default function Art({ data }) {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="art_modal">
+              <Modal centered show={showModal} onHide={toggleModal}>
+                <Modal.Header closeButton>
+                  <Modal.Title>{activeItem.name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{activeItem.artDescription}</Modal.Body>
+              </Modal>
             </div>
           </section>
           <Quote quote={data.quote6} />
