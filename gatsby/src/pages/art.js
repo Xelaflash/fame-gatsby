@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { Container, Modal } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import AOS from 'aos';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
-import ArtImgModal from '../components/food/ArtImgModal';
+import Modal from '../components/food/ArtImgModal';
 
 const ArtPageStyle = styled.div`
   /* Masonry grid */
@@ -86,9 +86,9 @@ export default function Art({ data }) {
   const [showModal, setShowModal] = useState(false);
   const [activeItem, setActiveItem] = useState('');
 
-  const handleShow = (item) => {
+  const selectModal = (item) => {
     setActiveItem(item);
-    setShowModal(true);
+    setShowModal(!showModal);
   };
 
   useEffect(() => {
@@ -174,8 +174,8 @@ export default function Art({ data }) {
                 <div
                   className="gallery_brick"
                   key={id}
-                  onClick={() => handleShow(artImg)}
-                  onKeyPress={() => handleShow(artImg)}
+                  onClick={() => selectModal(artImg)}
+                  onKeyPress={() => selectModal(artImg)}
                   role="button"
                   tabIndex={0}
                 >
@@ -199,10 +199,9 @@ export default function Art({ data }) {
               ))}
             </div>
             <div className="art_modal">
-              <ArtImgModal
-                centered
-                show={showModal}
-                onHide={() => setShowModal(false)}
+              <Modal
+                displayModal={showModal}
+                closeModal={selectModal}
                 activeItem={activeItem}
               />
             </div>

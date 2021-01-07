@@ -1,15 +1,44 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap';
+// import Img from 'gatsby-image';
+import '../../styles/ArtImgModalStyles.scss';
 
-export default function ArtImgModal({ activeItem, show, onHide }) {
+const Modal = (props) => {
+  const { displayModal } = props;
+  function closeModal(e) {
+    e.stopPropagation();
+    props.closeModal();
+  }
+
+  const divStyle = {
+    display: displayModal ? 'block' : 'none',
+  };
+
   return (
-    <>
-      <Modal centered show={show} onHide={onHide}>
-        <Modal.Header closeButton>
-          <Modal.Title>{activeItem.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{activeItem.artDescription}</Modal.Body>
-      </Modal>
-    </>
+    <div
+      className="modal"
+      onClick={closeModal}
+      style={divStyle}
+      onKeyPress={closeModal}
+      role="button"
+      tabIndex="0"
+    >
+      <div
+        className="modal-content"
+        onClick={(e) => e.stopPropagation()}
+        aria-hidden="true"
+      >
+        <span
+          className="close"
+          onClick={closeModal}
+          onKeyPress={closeModal}
+          role="button"
+          tabIndex="0"
+        >
+          &times;
+        </span>
+      </div>
+    </div>
   );
-}
+};
+
+export default Modal;
