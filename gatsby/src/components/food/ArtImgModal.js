@@ -4,6 +4,7 @@ import '../../styles/ArtImgModalStyles.scss';
 
 const Modal = (props) => {
   const { displayModal } = props;
+  const { activeItem } = props;
   function closeModal(e) {
     e.stopPropagation();
     props.closeModal();
@@ -36,6 +37,8 @@ const Modal = (props) => {
         >
           &times;
         </span>
+        {activeItem.name}
+        {activeItem.artDescription}
       </div>
     </div>
   );

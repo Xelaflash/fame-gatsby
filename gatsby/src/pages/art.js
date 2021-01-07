@@ -90,6 +90,10 @@ export default function Art({ data }) {
     setActiveItem(item);
     setShowModal(!showModal);
   };
+  const closeModal = () => {
+    setActiveItem('');
+    setShowModal(!showModal);
+  };
 
   useEffect(() => {
     AOS.init();
@@ -201,7 +205,7 @@ export default function Art({ data }) {
             <div className="art_modal">
               <Modal
                 displayModal={showModal}
-                closeModal={selectModal}
+                closeModal={closeModal}
                 activeItem={activeItem}
               />
             </div>
