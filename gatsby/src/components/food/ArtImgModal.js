@@ -3,8 +3,7 @@ import Img from 'gatsby-image';
 import '../../styles/ArtImgModalStyles.scss';
 
 const Modal = (props) => {
-  const { displayModal } = props;
-  const { activeItem } = props;
+  const { displayModal, activeItem } = props;
   function closeModal(e) {
     e.stopPropagation();
     props.closeModal();
@@ -17,12 +16,15 @@ const Modal = (props) => {
   if (activeItem !== '') {
     return (
       <div
+        id="artModal"
         className="modal"
         onClick={closeModal}
         style={divStyle}
         onKeyPress={closeModal}
-        role="button"
-        tabIndex="0"
+        role="dialog"
+        tabIndex="-1"
+        aria-labelledby="artModal"
+        aria-hidden="true"
       >
         <div
           className="modal-content"
@@ -38,21 +40,27 @@ const Modal = (props) => {
           >
             &times;
           </span>
-
-          <h3>{activeItem.name}</h3>
-
-          <p className=""> by {activeItem.artist.name}</p>
-          <Img
-            fluid={activeItem.artist.image.asset.fluid}
-            alt={`${activeItem.artist.name} - F.A.M.E Artist`}
-            className="avatar"
-          />
-          <Img
-            fluid={activeItem.image.asset.fluid}
-            alt={`${activeItem.name} - F.A.M.E Art`}
-            className="art_img"
-          />
-          <p>{activeItem.artDescription}</p>
+          <h3 className="artwork_title">{activeItem.name}</h3>
+          <div className="artist_credit">
+            {/* TODO: put link to creator card in community page */}
+            <span>{activeItem.artist.name}</span>
+            <div className="avatar-small-container">
+              <Img
+                fluid={activeItem.artist.image.asset.fluid}
+                alt={`${activeItem.artist.name} - F.A.M.E Artist`}
+                className="avatar-small"
+              />
+            </div>
+          </div>
+          <div className="artwork-container">
+            <Img
+              fluid={activeItem.image.asset.fluid}
+              alt={`${activeItem.name} - F.A.M.E Art`}
+              className="artwork_img_modal"
+              imgStyle={{ objectFit: 'contain' }}
+            />
+          </div>
+          <p className="artwork_description">{activeItem.artDescription}</p>
         </div>
       </div>
     );

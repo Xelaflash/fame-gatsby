@@ -98,7 +98,15 @@ export default function Art({ data }) {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
-  }, []);
+    if (showModal) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = '15px';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      document.body.style.paddingRight = '0px';
+    };
+  }, [showModal]);
 
   return (
     <Layout>
@@ -151,6 +159,47 @@ export default function Art({ data }) {
             </Link>{' '}
             in which every week a different artists will share her/his passion.
           </p>
+          <Quote quote={data.quote5} />
+          <section className="art_gallery">
+            <h2 className="title">Art Gallery</h2>
+            <BrushStroke />
+            <div className="art_gallery_grid">
+              {artGallery.map((artImg, id) => (
+                <div
+                  className="gallery_brick"
+                  key={id}
+                  onClick={() => selectModal(artImg)}
+                  onKeyPress={() => selectModal(artImg)}
+                  role="button"
+                  tabIndex={0}
+                  data-target="#artModal"
+                  data-toggle="modal"
+                >
+                  <Img
+                    fluid={artImg.image.asset.fluid}
+                    alt={`${artImg.name} - F.A.M.E Art`}
+                    className="art_img"
+                  />
+                  <div className="overlay">
+                    <div className="overlay-inner">
+                      <Img
+                        fluid={artImg.artist.image.asset.fluid}
+                        alt={`${artImg.artist.name} - F.A.M.E Artist`}
+                        className="avatar"
+                      />
+                      <p className="overlay_text">{artImg.artist.name}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Modal
+              displayModal={showModal}
+              closeModal={closeModal}
+              activeItem={activeItem}
+            />
+          </section>
+
           <section className="artists">
             <h2 className="title">Fame community artists</h2>
             <BrushStroke />
@@ -166,48 +215,6 @@ export default function Art({ data }) {
                   <p className="artist_name">{artist.name}</p>
                 </div>
               ))}
-            </div>
-          </section>
-          <Quote quote={data.quote5} />
-
-          <section className="art_gallery">
-            <h2 className="title">Art Gallery</h2>
-            <BrushStroke />
-            <div className="art_gallery_grid">
-              {artGallery.map((artImg, id) => (
-                <div
-                  className="gallery_brick"
-                  key={id}
-                  onClick={() => selectModal(artImg)}
-                  onKeyPress={() => selectModal(artImg)}
-                  role="button"
-                  tabIndex={0}
-                >
-                  <Img
-                    fluid={artImg.image.asset.fluid}
-                    alt={`${artImg.name} - F.A.M.E Art`}
-                    className="art_img"
-                  />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      {/* TODO: put link to creator card in community page */}
-                      <Img
-                        fluid={artImg.artist.image.asset.fluid}
-                        alt={`${artImg.artist.name} - F.A.M.E Artist`}
-                        className="avatar"
-                      />
-                      <p className="overlay_text">{artImg.artist.name}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="art_modal">
-              <Modal
-                displayModal={showModal}
-                closeModal={closeModal}
-                activeItem={activeItem}
-              />
             </div>
           </section>
           <Quote quote={data.quote6} />

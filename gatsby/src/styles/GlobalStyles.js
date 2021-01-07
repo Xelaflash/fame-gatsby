@@ -119,8 +119,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .avatar-small {
-    width: 8px;
-    height: 8px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 5px solid white;
     box-shadow: 0px 0px 14px -2px rgba(0, 0, 0, 0.8);
