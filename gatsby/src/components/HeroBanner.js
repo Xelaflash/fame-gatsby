@@ -15,8 +15,11 @@ const HeroBanner = ({ pageTitle, bannerImg, className }) => (
 const StyledBackgroundSection = styled(HeroBanner)`
   width: 100%;
   height: 50vh;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
-  box-shadow: inset 0px 0px 10px 0 rgba(0, 0, 0, 0.9);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.7);
+
   /* for placing of the h1 */
   display: flex;
   align-items: flex-end;
