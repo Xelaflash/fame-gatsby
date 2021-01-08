@@ -10,6 +10,8 @@ import HomeGallery from '../components/home/HomeGallery';
 import Quote from '../components/home/Quote';
 import Partners from '../components/home/Partners';
 import HomeLayout from '../components/HomeLayout';
+import BrushStroke from '../components/BrushStroke';
+import Charity from '../components/home/Charity';
 
 const HomeStyles = styled.div`
   .video {
@@ -111,6 +113,7 @@ export default function HomePage() {
           <HomeGallery />
           <Partners />
           <Quote quote={quotes.quote2} />
+          <Charity />
         </HomeStyles>
       </HomeLayout>
     </>

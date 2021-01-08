@@ -81,6 +81,14 @@ export default function sidebar() {
                     'Partners logo to display on Homepage'
                   )
                 ),
+              S.listItem()
+                .title('Charities')
+                .schemaType('charity')
+                .child(
+                  S.documentTypeList('charity').title(
+                    'Charities organization and events to display on Homepage'
+                  )
+                ),
             ])
         ),
       // third item on the sidebar
