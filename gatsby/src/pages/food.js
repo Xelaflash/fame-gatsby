@@ -9,6 +9,7 @@ import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
 import Layout from '../components/Layout';
 import RecipeSlider from '../components/food/RecipesList';
+import FamePeople from '../components/FamePeople';
 
 const FoodStyles = styled.div`
   .growing {
@@ -139,6 +140,7 @@ export default function Food({ data }) {
               <RecipeSlider recipes={recipes} />
             </div>
           </section>
+          <FamePeople communityMembers={data.chefs.nodes} jobTitle="chefs" />
         </Container>
       </FoodStyles>
     </Layout>
@@ -182,6 +184,20 @@ export const query = graphql`
         recipeSteps
         creator {
           name
+        }
+      }
+    }
+    chefs: allSanityCommunityMember(
+      filter: { category: { category: { eq: "Food" } } }
+    ) {
+      nodes {
+        name
+        image {
+          asset {
+            fluid(maxWidth: 300) {
+              ...GatsbySanityImageFluid
+            }
+          }
         }
       }
     }

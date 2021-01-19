@@ -10,6 +10,7 @@ import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
 import Modal from '../components/food/ArtImgModal';
+import FamePeople from '../components/FamePeople';
 
 const ArtPageStyle = styled.div`
   /* Masonry grid */
@@ -66,21 +67,10 @@ const ArtPageStyle = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .artist_list {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-  }
-  .artist_name {
-    color: var(--white);
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-  }
 `;
 
 export default function Art({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
-  const artists = data.artists.nodes;
   const artGallery = data.artGalleryImgs.nodes;
 
   const [showModal, setShowModal] = useState(false);
@@ -199,24 +189,10 @@ export default function Art({ data }) {
               activeItem={activeItem}
             />
           </section>
-
-          <section className="artists">
-            <h2 className="title">Fame community artists</h2>
-            <BrushStroke />
-            <div className="artist_list">
-              {/* TODO: put link to creator card in community page */}
-              {artists.map((artist, index) => (
-                <div className="single_artist" key={`${index}-fame`}>
-                  <Img
-                    fluid={artist.image.asset.fluid}
-                    alt={`${artist.name} - F.A.M.E Art`}
-                    className="avatar"
-                  />
-                  <p className="artist_name">{artist.name}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <FamePeople
+            communityMembers={data.artists.nodes}
+            jobTitle="artists"
+          />
           <Quote quote={data.quote6} />
         </Container>
       </ArtPageStyle>
