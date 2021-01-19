@@ -127,13 +127,12 @@ export default function Charity() {
       <BrushStroke />
       <div className="charity-card_grid">
         {charities.map((charity) => (
-          <div className="charity-card">
+          <div className="charity-card" key={charity.id}>
             <div className="thumbnail">
               <Img
                 fixed={charity.image.asset.fixed}
                 alt={charity.name}
                 className="charity_logo"
-                key={charity.id}
               />
             </div>
             <div className="charity-card-content">
