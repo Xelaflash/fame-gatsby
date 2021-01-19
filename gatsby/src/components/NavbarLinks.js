@@ -49,7 +49,7 @@ const NavItem = styled(Link)`
   text-decoration: none;
   color: var(--black);
   white-space: nowrap;
-  margin: 0 1vw;
+  padding: 2px 8px;
   transition: all 200ms ease-in;
   font-family: var(--headings-font);
   font-size: 2.2rem;
