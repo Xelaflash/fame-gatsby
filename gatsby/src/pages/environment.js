@@ -7,16 +7,24 @@ import HeroBanner from '../components/HeroBanner';
 import Layout from '../components/Layout';
 import FamePeople from '../components/FamePeople';
 import BrushStroke from '../components/BrushStroke';
+import EnvironmentImgs from '../components/environment/EnvironmentImgs';
 
 const EnvironmentPageStyle = styled.div`
   ul {
     width: 70%;
     margin: auto;
   }
+  .environment_img {
+    border-radius: 10px;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.5);
+    margin: 10px auto;
+  }
 `;
 
 export default function environment({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
+  const innerEnvironmentImages = data.innerEnvironmentImgs.nodes;
+  const outerEnvironmentImages = data.outerEnvironmentImgs.nodes;
   return (
     <Layout>
       <EnvironmentPageStyle>
@@ -69,10 +77,12 @@ export default function environment({ data }) {
               <li>Bowspring training</li>
               <li>Gong Therapy</li>
             </ul>
+            <EnvironmentImgs images={innerEnvironmentImages} />
           </section>
           <section className="outer-environment">
             <h2 className="title">Outer Environment</h2>
             <BrushStroke />
+            <EnvironmentImgs images={outerEnvironmentImages} />
           </section>
           <FamePeople
             communityMembers={data.environmentalists.nodes}
@@ -106,6 +116,38 @@ export const query = graphql`
           asset {
             fluid(maxWidth: 300) {
               ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+    innerEnvironmentImgs: allSanityEnvironment(
+      filter: { environmentSelect: { eq: "inner" } }
+    ) {
+      nodes {
+        id
+        name
+        environmentSelect
+        image {
+          asset {
+            fixed(height: 250) {
+              ...GatsbySanityImageFixed
+            }
+          }
+        }
+      }
+    }
+    outerEnvironmentImgs: allSanityEnvironment(
+      filter: { environmentSelect: { eq: "outer" } }
+    ) {
+      nodes {
+        id
+        name
+        environmentSelect
+        image {
+          asset {
+            fixed(height: 250) {
+              ...GatsbySanityImageFixed
             }
           }
         }

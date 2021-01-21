@@ -1,7 +1,9 @@
-import react from 'react';
 import S from '@sanity/desk-tool/structure-builder';
 import { MdHome as iconHome, MdPalette as iconArt } from 'react-icons/md';
-import { FaCarrot as iconFood } from 'react-icons/fa';
+import {
+  FaCarrot as iconFood,
+  FaRecycle as iconEnvironment,
+} from 'react-icons/fa';
 import { IoMdSettings as settingsIcon } from 'react-icons/io';
 
 //  Build a custom sidebar
@@ -123,6 +125,24 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('artGallery').title(
                     'Art images for the Art page Gallery'
+                  )
+                ),
+            ])
+        ),
+      //  5 item on sidebar sidebar
+      S.listItem()
+        .title('Environment Page')
+        .icon(iconEnvironment)
+        .child(
+          S.list()
+            .title('EnvironmentPage')
+            .items([
+              S.listItem()
+                .title('Environment page Images')
+                .schemaType('environment')
+                .child(
+                  S.documentTypeList('environment').title(
+                    'Images for the environment page'
                   )
                 ),
             ])
