@@ -80,9 +80,29 @@ export default function Art({ data }) {
     setActiveItem(item);
     setShowModal(!showModal);
   };
+
   const closeModal = () => {
     setActiveItem('');
     setShowModal(!showModal);
+  };
+
+  const totalItems = artGallery.length - 1;
+  const itemIndex = artGallery.indexOf(activeItem);
+  const prevGalleryItem = itemIndex - 1;
+  const nextGalleryItem = itemIndex + 1;
+  const hasNextItem = nextGalleryItem <= totalItems;
+  const hasPrevItem = prevGalleryItem >= 0;
+
+  const nextItem = () => {
+    const nextIndex = itemIndex + 1;
+    const nextItemData = artGallery[nextIndex];
+    setActiveItem(nextItemData);
+  };
+
+  const prevItem = () => {
+    const prevIndex = itemIndex - 1;
+    const prevItemData = artGallery[prevIndex];
+    setActiveItem(prevItemData);
   };
 
   useEffect(() => {
@@ -187,6 +207,10 @@ export default function Art({ data }) {
               displayModal={showModal}
               closeModal={closeModal}
               activeItem={activeItem}
+              nextItem={nextItem}
+              prevItem={prevItem}
+              hasNextItem={hasNextItem}
+              hasPrevItem={hasPrevItem}
             />
           </section>
           <FamePeople

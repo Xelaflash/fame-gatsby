@@ -3,10 +3,20 @@ import Img from 'gatsby-image';
 import '../../styles/ArtImgModalStyles.scss';
 
 const Modal = (props) => {
-  const { displayModal, activeItem } = props;
+  const { displayModal, activeItem, hasPrevItem, hasNextItem } = props;
+
   function closeModal(e) {
     e.stopPropagation();
     props.closeModal();
+  }
+
+  function prevItem(e) {
+    e.stopPropagation();
+    props.prevItem();
+  }
+  function nextItem(e) {
+    e.stopPropagation();
+    props.nextItem();
   }
 
   const divStyle = {
@@ -15,54 +25,73 @@ const Modal = (props) => {
 
   if (activeItem !== '') {
     return (
-      <div
-        id="artModal"
-        className="modal"
-        onClick={closeModal}
-        style={divStyle}
-        onKeyPress={closeModal}
-        role="dialog"
-        tabIndex="-1"
-        aria-labelledby="artModal"
-        aria-hidden="true"
-      >
+      <>
         <div
-          className="modal-content"
-          onClick={(e) => e.stopPropagation()}
+          id="artModal"
+          className="modal"
+          onClick={closeModal}
+          style={divStyle}
+          onKeyPress={closeModal}
+          role="dialog"
+          tabIndex="-1"
+          aria-labelledby="artModal"
           aria-hidden="true"
         >
-          <span
-            className="close"
-            onClick={closeModal}
-            onKeyPress={closeModal}
-            role="button"
-            tabIndex="0"
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            aria-hidden="true"
           >
-            &times;
-          </span>
-          <h3 className="artwork_title">{activeItem.name}</h3>
-          <div className="artist_credit">
-            {/* TODO: put link to creator card in community page */}
-            <span>{activeItem.artist.name}</span>
-            <div className="avatar-small-container">
+            <button
+              type="button"
+              className="previous"
+              onClick={prevItem}
+              disabled={!hasPrevItem}
+            >
+              ← Prev
+            </button>
+            <button
+              type="button"
+              className="next"
+              onClick={nextItem}
+              disabled={!hasNextItem}
+            >
+              Next →
+            </button>
+
+            <span
+              className="close"
+              onClick={closeModal}
+              onKeyPress={closeModal}
+              role="button"
+              tabIndex="0"
+            >
+              &times;
+            </span>
+            <h3 className="artwork_title">{activeItem.name}</h3>
+            <div className="artist_credit">
+              {/* TODO: put link to creator card in community page */}
+              <span>{activeItem.artist.name}</span>
+              <div className="avatar-small-container">
+                <Img
+                  fluid={activeItem.artist.image.asset.fluid}
+                  alt={`${activeItem.artist.name} - F.A.M.E Artist`}
+                  className="avatar-small"
+                />
+              </div>
+            </div>
+            <div className="artwork-container">
               <Img
-                fluid={activeItem.artist.image.asset.fluid}
-                alt={`${activeItem.artist.name} - F.A.M.E Artist`}
-                className="avatar-small"
+                fluid={activeItem.image.asset.fluid}
+                alt={`${activeItem.name} - F.A.M.E Art`}
+                className="artwork_img_modal"
+                imgStyle={{ objectFit: 'contain' }}
               />
             </div>
+            <p className="artwork_description">{activeItem.artDescription}</p>
           </div>
-          <div className="artwork-container">
-            <Img
-              fluid={activeItem.image.asset.fluid}
-              alt={`${activeItem.name} - F.A.M.E Art`}
-              className="artwork_img_modal"
-              imgStyle={{ objectFit: 'contain' }}
-            />
-          </div>
-          <p className="artwork_description">{activeItem.artDescription}</p>
         </div>
-      </div>
+      </>
     );
   }
   return <></>;
