@@ -13,34 +13,37 @@ const CharityStyles = styled.div`
   }
 
   .charity-card {
-    width: 370px;
+    width: 340px;
     height: 450px;
     margin: 20px auto;
     position: relative;
-    background: white;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.4);
     transition: all 0.3s linear;
-    border-radius: 4px;
+    border-radius: 10px;
   }
 
   .charity-card:hover {
-    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.4);
   }
 
   .thumbnail {
     text-align: center;
     padding: 10px;
+    margin-top: 20px;
   }
 
   .charity-card-content {
     position: absolute;
     max-height: 450px;
     bottom: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
-    transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0.4s;
+    border-radius: 10px;
   }
 
   .charity-card-title {
@@ -70,6 +73,10 @@ const CharityStyles = styled.div`
   .charity-card:hover .hidden-box {
     height: 250px;
     overflow: auto;
+  }
+  .charity-card:hover .charity-card-content {
+    background: white;
+    transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
   }
 
   .charity-card-description {
@@ -110,7 +117,7 @@ export default function Charity() {
           charityEvent
           image {
             asset {
-              fixed(width: 200) {
+              fixed(width: 150) {
                 ...GatsbySanityImageFixed
               }
             }
@@ -123,7 +130,7 @@ export default function Charity() {
 
   return (
     <CharityStyles>
-      <h2 className="title">CHARITY EVENTS</h2>
+      <h2 className="title">CHARITY</h2>
       <BrushStroke />
       <div className="charity-card_grid">
         {charities.map((charity) => (
