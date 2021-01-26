@@ -10,6 +10,33 @@
   overflow: auto;
 }
 
+.previous,
+.next {
+  position: absolute;
+  top: 45%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 4em;
+  transition: color 0.2s ease;
+  &[disabled] {
+    pointer-events: none;
+    color: var(--lightGrey);
+    opacity: 0.5;
+  }
+}
+.previous:hover,
+.next:hover {
+  color: var(--darkOrange);
+}
+
+.previous {
+  left: 15%;
+}
+.next {
+  right: 15%;
+}
+
 /* Modal content */
 .modal-content {
   background-color: white;

@@ -37,28 +37,27 @@ const Modal = (props) => {
           aria-labelledby="artModal"
           aria-hidden="true"
         >
+          <button
+            type="button"
+            className="previous"
+            onClick={prevItem}
+            disabled={!hasPrevItem}
+          >
+            &#8249;
+          </button>
+          <button
+            type="button"
+            className="next"
+            onClick={nextItem}
+            disabled={!hasNextItem}
+          >
+            &#8250;
+          </button>
           <div
             className="modal-content"
             onClick={(e) => e.stopPropagation()}
             aria-hidden="true"
           >
-            <button
-              type="button"
-              className="previous"
-              onClick={prevItem}
-              disabled={!hasPrevItem}
-            >
-              ← Prev
-            </button>
-            <button
-              type="button"
-              className="next"
-              onClick={nextItem}
-              disabled={!hasNextItem}
-            >
-              Next →
-            </button>
-
             <span
               className="close"
               onClick={closeModal}
