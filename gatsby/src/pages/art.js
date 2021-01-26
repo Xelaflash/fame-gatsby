@@ -9,21 +9,30 @@ import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
-import Modal from '../components/food/ArtImgModal';
+import ArtModal from '../components/food/ArtImgModal';
 import FamePeople from '../components/FamePeople';
 
 const ArtPageStyle = styled.div`
   /* Masonry grid */
   .art_gallery_grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
     transition: all 0.5s ease-in-out;
   }
+
+  @media (min-width: 812px) {
+    .art_gallery_grid {
+      grid-gap: 1rem;
+    }
+    .art_gallery_grid .gallery_brick:nth-child(5n) {
+      grid-column-end: span 2;
+    }
+  }
+
   /* Masonry item */
   .gallery_brick {
     position: relative;
-    margin: 5px;
     cursor: pointer;
     .art_img {
       box-shadow: 0px 15px 15px rgb(0, 0, 0, 0.4);
@@ -31,10 +40,6 @@ const ArtPageStyle = styled.div`
       width: 100%;
       height: 100%;
     }
-  }
-
-  .art_gallery_grid .gallery_brick:nth-child(5n) {
-    grid-column-end: span 2;
   }
 
   .overlay {
@@ -46,12 +51,15 @@ const ArtPageStyle = styled.div`
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: 0.5s ease;
+    transition: all 0.5s ease;
     background-color: var(--blueGrey);
+    border-radius: 4px;
+    visibility: hidden;
   }
 
   .gallery_brick:hover .overlay {
     opacity: 1;
+    visibility: visible;
   }
 
   .overlay_text {
@@ -203,7 +211,7 @@ export default function Art({ data }) {
                 </div>
               ))}
             </div>
-            <Modal
+            <ArtModal
               displayModal={showModal}
               closeModal={closeModal}
               activeItem={activeItem}

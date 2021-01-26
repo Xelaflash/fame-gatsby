@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import '../../styles/ArtImgModalStyles.scss';
 
-const Modal = (props) => {
+const ArtModal = (props) => {
   const { displayModal, activeItem, hasPrevItem, hasNextItem } = props;
 
   function closeModal(e) {
@@ -28,7 +28,7 @@ const Modal = (props) => {
       <>
         <div
           id="artModal"
-          className="modal"
+          // className="modal"
           onClick={closeModal}
           style={divStyle}
           onKeyPress={closeModal}
@@ -54,7 +54,7 @@ const Modal = (props) => {
             &#8250;
           </button>
           <div
-            className="modal-content"
+            className="artModal-content"
             onClick={(e) => e.stopPropagation()}
             aria-hidden="true"
           >
@@ -96,4 +96,4 @@ const Modal = (props) => {
   return <></>;
 };
 
-export default Modal;
+export default ArtModal;
