@@ -88,7 +88,7 @@ export default function FoodPage({ data }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="permaculture definition"
-                className="text-link"
+                className="underline_svg link_white"
               >
                 permaculture
               </a>{' '}
@@ -98,7 +98,7 @@ export default function FoodPage({ data }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Slow Food Barbados - Education gardens"
-                className="text-link"
+                className="underline_svg link_white"
               >
                 education gardens
               </a>{' '}
@@ -108,7 +108,7 @@ export default function FoodPage({ data }) {
             <a
               href="#"
               aria-label="Fame Weekly talk links - FOOD"
-              className="text-link"
+              className="underline_svg link_white"
             >
               Put link to weekly talk tagged Food
             </a>
@@ -128,7 +128,7 @@ export default function FoodPage({ data }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram - FAME"
-                className="text-link"
+                className="underline_svg link_white"
               >
                 Instagram
               </a>{' '}

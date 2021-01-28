@@ -68,7 +68,20 @@ export default function HomePage() {
 
   return (
     <>
-      <SEO title=" " />
+      <SEO
+        title=" "
+        keywords={[
+          'Fame',
+          'People',
+          'movement',
+          'festival',
+          'lifestyle',
+          'healthy',
+          'sustainable',
+          'Barbados',
+          'Bajan',
+        ]}
+      />
       <HomeLayout>
         <HomeStyles>
           <p id="intro_text">

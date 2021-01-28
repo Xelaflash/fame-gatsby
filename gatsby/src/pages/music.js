@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import { graphql } from 'gatsby';
 import { Container } from 'react-bootstrap';
 import SEO from '../components/SEO';
