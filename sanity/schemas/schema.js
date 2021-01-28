@@ -13,6 +13,7 @@ import recipe from './recipe';
 import artGallery from './artGallery';
 import charity from './charity';
 import environment from './environment';
+import festivalGallery from './festivalGallery';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -32,6 +33,7 @@ export default createSchema({
     artGallery,
     charity,
     environment,
+    festivalGallery,
   ]),
 });
 

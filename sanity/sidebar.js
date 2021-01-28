@@ -3,6 +3,7 @@ import { MdHome as iconHome, MdPalette as iconArt } from 'react-icons/md';
 import {
   FaCarrot as iconFood,
   FaRecycle as iconEnvironment,
+  FaGlassCheers as iconFestival,
 } from 'react-icons/fa';
 import { IoMdSettings as settingsIcon } from 'react-icons/io';
 
@@ -135,7 +136,7 @@ export default function sidebar() {
         .icon(iconEnvironment)
         .child(
           S.list()
-            .title('EnvironmentPage')
+            .title('Environment Page')
             .items([
               S.listItem()
                 .title('Environment page Images')
@@ -143,6 +144,24 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('environment').title(
                     'Images for the environment page'
+                  )
+                ),
+            ])
+        ),
+      // 6th
+      S.listItem()
+        .title('Festival Page')
+        .icon(iconFestival)
+        .child(
+          S.list()
+            .title('Festival Page')
+            .items([
+              S.listItem()
+                .title('Festival page Images')
+                .schemaType('festivalGallery')
+                .child(
+                  S.documentTypeList('festivalGallery').title(
+                    'Images for the festival Gallery'
                   )
                 ),
             ])
