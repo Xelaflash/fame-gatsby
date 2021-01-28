@@ -77,7 +77,7 @@ const ArtPageStyle = styled.div`
   }
 `;
 
-export default function Art({ data }) {
+export default function ArtPage({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const artGallery = data.artGalleryImgs.nodes;
 

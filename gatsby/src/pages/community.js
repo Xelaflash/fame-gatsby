@@ -1,9 +1,20 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import BrushStroke from '../components/BrushStroke';
 
-export default function community() {
+export default function CommunityPage() {
   return (
-    <>
-      <h1>community page</h1>
-    </>
+    <Layout>
+      <SEO
+        title="Community"
+        keywords={['people', 'fame', 'Barbados', 'community']}
+      />
+      <Container>
+        <h1 className="title">Community</h1>
+        <BrushStroke />
+      </Container>
+    </Layout>
   );
 }

@@ -21,7 +21,7 @@ const EnvironmentPageStyle = styled.div`
   }
 `;
 
-export default function environment({ data }) {
+export default function EnvironmentPage({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const innerEnvironmentImages = data.innerEnvironmentImgs.nodes;
   const outerEnvironmentImages = data.outerEnvironmentImgs.nodes;

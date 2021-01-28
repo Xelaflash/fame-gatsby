@@ -7,7 +7,7 @@ import HeroBanner from '../components/HeroBanner';
 import Layout from '../components/Layout';
 import FamePeople from '../components/FamePeople';
 
-export default function music({ data }) {
+export default function MusicPage({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   return (
     <Layout>

@@ -33,7 +33,7 @@ const FoodStyles = styled.div`
   }
 `;
 
-export default function Food({ data }) {
+export default function FoodPage({ data }) {
   const bannerImg = data.bannerImg.image.asset.fluid;
   const recipes = data.recipes.nodes;
   useEffect(() => {

@@ -113,7 +113,6 @@ const NavbarLinks = () => {
       }
     }
   `);
-  const url = typeof window !== 'undefined' ? window.location.pathname : '';
   return (
     <NavLinksStyles>
       <ul>
