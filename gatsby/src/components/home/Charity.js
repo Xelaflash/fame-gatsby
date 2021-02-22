@@ -50,7 +50,7 @@ const CharityStyles = styled.div`
     margin: 0 auto;
     padding: 0 0 10px;
     text-align: center;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
   }
   .charity-card-sub_title {
