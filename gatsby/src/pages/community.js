@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import BrushStroke from '../components/BrushStroke';
+import MemberIcon from '../components/community/memberIcon';
 
 const MembersPageStyles = styled.div`
   .team-grid {
@@ -16,7 +17,6 @@ const MembersPageStyles = styled.div`
     justify-items: center;
   }
   .team_member {
-    border: 1px solid var(--darkGrey);
     box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
     border-radius: 5px;
     height: 280px;
@@ -37,7 +37,10 @@ const MembersPageStyles = styled.div`
     transition: all 0.55s ease 0s;
   }
   .member-infos:hover .member_img {
-    opacity: 0.65;
+    opacity: 0.3;
+  }
+
+  .member-cat {
   }
   .member-infos .team-content {
     padding: 8px 12px 12px;
@@ -116,6 +119,7 @@ const MembersPageStyles = styled.div`
     color: var(--white);
     text-transform: capitalize;
   }
+
   @media only screen and (max-width: 990px) {
     .member-infos {
       margin-bottom: 30px;
@@ -133,22 +137,29 @@ export default function CommunityPage({ data }) {
           keywords={['people', 'fame', 'Barbados', 'community']}
         />
         <Container>
-          <h1 className="title">Community</h1>
+          <h1 className="title">Meet our Community</h1>
           <BrushStroke />
+          <p className="paragraphTexts">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quam
+            delectus error libero dolore sed! Accusamus corporis, tempora quos
+            ipsa totam fugiat amet saepe impedit asperiores? Ad quod tempore
+            tempora.
+          </p>
 
           <div className="team-grid">
-            {members.map((member) => (
-              <div className="team_member">
+            {members.map((member, index) => (
+              <div className="team_member" key={`${index}`}>
                 <div className="member-infos">
                   <Img
                     fixed={member.image.asset.fixed}
-                    alt={`${member.name} - F.A.M.E Community member`}
+                    alt="{member.name} - F.A.M.E Community member"
                     className="member_img"
                     imgStyle={{ objectFit: 'contain' }}
                     style={{ height: '100%', width: '100%' }}
                   />
                   <div className="team-content">
                     <h3 className="member-name">{member.name}</h3>
+                    <MemberIcon member={member} />
                     <span className="member-business">{member.business}</span>
                   </div>
                 </div>
