@@ -25,7 +25,49 @@ async function turnRecipesIntoPages({ graphql, actions }) {
     });
   });
 }
+async function turnCommunityMemberIntoPages({ graphql, actions }) {
+  const communityMemberTemplate = path.resolve(
+    './src/templates/CommunityMemberTemplate.js'
+  );
+  const { data } = await graphql(`
+    query {
+      commMembers: allSanityCommunityMember {
+        nodes {
+          name
+          business
+          biography
+          contactMedium
+          facebook
+          instagram
+          category {
+            category
+          }
+        }
+      }
+      image {
+        asset {
+          fluid(maxWidth: 1024) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+  `);
+  data.commMembers.nodes.forEach((commMember) => {
+    actions.createPage({
+      path: `/community/${commMember.slug.current}`,
+      component: communityMemberTemplate,
+
+      context: {
+        slug: commMember.slug.current,
+      },
+    });
+  });
+}
 
 export async function createPages(params) {
-  await Promise.all([turnRecipesIntoPages(params)]);
+  await Promise.all([
+    turnRecipesIntoPages(params),
+    turnCommunityMemberIntoPages(params),
+  ]);
 }

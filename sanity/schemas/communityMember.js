@@ -64,6 +64,15 @@ export default {
       to: [{ type: 'category' }],
       fieldset: 'communityMember',
     },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: '100',
+      },
+    },
   ],
   // Customize the preview field in sanity studio
   preview: {

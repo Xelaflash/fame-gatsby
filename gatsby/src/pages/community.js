@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Img from 'gatsby-image';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -30,11 +30,13 @@ const MembersPageStyles = styled.div`
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     position: relative;
+    border-radius: 5px;
   }
   .member-infos .member_img {
     width: 100%;
     height: auto;
     transition: all 0.55s ease 0s;
+    border-radius: 5px;
   }
   .member-infos:hover .member_img {
     opacity: 0.3;
@@ -148,22 +150,24 @@ export default function CommunityPage({ data }) {
 
           <div className="team-grid">
             {members.map((member, index) => (
-              <div className="team_member" key={`${index}`}>
-                <div className="member-infos">
-                  <Img
-                    fixed={member.image.asset.fixed}
-                    alt="{member.name} - F.A.M.E Community member"
-                    className="member_img"
-                    imgStyle={{ objectFit: 'contain' }}
-                    style={{ height: '100%', width: '100%' }}
-                  />
-                  <div className="team-content">
-                    <h3 className="member-name">{member.name}</h3>
-                    <MemberIcon member={member} />
-                    <span className="member-business">{member.business}</span>
+              <Link to={`/community/${member.slug.current}`}>
+                <div className="team_member" key={`${index}`}>
+                  <div className="member-infos">
+                    <Img
+                      fixed={member.image.asset.fixed}
+                      alt="{member.name} - F.A.M.E Community member"
+                      className="member_img"
+                      imgStyle={{ objectFit: 'contain' }}
+                      style={{ height: '100%', width: '100%' }}
+                    />
+                    <div className="team-content">
+                      <h3 className="member-name">{member.name}</h3>
+                      <MemberIcon member={member} />
+                      <span className="member-business">{member.business}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </Container>
@@ -184,6 +188,9 @@ export const query = graphql`
         instagram
         category {
           category
+        }
+        slug {
+          current
         }
         image {
           asset {
