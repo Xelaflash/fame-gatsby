@@ -34,20 +34,8 @@ async function turnCommunityMemberIntoPages({ graphql, actions }) {
       commMembers: allSanityCommunityMember {
         nodes {
           name
-          business
-          biography
-          contactMedium
-          facebook
-          instagram
-          category {
-            category
-          }
-        }
-      }
-      image {
-        asset {
-          fluid(maxWidth: 1024) {
-            ...GatsbySanityImageFluid
+          slug {
+            current
           }
         }
       }
