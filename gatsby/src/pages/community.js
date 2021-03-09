@@ -42,8 +42,6 @@ const MembersPageStyles = styled.div`
     opacity: 0.3;
   }
 
-  .member-cat {
-  }
   .member-infos .team-content {
     padding: 8px 12px 12px;
     min-width: 200px;
