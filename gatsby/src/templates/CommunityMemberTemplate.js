@@ -116,7 +116,7 @@ const MemberPageStyle = styled.div`
       justify-content: space-evenly;
     }
     .member_infos {
-      max-width: 85%;
+      max-width: 75%;
       margin: auto;
     }
   }
