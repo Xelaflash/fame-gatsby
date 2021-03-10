@@ -26,8 +26,14 @@ const StyledBackgroundSection = styled(HeroBanner)`
   h1 {
     color: var(--white);
     font-size: 8rem;
-    margin: 100px;
+    margin: 100px 0 100px 100px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  }
+  @media (max-width: 812px) {
+    h1 {
+      font-size: 5rem;
+      margin: 50px 0 50px 10px;
+    }
   }
 `;
 

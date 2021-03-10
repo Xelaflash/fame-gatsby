@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 const NavLinksStyles = styled.nav`
   text-transform: uppercase;
   ul {
-    padding: 0 10px;
+    padding: 0 17px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1rem;
@@ -52,7 +52,7 @@ const NavItem = styled(Link)`
   padding: 2px 8px;
   transition: all 200ms ease-in;
   font-family: var(--headings-font);
-  font-size: 2.2rem;
+  font-size: 2rem;
   letter-spacing: 2px;
   :hover {
     text-decoration: none;

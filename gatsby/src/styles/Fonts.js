@@ -58,6 +58,11 @@ const Typography = createGlobalStyle`
     font-size: 5.5rem;
     letter-spacing: 2px;
   }
+  @media (max-width: 812px) {
+    .title {
+      font-size: 3.5rem;
+    }
+  }
 `;
 
 export default Typography;

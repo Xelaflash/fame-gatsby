@@ -26,16 +26,16 @@ export default function FamePeople({ communityMembers, jobTitle }) {
         <BrushStroke />
         <div className="artist_list">
           {communityMembers.map((people, index) => (
-            <Link to={`/community/${people.slug.current}`}>
-              <div className="single_artist" key={`${index}-fame`}>
+            <div className="single_artist" key={`${index}-fame`}>
+              <Link to={`/community/${people.slug.current}`}>
                 <Img
                   fluid={people.image.asset.fluid}
                   alt={`${people.name} - F.A.M.E Community`}
                   className="avatar"
                 />
                 <p className="artist_name">{people.name}</p>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       </section>
