@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { AiOutlineClockCircle } from 'react-icons/ai';
@@ -97,12 +97,13 @@ export default function SingleRecipePage({ data: { recipe } }) {
           <h1 className="recipe_title centered">{recipe.name}</h1>
           <BrushStroke />
           <div className="recipe_creator centered">
-            {/* TODO: put link to creator card in community page */}
-            <Img
-              fluid={recipe.creator.image.asset.fluid}
-              alt={recipe.creator.name}
-              className="avatar"
-            />
+            <Link to={`/community/${recipe.creator.slug.current}`}>
+              <Img
+                fluid={recipe.creator.image.asset.fluid}
+                alt={recipe.creator.name}
+                className="avatar"
+              />
+            </Link>
             By {recipe.creator.name}
           </div>
           <div className="recipe_header centered" id="single_recipe">
@@ -149,16 +150,16 @@ export default function SingleRecipePage({ data: { recipe } }) {
           <div className="recipe_ingredients">
             <h4>Ingredients</h4>
             <ul>
-              {recipe.ingredients.map((ingredient) => (
-                <li>{ingredient}</li>
+              {recipe.ingredients.map((ingredient, index) => (
+                <li key={index}>{ingredient}</li>
               ))}
             </ul>
           </div>
           <div className="recipe_steps">
             <h4>Preparation</h4>
             <ul>
-              {recipe.recipeSteps.map((step) => (
-                <li>{step}</li>
+              {recipe.recipeSteps.map((step, index) => (
+                <li key={index}>{step}</li>
               ))}
             </ul>
           </div>
@@ -181,6 +182,9 @@ export const query = graphql`
       recipeSteps
       creator {
         name
+        slug {
+          current
+        }
         image {
           asset {
             fluid(maxHeight: 600) {

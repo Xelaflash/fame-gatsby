@@ -9,7 +9,7 @@ import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 import BrushStroke from '../components/BrushStroke';
 import Quote from '../components/home/Quote';
-import ArtModal from '../components/food/ArtImgModal';
+import ArtModal from '../components/art/ArtImgModal';
 import FamePeople from '../components/FamePeople';
 
 const ArtPageStyle = styled.div`
@@ -252,6 +252,9 @@ export const query = graphql`
         artDescription
         artist {
           name
+          slug {
+            current
+          }
           image {
             asset {
               fluid(maxWidth: 300) {
@@ -286,6 +289,9 @@ export const query = graphql`
     ) {
       nodes {
         name
+        slug {
+          current
+        }
         image {
           asset {
             fluid(maxWidth: 300) {

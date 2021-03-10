@@ -1,6 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import '../../styles/ArtImgModalStyles.scss';
+import { Link } from 'gatsby';
 
 const ArtModal = (props) => {
   const { displayModal, activeItem, hasPrevItem, hasNextItem } = props;
@@ -69,15 +70,16 @@ const ArtModal = (props) => {
             </span>
             <h3 className="artwork_title">{activeItem.name}</h3>
             <div className="artist_credit">
-              {/* TODO: put link to creator card in community page */}
-              <span>{activeItem.artist.name}</span>
-              <div className="avatar-small-container">
-                <Img
-                  fluid={activeItem.artist.image.asset.fluid}
-                  alt={`${activeItem.artist.name} - F.A.M.E Artist`}
-                  className="avatar-small"
-                />
-              </div>
+              <Link to={`/community/${activeItem.artist.slug.current}`}>
+                <span>{activeItem.artist.name}</span>
+                <div className="avatar-small-container">
+                  <Img
+                    fluid={activeItem.artist.image.asset.fluid}
+                    alt={`${activeItem.artist.name} - F.A.M.E Artist`}
+                    className="avatar-small"
+                  />
+                </div>
+              </Link>
             </div>
             <div className="artwork-container">
               <Img

@@ -45,6 +45,9 @@ const RecipeStyles = styled.div`
   }
   .recipe_card_content {
     padding: 20px;
+    .chef_link:hover {
+      text-decoration: underline;
+    }
     h4 {
       font-size: 2.3rem;
       font-family: var(--body-font);
@@ -93,8 +96,12 @@ function SingleRecipe({ recipe }) {
       />
       <div className="recipe_card_content">
         <h4>{recipe.name}</h4>
-        {/* TODO: put link to creator card in community page */}
-        <span className="creator_name">{recipe.creator.name}</span>
+        <Link
+          to={`/community/${recipe.creator.slug.current}`}
+          className="chef_link"
+        >
+          <span className="creator_name">{recipe.creator.name}</span>
+        </Link>
         <hr className="separator_grey" />
         <div className="recipe_header">
           <div className="recipe_details_items">

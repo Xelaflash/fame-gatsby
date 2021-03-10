@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import BrushStroke from './BrushStroke';
 
 const FamePeopleStyles = styled.div`
@@ -24,16 +25,17 @@ export default function FamePeople({ communityMembers, jobTitle }) {
         <h2 className="title">Fame community {jobTitle}</h2>
         <BrushStroke />
         <div className="artist_list">
-          {/* TODO: put link to creator card in community page */}
           {communityMembers.map((people, index) => (
-            <div className="single_artist" key={`${index}-fame`}>
-              <Img
-                fluid={people.image.asset.fluid}
-                alt={`${people.name} - F.A.M.E Community`}
-                className="avatar"
-              />
-              <p className="artist_name">{people.name}</p>
-            </div>
+            <Link to={`/community/${people.slug.current}`}>
+              <div className="single_artist" key={`${index}-fame`}>
+                <Img
+                  fluid={people.image.asset.fluid}
+                  alt={`${people.name} - F.A.M.E Community`}
+                  className="avatar"
+                />
+                <p className="artist_name">{people.name}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

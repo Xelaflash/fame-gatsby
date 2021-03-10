@@ -64,9 +64,11 @@
   margin: 10px auto;
   font-size: 17px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   span {
     color: #484848;
     transition: all 0.3s;

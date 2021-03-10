@@ -76,6 +76,9 @@ export const query = graphql`
     ) {
       nodes {
         name
+        slug {
+          current
+        }
         image {
           asset {
             fluid(maxWidth: 300) {
