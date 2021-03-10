@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { Container } from 'react-bootstrap';
 import { FaFacebookSquare, FaInstagram } from 'react-icons/fa';
+import BlockContent from '@sanity/block-content-to-react';
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import BrushStroke from '../components/BrushStroke';
@@ -19,12 +20,6 @@ const MemberPageStyle = styled.div`
   }
   .member_wrapper {
     position: relative;
-  }
-
-  .member_flex-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
   }
 
   .member_cat {
@@ -53,6 +48,7 @@ const MemberPageStyle = styled.div`
     font-weight: lighter;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    max-width: 320px;
   }
 
   .member_pic-wrapper {
@@ -106,12 +102,22 @@ const MemberPageStyle = styled.div`
     p {
       font-size: 18px;
       line-height: 1.7;
-      max-width: 83%;
       margin: 20px auto;
     }
     span {
       font-weight: bold;
       text-decoration: underline;
+    }
+  }
+  @media (min-width: 812px) {
+    .member_flex-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .member_infos {
+      max-width: 85%;
+      margin: auto;
     }
   }
 `;
@@ -169,7 +175,7 @@ export default function SingleCommunityMemberPage({ data: { member } }) {
               </div>
             </div>
             <div className="member_infos">
-              <p className="member_bio">{member.biography}</p>
+              <BlockContent blocks={member._rawBiography} />
               <p>
                 <span>Contact</span>: {member.contactMedium}
               </p>
@@ -187,9 +193,11 @@ export const query = graphql`
     member: sanityCommunityMember(slug: { current: { eq: $slug } }) {
       id
       name
-      biography
       business
       contactMedium
+
+      _rawBiography
+
       facebook
       instagram
       category {

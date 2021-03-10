@@ -36,7 +36,8 @@ export default {
     {
       name: 'biography',
       title: 'Member Bio',
-      type: 'text',
+      type: 'array',
+      of: [{ type: 'block' }],
       fieldset: 'communityMember',
     },
     {

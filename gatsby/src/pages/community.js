@@ -179,11 +179,7 @@ export const query = graphql`
     communityMembers: allSanityCommunityMember {
       nodes {
         name
-        biography
         business
-        contactMedium
-        facebook
-        instagram
         category {
           category
         }
