@@ -6,7 +6,7 @@ import {
   FaGlassCheers as iconFestival,
 } from 'react-icons/fa';
 import { IoMdSettings as settingsIcon } from 'react-icons/io';
-
+import { BsPersonSquare as aboutIcon } from 'react-icons/bs';
 //  Build a custom sidebar
 export default function sidebar() {
   return S.list()
@@ -162,6 +162,24 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('festivalGallery').title(
                     'Images for the festival Gallery'
+                  )
+                ),
+            ])
+        ),
+      // 7th item
+      S.listItem()
+        .title('About_us Page')
+        .icon(aboutIcon)
+        .child(
+          S.list()
+            .title('About us')
+            .items([
+              S.listItem()
+                .title('About_us page datas')
+                .schemaType('aboutPage')
+                .child(
+                  S.documentTypeList('aboutPage').title(
+                    'Founders and team datas for about us page'
                   )
                 ),
             ])

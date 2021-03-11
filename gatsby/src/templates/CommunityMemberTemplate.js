@@ -195,9 +195,7 @@ export const query = graphql`
       name
       business
       contactMedium
-
       _rawBiography
-
       facebook
       instagram
       category {
