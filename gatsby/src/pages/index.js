@@ -17,7 +17,6 @@ const HomeStyles = styled.div`
     border-radius: 5px;
     box-shadow: 7px 5px 15px 0px rgba(0, 0, 0, 0.5);
     margin: 60px auto;
-    max-width: 75%;
   }
   #intro_text {
     max-width: 90%;
@@ -44,6 +43,11 @@ const HomeStyles = styled.div`
     }
     a {
       color: white;
+    }
+  }
+  @media (min-width: 812px) {
+    .video {
+      max-width: 75%;
     }
   }
 `;

@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: transparent;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   fieldset {
@@ -83,7 +83,9 @@ const GlobalStyles = createGlobalStyle`
   }
   .paragraphTexts {
     margin: 40px auto 20px auto;
-    width: 80%;
+    width: 85%;
+    line-height: 1.8;
+    letter-spacing: 0.6px;
   }
   .underline_svg {
     position: relative;

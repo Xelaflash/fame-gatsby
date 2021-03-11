@@ -55,12 +55,12 @@ const Typography = createGlobalStyle`
     color: var(--white);
     text-align: center;
     margin: 60px auto -5px auto;
-    font-size: 5.5rem;
+    font-size: 5rem;
     letter-spacing: 2px;
   }
   @media (max-width: 812px) {
     .title {
-      font-size: 3.5rem;
+      font-size: 3rem;
     }
   }
 `;
