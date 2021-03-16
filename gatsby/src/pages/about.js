@@ -10,90 +10,55 @@ import BrushStroke from '../components/BrushStroke';
 
 const AboutStyles = styled.div`
   .about {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 40px auto;
-  }
-  .timeline {
-    position: relative;
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 15px 0;
+    margin: 60px auto 80px;
+    width: 85%;
   }
 
-  .timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background: white;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
+  .about_intro {
+    position: relative;
   }
 
   .single-founder {
-    border: 1px solid red;
-    width: 550px;
-    padding: 15px 30px;
-    position: relative;
+    margin: 20px 0 60px 0;
+
     h2 {
-      font-size: 3rem;
+      font-size: 4rem;
       color: white;
       text-align: center;
       text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
     }
   }
 
-  .single-founder:nth-child(1) {
-    left: -50px;
-  }
-
-  .single-founder:nth-child(2) {
-    left: 50px;
-  }
-
-  .single-founder::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: calc(50% - 8px);
-    right: -8px;
-    background: #ffffff;
-    border: 2px solid #006e51;
-    border-radius: 16px;
-    z-index: 1;
-  }
-
-  .single-founder:nth-child(2)::after {
-    left: -8px;
-  }
-
-  .single-founder::before {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 2px;
-    top: calc(50% - 1px);
-    right: 8px;
-    background: #006e51;
-    z-index: 1;
-  }
-
-  .single-founder:nth-child(2)::before {
-    left: 8px;
-  }
-
   .founder-pic-wrapper {
     margin: 10px auto;
     text-align: center;
   }
-  .founders-infos {
+  .founder-infos {
+    width: 85%;
+    margin: 0 auto 60px auto;
     p {
-      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 0.6px;
+    }
+  }
+  .separator-gradient {
+    height: 6px;
+    position: relative;
+    width: 60%;
+    margin: 20px auto 0;
+    background: radial-gradient(
+      ellipse farthest-side at top center,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+  }
+  @media (max-width: 812px) {
+    .founder-infos {
+      width: 100%;
+      text-align: justify;
+    }
+    .separator-gradient {
+      width: 95%;
     }
   }
 `;
@@ -108,20 +73,23 @@ export default function AboutPage({ data }) {
         <Container>
           <h1 className="title">About Us</h1>
           <BrushStroke />
-          <p className="paragraphTexts">
-            The project gathers two main people at the origin of this project
-            Margit living in Barbados and Badu a french moroccan music promoter
-            who felt in love with the island, the people and its culture..{' '}
-            <br />
-            Many locals & foreigners professionals joined the project and are
-            helping to make it possible (radios, businesses, restaurants,
-            marketing directors, stage managers...). <br />
-            At the beginning it all started because of their love for the
-            island, for the culture, and the international melting pot they
-            found there and their love for the local Art. For the first edition
-            they want to do an entire day and night, looking for the next
-            editions to be longer.
-          </p>
+          <div className="about">
+            <p className="paragraphTexts">
+              The project gathers two main people at the origin of this project
+              Margit living in Barbados and Badu a french moroccan music
+              promoter who felt in love with the island, the people and its
+              culture.. <br />
+              Many locals & foreigners professionals joined the project and are
+              helping to make it possible (radios, businesses, restaurants,
+              marketing directors, stage managers...). <br />
+              At the beginning it all started because of their love for the
+              island, for the culture, and the international melting pot they
+              found there and their love for the local Art. For the first
+              edition they want to do an entire day and night, looking for the
+              next editions to be longer.
+            </p>
+          </div>
+          <div className="separator-gradient" />
           <section className="about timeline">
             {founders.map((founder, index) => (
               <div className="single-founder" key={index}>
@@ -137,6 +105,7 @@ export default function AboutPage({ data }) {
                   blocks={founder._rawDescriptionText}
                   className="founder-infos"
                 />
+              <div className="separator-gradient"></div>
               </div>
             ))}
           </section>

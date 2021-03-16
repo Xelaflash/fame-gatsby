@@ -19,6 +19,11 @@ const EnvironmentPageStyle = styled.div`
     box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.5);
     margin: 10px auto;
   }
+  @media (max-width: 812px) {
+    #environmentalists {
+      font-size: 3.7rem;
+    }
+  }
 `;
 
 export default function EnvironmentPage({ data }) {

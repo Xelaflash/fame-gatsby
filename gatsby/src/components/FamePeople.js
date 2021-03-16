@@ -22,7 +22,9 @@ export default function FamePeople({ communityMembers, jobTitle }) {
   return (
     <FamePeopleStyles>
       <section className="artists">
-        <h2 className="title">Fame community {jobTitle}</h2>
+        <h2 className="title" id={jobTitle}>
+          Fame community {jobTitle}
+        </h2>
         <BrushStroke />
         <div className="artist_list">
           {communityMembers.map((people, index) => (

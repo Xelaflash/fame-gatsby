@@ -38,21 +38,6 @@ const GlobalStyles = createGlobalStyle`
     border-width: 1px;
   }
 
-  /* button {
-    background: var(--red);
-    color: white;
-    border: 0;
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
-    cursor: pointer;
-    --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--grey);
-    text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
-    transition: all 0.2s;
-    &:hover {
-      --cast: 4px;
-    }
-  } */
   .gatsby-image-wrapper img[src*=base64\\,] {
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
@@ -81,12 +66,14 @@ const GlobalStyles = createGlobalStyle`
     margin: 40px auto;
     display:block;
   }
+
   .paragraphTexts {
     margin: 40px auto 20px auto;
     width: 85%;
     line-height: 1.8;
     letter-spacing: 0.6px;
   }
+
   .underline_svg {
     position: relative;
     margin-left: 5px;
@@ -165,7 +152,13 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   /* End gallery grid */
-
+  @media (max-width: 812px) {
+    .paragraphTexts {
+    /* margin: 40px auto 20px auto; */
+      width: 100%;
+      text-align: justify;
+    }
+  }
 `;
 
 export default GlobalStyles;

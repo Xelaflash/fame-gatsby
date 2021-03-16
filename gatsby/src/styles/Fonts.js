@@ -60,7 +60,7 @@ const Typography = createGlobalStyle`
   }
   @media (max-width: 812px) {
     .title {
-      font-size: 3rem;
+      font-size: 4rem;
     }
   }
 `;
