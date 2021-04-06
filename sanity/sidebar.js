@@ -6,7 +6,11 @@ import {
   FaGlassCheers as iconFestival,
 } from 'react-icons/fa';
 import { IoMdSettings as settingsIcon } from 'react-icons/io';
-import { BsPersonSquare as aboutIcon } from 'react-icons/bs';
+import {
+  BsPersonSquare as aboutIcon,
+  BsFillChatSquareQuoteFill as weeklyIcon,
+} from 'react-icons/bs';
+
 //  Build a custom sidebar
 export default function sidebar() {
   return S.list()
@@ -180,6 +184,24 @@ export default function sidebar() {
                 .child(
                   S.documentTypeList('aboutPage').title(
                     'Founders and team datas for about us page'
+                  )
+                ),
+            ])
+        ),
+      // 8th item
+      S.listItem()
+        .title('Weekly Talk Page')
+        .icon(weeklyIcon)
+        .child(
+          S.list()
+            .title('Weekly Talk Page')
+            .items([
+              S.listItem()
+                .title('Talks data')
+                .schemaType('weeklyTalkPage')
+                .child(
+                  S.documentTypeList('weeklyTalkPage').title(
+                    'Fame Weekly Talks'
                   )
                 ),
             ])

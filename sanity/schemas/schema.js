@@ -15,6 +15,7 @@ import charity from './charity';
 import environment from './environment';
 import festivalGallery from './festivalGallery';
 import aboutPage from './about';
+import weeklyTalkPage from './weeklyTalks';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -36,6 +37,7 @@ export default createSchema({
     environment,
     festivalGallery,
     aboutPage,
+    weeklyTalkPage,
   ]),
 });
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import BlockContent from '@sanity/block-content-to-react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import BrushStroke from '../components/BrushStroke';
@@ -15,7 +18,8 @@ const WeeklyStyles = styled.div`
   }
 `;
 
-export default function WeeklyTalkPage() {
+export default function WeeklyTalkPage({ data }) {
+  const talks = data.talks.nodes;
   return (
     <Layout>
       <WeeklyStyles>
@@ -75,8 +79,57 @@ export default function WeeklyTalkPage() {
               brings you further in life ?
             </p>
           </div>
+          <div className="talks">
+            <h2 className="title">The talks</h2>
+            <BrushStroke />
+            <div className="talks-cards">
+              {talks.map((talk, index) => (
+                <div className="single-talk" key={index}>
+                  <h2>{talk.talkTitle}</h2>
+                  <div className="talk-pic-wrapper">
+                    <Img
+                      fixed={talk.image.asset.fixed}
+                      alt={`${talk.talkTitle} - F.A.M.E Weekly Talk`}
+                      className=""
+                    />
+                  </div>
+                  <BlockContent
+                    blocks={talk._rawDescriptionText}
+                    className="talk-infos"
+                  />
+                  <a
+                    href={talk.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline_svg link_white"
+                  >
+                    Go to the talk
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </WeeklyStyles>
     </Layout>
   );
 }
+
+export const query = graphql`
+  query {
+    talks: allSanityWeeklyTalkPage {
+      nodes {
+        talkTitle
+        _rawDescriptionText
+        link
+        image {
+          asset {
+            fixed(width: 450, height: 450) {
+              ...GatsbySanityImageFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`;
