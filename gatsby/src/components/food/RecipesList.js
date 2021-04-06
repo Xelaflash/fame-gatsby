@@ -28,13 +28,19 @@ const RecipesGridStyles = styled.div`
   .slick-next:before {
     font-size: 30px;
   }
+
+  @media (max-width: 660px) {
+    .slick-arrow {
+      display: none !important;
+    }
+  }
 `;
 
 const RecipeStyles = styled.div`
   margin: 20px auto;
   width: 320px;
   background: var(--white);
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3); */
   border-radius: 4px;
 
   .recipe_pic {
@@ -89,56 +95,58 @@ const RecipeStyles = styled.div`
 function SingleRecipe({ recipe }) {
   return (
     <RecipeStyles>
-      <Img
-        fluid={recipe.image.asset.fluid}
-        alt={recipe.name}
-        className="recipe_pic"
-      />
-      <div className="recipe_card_content">
-        <h4>{recipe.name}</h4>
-        <Link
-          to={`/community/${recipe.creator.slug.current}`}
-          className="chef_link"
-        >
-          <span className="creator_name">{recipe.creator.name}</span>
-        </Link>
-        <hr className="separator_grey" />
-        <div className="recipe_header">
-          <div className="recipe_details_items">
-            <div className="recipe_details_items_top">
-              <AiOutlineClockCircle
-                size="25px"
-                style={{ marginRight: '10px', marginTop: '-8px' }}
-              />
-              <span className="value">{recipe.prepTime}</span>
+      <div className="food-card">
+        <Img
+          fluid={recipe.image.asset.fluid}
+          alt={recipe.name}
+          className="recipe_pic"
+        />
+        <div className="recipe_card_content">
+          <h4>{recipe.name}</h4>
+          <Link
+            to={`/community/${recipe.creator.slug.current}`}
+            className="chef_link"
+          >
+            <span className="creator_name">{recipe.creator.name}</span>
+          </Link>
+          <hr className="separator_grey" />
+          <div className="recipe_header">
+            <div className="recipe_details_items">
+              <div className="recipe_details_items_top">
+                <AiOutlineClockCircle
+                  size="25px"
+                  style={{ marginRight: '10px', marginTop: '-8px' }}
+                />
+                <span className="value">{recipe.prepTime}</span>
+              </div>
+              <p className="unit">Minutes</p>
             </div>
-            <p className="unit">Minutes</p>
-          </div>
-          <div className="recipe_details_items">
-            <div className="recipe_details_items_top">
-              <BsBook
-                size="25px"
-                style={{ marginRight: '10px', marginTop: '-8px' }}
-              />
-              <span className="value">{recipe.ingredients.length}</span>
+            <div className="recipe_details_items">
+              <div className="recipe_details_items_top">
+                <BsBook
+                  size="25px"
+                  style={{ marginRight: '10px', marginTop: '-8px' }}
+                />
+                <span className="value">{recipe.ingredients.length}</span>
+              </div>
+              <p className="unit">Ingredients</p>
             </div>
-            <p className="unit">Ingredients</p>
-          </div>
-          <div className="recipe_details_items">
-            <div className="recipe_details_items_top">
-              <MdPersonOutline
-                size="25px"
-                style={{ marginRight: '10px', marginTop: '-8px' }}
-              />
-              <span className="value">{recipe.servings}</span>
+            <div className="recipe_details_items">
+              <div className="recipe_details_items_top">
+                <MdPersonOutline
+                  size="25px"
+                  style={{ marginRight: '10px', marginTop: '-8px' }}
+                />
+                <span className="value">{recipe.servings}</span>
+              </div>
+              <p className="unit">Servings</p>
             </div>
-            <p className="unit">Servings</p>
           </div>
-        </div>
-        <div className="recipe_link">
-          <button type="button" className="recipe_button">
-            <Link to={`/food/${recipe.slug.current}`}>View recipe</Link>
-          </button>
+          <div className="recipe_link">
+            <button type="button" className="recipe_button">
+              <Link to={`/food/${recipe.slug.current}`}>View recipe</Link>
+            </button>
+          </div>
         </div>
       </div>
     </RecipeStyles>
@@ -155,7 +163,8 @@ export default function RecipeSlider({ recipes }) {
     lazyLoad: true,
     initialSlide: 0,
     swipeToSlide: true,
-    centerMode: true,
+    // className: 'center',
+    // centerMode: true,
     responsive: [
       {
         breakpoint: 1200,
