@@ -29,19 +29,24 @@ const RecipesGridStyles = styled.div`
     font-size: 30px;
   }
 
-  @media (max-width: 660px) {
-    .slick-arrow {
-      display: none !important;
+  @media (max-width: 812px) {
+    .slick-prev {
+      left: -10px;
+    }
+    .slick-next {
+      right: 0;
     }
   }
 `;
 
 const RecipeStyles = styled.div`
-  margin: 20px auto;
-  width: 320px;
-  background: var(--white);
-  /* box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3); */
-  border-radius: 4px;
+  .food-card {
+    margin: 20px auto;
+    width: 320px;
+    background: var(--white);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
 
   .recipe_pic {
     height: 200px;
@@ -90,6 +95,17 @@ const RecipeStyles = styled.div`
       }
     }
   }
+  @media (max-width: 768px) {
+    .food-card {
+      width: 280px;
+    }
+    .unit {
+      font-size: 12px;
+    }
+    .value {
+      font-size: 18px;
+    }
+  }
 `;
 
 function SingleRecipe({ recipe }) {
@@ -114,8 +130,8 @@ function SingleRecipe({ recipe }) {
             <div className="recipe_details_items">
               <div className="recipe_details_items_top">
                 <AiOutlineClockCircle
-                  size="25px"
-                  style={{ marginRight: '10px', marginTop: '-8px' }}
+                  size="20px"
+                  style={{ marginRight: '10px', marginTop: '-4px' }}
                 />
                 <span className="value">{recipe.prepTime}</span>
               </div>
@@ -124,8 +140,8 @@ function SingleRecipe({ recipe }) {
             <div className="recipe_details_items">
               <div className="recipe_details_items_top">
                 <BsBook
-                  size="25px"
-                  style={{ marginRight: '10px', marginTop: '-8px' }}
+                  size="20px"
+                  style={{ marginRight: '10px', marginTop: '-4px' }}
                 />
                 <span className="value">{recipe.ingredients.length}</span>
               </div>
@@ -134,8 +150,8 @@ function SingleRecipe({ recipe }) {
             <div className="recipe_details_items">
               <div className="recipe_details_items_top">
                 <MdPersonOutline
-                  size="25px"
-                  style={{ marginRight: '10px', marginTop: '-8px' }}
+                  size="20px"
+                  style={{ marginRight: '10px', marginTop: '-4px' }}
                 />
                 <span className="value">{recipe.servings}</span>
               </div>
@@ -163,8 +179,6 @@ export default function RecipeSlider({ recipes }) {
     lazyLoad: true,
     initialSlide: 0,
     swipeToSlide: true,
-    // className: 'center',
-    // centerMode: true,
     responsive: [
       {
         breakpoint: 1200,
