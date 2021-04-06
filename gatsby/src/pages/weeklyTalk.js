@@ -16,6 +16,51 @@ const WeeklyStyles = styled.div`
     color: #dedede;
     letter-spacing: 1px;
   }
+
+  .talks-cards {
+    width: fit-content;
+    margin: auto;
+  }
+
+  .single-talk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px auto;
+    box-shadow: 1px 1px 12px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+  }
+  .talk-pic-wrapper {
+    height: 500px;
+  }
+
+  .talk-infos-wrapper {
+    background: white;
+    height: 500px;
+    padding: 20px 40px;
+    overflow-y: scroll;
+    font-size: 14px;
+    width: 375px;
+  }
+
+  .link-wrapper {
+    margin: 30px auto 10px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .talk-link {
+    border: 1px solid var(--darkGrey);
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 20px auto;
+    text-align: center;
+    transition: all 0.5s;
+    &:hover {
+      background: var(--darkGrey);
+      color: white;
+    }
+  }
 `;
 
 export default function WeeklyTalkPage({ data }) {
@@ -85,7 +130,6 @@ export default function WeeklyTalkPage({ data }) {
             <div className="talks-cards">
               {talks.map((talk, index) => (
                 <div className="single-talk" key={index}>
-                  <h2>{talk.talkTitle}</h2>
                   <div className="talk-pic-wrapper">
                     <Img
                       fixed={talk.image.asset.fixed}
@@ -93,18 +137,23 @@ export default function WeeklyTalkPage({ data }) {
                       className=""
                     />
                   </div>
-                  <BlockContent
-                    blocks={talk._rawDescriptionText}
-                    className="talk-infos"
-                  />
-                  <a
-                    href={talk.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline_svg link_white"
-                  >
-                    Go to the talk
-                  </a>
+                  <div className="talk-infos-wrapper">
+                    {/* <h2>{talk.talkTitle}</h2> */}
+                    <BlockContent
+                      blocks={talk._rawDescriptionText}
+                      className="talk-infos"
+                    />
+                    <div className="link-wrapper">
+                      <a
+                        href={talk.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="talk-link"
+                      >
+                        Go to the talk
+                      </a>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -124,7 +173,7 @@ export const query = graphql`
         link
         image {
           asset {
-            fixed(width: 450, height: 450) {
+            fixed(height: 500) {
               ...GatsbySanityImageFixed
             }
           }
