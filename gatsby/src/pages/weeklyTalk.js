@@ -32,6 +32,7 @@ const WeeklyStyles = styled.div`
   }
   .talk-pic-wrapper {
     height: 500px;
+    width: 400px;
   }
 
   .talk-infos-wrapper {
@@ -59,6 +60,20 @@ const WeeklyStyles = styled.div`
     &:hover {
       background: var(--darkGrey);
       color: white;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .talk-pic-wrapper {
+      height: 100%;
+      width: 325px;
+    }
+    .single-talk {
+      display: block;
+    }
+    .talk-infos-wrapper {
+      height: 250px;
+      width: 325px;
     }
   }
 `;
@@ -131,11 +146,17 @@ export default function WeeklyTalkPage({ data }) {
               {talks.map((talk, index) => (
                 <div className="single-talk" key={index}>
                   <div className="talk-pic-wrapper">
-                    <Img
-                      fixed={talk.image.asset.fixed}
-                      alt={`${talk.talkTitle} - F.A.M.E Weekly Talk`}
-                      className=""
-                    />
+                    <a
+                      href={talk.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Img
+                        fluid={talk.image.asset.fluid}
+                        alt={`${talk.talkTitle} - F.A.M.E Weekly Talk`}
+                        className=""
+                      />
+                    </a>
                   </div>
                   <div className="talk-infos-wrapper">
                     {/* <h2>{talk.talkTitle}</h2> */}
@@ -173,8 +194,8 @@ export const query = graphql`
         link
         image {
           asset {
-            fixed(height: 500) {
-              ...GatsbySanityImageFixed
+            fluid(maxHeight: 500, maxWidth: 400) {
+              ...GatsbySanityImageFluid
             }
           }
         }
