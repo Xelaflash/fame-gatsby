@@ -91,7 +91,7 @@ export default function WeeklyTalkPage({ data }) {
           <h1 className="title">F.A.M.E. Weekly Talk</h1>
           <h3 className="subtitle">A POSITIVE CHANNEL TO PROMOTE & INFORM</h3>
           <BrushStroke />
-          <div className="wrapper">
+          <div className="weekly-text-wrapper">
             <p className="paragraphTexts">
               Every Sunday evening we invite guests on our{' '}
               <a

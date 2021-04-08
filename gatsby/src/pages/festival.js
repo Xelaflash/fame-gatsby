@@ -54,7 +54,7 @@ export default function FestivalPage() {
         <Container>
           <h1 className="title">Festival</h1>
           <BrushStroke />
-          <div className="wrapper">
+          <div className="festival--text-wrapper">
             <p className="paragraphTexts">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
               eos, laborum veniam neque deserunt dignissimos est unde ducimus

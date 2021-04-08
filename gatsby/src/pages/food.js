@@ -105,13 +105,13 @@ export default function FoodPage({ data }) {
               to reconnect children with food.
             </p>
             <div className="food_vid_wrapper">video to come here</div>
-            <a
+            {/* <a
               href="#"
               aria-label="Fame Weekly talk links - FOOD"
               className="underline_svg link_white"
             >
               Put link to weekly talk tagged Food
-            </a>
+            </a> */}
           </section>
           <section className="preparing">
             <h2 className="title">Preparing</h2>
