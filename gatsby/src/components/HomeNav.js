@@ -23,7 +23,7 @@ const LogoWrap = styled.div`
 `;
 
 const Logo = () => {
-  const data = useStaticQuery(graphql`
+  const dataHomeNav = useStaticQuery(graphql`
     query {
       file(name: { eq: "logo-text" }, extension: { eq: "png" }) {
         childImageSharp {
@@ -38,9 +38,9 @@ const Logo = () => {
   return (
     <LogoWrap>
       <Img
-        fluid={data.file.childImageSharp.fluid}
-        alt="FAME logo"
+        fluid={dataHomeNav.file.childImageSharp.fluid}
         imgStyle={{ objectFit: 'contain' }}
+        alt="logo"
       />
     </LogoWrap>
   );

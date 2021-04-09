@@ -39,6 +39,7 @@ export default {
       options: {
         projectId: 'tcfn9cxr',
         dataset: 'production',
+        apiVersion: '2021-04-09',
         // below permits to update gatsby on dev mode without doing a rebuild
         watchMode: true,
         token: process.env.SANITY_TOKEN,

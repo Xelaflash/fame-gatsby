@@ -148,8 +148,8 @@ export default function CommunityPage({ data }) {
 
           <div className="team-grid">
             {members.map((member, index) => (
-              <Link to={`/community/${member.slug.current}`}>
-                <div className="team_member" key={`${index}`}>
+              <Link to={`/community/${member.slug.current}`} key={`${index}`}>
+                <div className="team_member">
                   <div className="member-infos">
                     <Img
                       fixed={member.image.asset.fixed}
