@@ -1,14 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
-import font from '../assets/fonts/northen.ttf';
+import font from '../assets/fonts/NORTHEN.woff2';
+import font2 from '../assets/fonts/NORTHEN.woff';
 
 const Typography = createGlobalStyle`
   @font-face {
-    font-family: northen;
-    src: url(${font});
+    font-family: NORTHEN;
+    src: url(${font}) format('woff2'),
+    url(${font2}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
 
+
   :root {
-    --headings-font: "northen", Helvetica, Arial, sans-serif;
+    --headings-font: "NORTHEN", Helvetica, Arial, sans-serif;
     --body-font: 'Open Sans', sans-serif;
   }
 
