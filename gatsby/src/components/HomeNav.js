@@ -39,7 +39,7 @@ const Logo = () => {
     <LogoWrap>
       <Img
         fluid={data.file.childImageSharp.fluid}
-        alt="logo"
+        alt="FAME logo"
         imgStyle={{ objectFit: 'contain' }}
       />
     </LogoWrap>
