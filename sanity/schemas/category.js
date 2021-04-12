@@ -12,6 +12,7 @@ export default {
       name: 'category',
       title: 'Category Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

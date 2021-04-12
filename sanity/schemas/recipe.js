@@ -10,6 +10,7 @@ export default {
       name: 'name',
       title: 'Recipe Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -18,35 +19,41 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'servings',
       title: 'Number of people',
       type: 'number',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'prepTime',
       title: 'Preparation Time',
       description: 'in minutes',
       type: 'number',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'ingredients',
       title: 'Ingredients & doses',
       type: 'array',
       of: [{ type: 'string' }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'recipeSteps',
       title: 'Recipe Steps',
       type: 'array',
       of: [{ type: 'string' }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'creator',
       title: 'Creator of the recipe',
       type: 'reference',
       to: [{ type: 'communityMember' }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -56,6 +63,7 @@ export default {
         source: 'name',
         maxLength: '100',
       },
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

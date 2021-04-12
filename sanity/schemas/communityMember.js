@@ -16,6 +16,7 @@ export default {
       title: 'Member Name',
       type: 'string',
       fieldset: 'communityMember',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -26,12 +27,14 @@ export default {
         hotspot: true,
       },
       fieldset: 'communityMember',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'business',
       title: 'Member Business',
       type: 'string',
       fieldset: 'communityMember',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'biography',
@@ -39,12 +42,14 @@ export default {
       type: 'array',
       of: [{ type: 'block' }],
       fieldset: 'communityMember',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'contactMedium',
       title: 'Member contact medium (email or website url)',
       type: 'string',
       fieldset: 'communityMember',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'facebook',
@@ -64,6 +69,7 @@ export default {
       type: 'reference',
       to: [{ type: 'category' }],
       fieldset: 'communityMember',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'slug',
@@ -73,6 +79,7 @@ export default {
         source: 'name',
         maxLength: '100',
       },
+      validation: (Rule) => Rule.required(),
     },
   ],
   // Customize the preview field in sanity studio

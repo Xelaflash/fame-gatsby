@@ -15,6 +15,7 @@ export default {
       type: 'string',
       description: 'short description of the picture',
       fieldset: 'carouselPics',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -25,6 +26,7 @@ export default {
         hotspot: true,
       },
       fieldset: 'carouselPics',
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

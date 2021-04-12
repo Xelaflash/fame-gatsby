@@ -14,6 +14,7 @@ export default {
       title: 'Image Name',
       type: 'string',
       fieldset: 'bannerImgs',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -24,6 +25,7 @@ export default {
         hotspot: true,
       },
       fieldset: 'bannerImgs',
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

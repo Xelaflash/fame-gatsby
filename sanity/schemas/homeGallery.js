@@ -14,6 +14,7 @@ export default {
       title: 'Image Name',
       type: 'string',
       fieldset: 'homeGallery',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -23,6 +24,7 @@ export default {
         // permet de sélectionner une zone de la photo pour le cropping
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
       fieldset: 'homeGallery',
     },
   ],

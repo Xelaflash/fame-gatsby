@@ -12,6 +12,7 @@ export default {
       name: 'name',
       title: 'Art image Name',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -20,17 +21,20 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'artDescription',
       title: 'Art image Description',
       type: 'text',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'artist',
       title: 'Artist Name',
       type: 'reference',
       to: [{ type: 'communityMember' }],
+      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {

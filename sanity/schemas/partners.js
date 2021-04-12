@@ -14,6 +14,7 @@ export default {
       title: 'Partner Name',
       type: 'string',
       fieldset: 'partners',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -24,6 +25,7 @@ export default {
         hotspot: true,
       },
       fieldset: 'partners',
+      validation: (Rule) => Rule.required(),
     },
   ],
 };

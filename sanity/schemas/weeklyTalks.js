@@ -12,6 +12,7 @@ export default {
       name: 'talkTitle',
       title: 'Talk Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
@@ -21,17 +22,20 @@ export default {
         // permet de sélectionner une zone de la photo pour le cropping
         hotspot: true,
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'descriptionText',
       title: 'Description text',
       type: 'array',
       of: [{ type: 'block' }],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'link',
       title: 'Talk IG link',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     },
   ],
 };
