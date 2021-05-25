@@ -113,6 +113,7 @@ const NavbarLinks = () => {
       }
     }
   `);
+
   return (
     <NavLinksStyles>
       <ul>

@@ -12,6 +12,15 @@ const FestivalGallStyles = styled.div`
   .gallery-wrapper {
     margin: 40px auto;
   }
+  .under_title {
+    text-align: center;
+    margin: 30px auto -20px auto;
+    h2 {
+      font-size: 1.5em;
+      color: --darkGreen;
+      text-shadow: 0.5px 0px 0px white;
+    }
+  }
 `;
 
 export default function FestivalPage() {
@@ -55,15 +64,22 @@ export default function FestivalPage() {
           <h1 className="title">Festival</h1>
           <BrushStroke />
           <div className="festival--text-wrapper">
+            <div className="under_title">
+              <h2>FAME FESTIVAL _ BE PART OF A UNIQUE EXPERIENCE _</h2>
+              <h2>DEDICATED TO FOOD ART MUSIC AND THE ENVIRONMENT </h2>
+            </div>
             <p className="paragraphTexts">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-              eos, laborum veniam neque deserunt dignissimos est unde ducimus
-              dolorem beatae, laudantium ipsum. Eaque, cum ipsa assumenda
-              excepturi ea in asperiores!Sequi mollitia deleniti atque ut
-              accusantium temporibus officia nobis! Repudiandae officiis
-              asperiores odit mollitia maxime, possimus excepturi magnam quas
-              similique beatae eaque obcaecati perspiciatis. Sit nam iure
-              nostrum est unde.
+              FAME team invites you to events where you can relax and enjoy a
+              gathering using all your senses. FAME stands for FOOD, ART, MUSIC
+              and ENVIRONMENT, the main topics of our events. Savour healthy,
+              fresh and local food and drinks with respect for the environment.
+              Participate in art workshops, enjoy sports activities and art
+              displayed alongside joyful music performances. Line up joining
+              Caribbean musicians with internationally known acts like Lee
+              Scratch Perry godfather of the first edition we made. Enjoy both
+              the inner and outer environment, with time slots where yoga
+              sessions, lectures on nature and health practitioners propose mini
+              consults (massages...) will happen!
             </p>
           </div>
           <div className="gallery-wrapper">

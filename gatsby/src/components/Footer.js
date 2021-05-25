@@ -66,7 +66,13 @@ export default function Footer() {
               </p>
             </div>
             <div className="privacy">
-              <Link to="/privacy">Privacy Policy</Link>
+              <a
+                href="https://www.freeprivacypolicy.com/live/01547eb7-020e-463b-8c66-190a03f89f58"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>
             </div>
             <div className="social-links">
               <a

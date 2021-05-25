@@ -40,7 +40,7 @@ const Logo = () => {
       <Img
         fluid={dataHomeNav.file.childImageSharp.fluid}
         imgStyle={{ objectFit: 'contain' }}
-        alt="logo"
+        alt="FAME"
       />
     </LogoWrap>
   );

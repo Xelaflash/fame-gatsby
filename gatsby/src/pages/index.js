@@ -114,12 +114,14 @@ export default function HomePage() {
           >
             <iframe
               className="embed-responsive-item"
-              src="https://www.youtube-nocookie.com/embed/k19YEtYhhes"
+              src="https://www.youtube.com/embed/ngBp8ECJdEg"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="F.A.M.E. Weekly Talk Barbados on Instagram Live !
-            A way to collectively inform, promote & help many..."
+              title="We are F.A.M.E. People in Barbados. 'For the all the people, we’re
+              Acting for passion and wholeness!
+              Making a difference in the world by
+              Embracing love and living, with livity!' Dorothea Smartt"
               loading="lazy"
             />
           </div>
