@@ -44,7 +44,7 @@ const LogoRound = () => {
   return (
     <LogoRoundStyles>
       <Link to="/">
-        <Img fluid={logoSmall.file.childImageSharp.fluid} alt="logo" />
+        <Img fluid={logoSmall.file.childImageSharp.fluid} alt="FAME logo" />
       </Link>
     </LogoRoundStyles>
   );

@@ -15,6 +15,10 @@ const FamePeopleStyles = styled.div`
   .artist_name {
     color: var(--white);
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
+  .single_artist {
+    margin: 0 15px;
   }
 `;
 
