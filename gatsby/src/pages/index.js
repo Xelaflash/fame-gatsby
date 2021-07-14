@@ -73,6 +73,7 @@ export default function HomePage() {
   return (
     <>
       <SEO
+        title=" "
         keywords={[
           'Fame',
           'People',

@@ -21,13 +21,9 @@ export default function SEO({ children, description, title, image, keywords }) {
     : site.siteMetadata.keywords;
   return (
     // title template will append whatever you put in the end of any title tag
-    <Helmet
-      titleTemplate={
-        `%s - ${site.siteMetadata.title}` || site.siteMetadata.title
-      }
-    >
+    <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
       <html lang="en" />
-      <title>{title || site.siteMetadata.title}</title>
+      <title>{title}</title>
       {/* favicon */}
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       {/* fallback for non supported svg */}
