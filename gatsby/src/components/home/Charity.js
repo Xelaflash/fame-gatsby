@@ -41,9 +41,11 @@ const CharityStyles = styled.div`
     bottom: 0;
     background: rgba(255, 255, 255, 0.15);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 20px;
+    padding: 20px 20px 0;
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0.4s;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
   }
 
   .charity-card-title {
@@ -68,11 +70,27 @@ const CharityStyles = styled.div`
     position: relative;
     height: 0;
     color: #666666;
-    transition: height 0.4s linear;
+    transition: height 0.3s linear;
   }
   .charity-card:hover .hidden-box {
-    height: 250px;
-    overflow: auto;
+    height: 265px;
+    overflow: scroll;
+    animation: hide-scroll 0.32s;
+    @keyframes hide-scroll {
+      from,
+      to {
+        overflow: hidden;
+      }
+    }
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: var(--darkGreen);
+    }
   }
   .charity-card:hover .charity-card-content {
     background: white;
