@@ -7,10 +7,10 @@ dotenv.config({ path: '.env' });
 export default {
   siteMetadata: {
     title: `F.A.M.E - #food #art #music & #environment`,
-    siteUrl: `https://welovefame.com`,
+    siteUrl: `https://awesome-aryabhata-e147c8.netlify.app`,
     description: `F.A.M.E. DEDICATED TO FOOD, ART, MUSIC & ENVIRONMENT are festivals, gatherings & pop ups organized in Barbados!`,
     keywords: `FAME, Barbados, Bajan, food,art, music, environment, festival, community`,
-    image: '/static/meta_image.png',
+    image: '/meta_image.png',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

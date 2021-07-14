@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default function SEO({ children, description, title, image, keywords }) {
+export default function SEO({ children, description, title, keywords }) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -11,6 +11,7 @@ export default function SEO({ children, description, title, image, keywords }) {
           description
           siteUrl
           keywords
+          image
         }
       }
     }
@@ -18,11 +19,15 @@ export default function SEO({ children, description, title, image, keywords }) {
   const keywordsList = keywords
     ? keywords.join(', ')
     : site.siteMetadata.keywords;
+
   return (
     // title template will append whatever you put in the end of any title tag
-    <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
+    <Helmet
+      titleTemplate={`%s - ${site.siteMetadata.title}`}
+      defaultTitle={site.siteMetadata.title}
+    >
       <html lang="en" />
-      <title>{title || site.siteMetadata.title}</title>
+      <title>{title}</title>
       {/* favicon */}
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       {/* fallback for non supported svg */}
@@ -41,7 +46,10 @@ export default function SEO({ children, description, title, image, keywords }) {
         key="og:title "
       />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={image || `/meta_image.png`} />
+      <meta
+        property="og:image"
+        content={`${site.siteMetadata.siteUrl}${site.siteMetadata.image}`}
+      />
       <meta
         property="og:site_name"
         content={site.siteMetadata.title}
@@ -54,18 +62,21 @@ export default function SEO({ children, description, title, image, keywords }) {
       />
       {/* Twitter Card data */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:site" content={site.siteMetadata.siteUrl} />
+      <meta property="twitter:url" content={site.siteMetadata.siteUrl} />
+      {/* <meta property="twitter:site" content={site.siteMetadata.siteUrl} /> */}
       <meta
         property="twitter:title"
         content={title || site.siteMetadata.title}
       />
-      <meta property="twitter:url" content="" />
       <meta
         property="twitter:description"
         content={description || site.siteMetadata.description}
       />
-      <meta property="twitter:creator" content={site.siteMetadata.siteUrl} />
-      <meta name="twitter:image:src" content={image || `/meta_image.png`} />
+      {/* <meta property="twitter:creator" content={site.siteMetadata.siteUrl} /> */}
+      <meta
+        property="twitter:image"
+        content={`${site.siteMetadata.siteUrl}${site.siteMetadata.image}`}
+      />
       {children}
     </Helmet>
   );
