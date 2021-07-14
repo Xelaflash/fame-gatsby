@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-export default function SEO({ children, description, title, image, keywords }) {
+export default function SEO({ children, description, title, keywords }) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -19,9 +19,13 @@ export default function SEO({ children, description, title, image, keywords }) {
   const keywordsList = keywords
     ? keywords.join(', ')
     : site.siteMetadata.keywords;
+
   return (
     // title template will append whatever you put in the end of any title tag
-    <Helmet titleTemplate={`%s - ${site.siteMetadata.title}`}>
+    <Helmet
+      titleTemplate={`%s - ${site.siteMetadata.title}`}
+      defaultTitle={site.siteMetadata.title}
+    >
       <html lang="en" />
       <title>{title}</title>
       {/* favicon */}
@@ -58,19 +62,19 @@ export default function SEO({ children, description, title, image, keywords }) {
       />
       {/* Twitter Card data */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:site" content={site.siteMetadata.siteUrl} />
+      <meta property="twitter:url" content={site.siteMetadata.siteUrl} />
+      {/* <meta property="twitter:site" content={site.siteMetadata.siteUrl} /> */}
       <meta
         property="twitter:title"
         content={title || site.siteMetadata.title}
       />
-      <meta property="twitter:url" content="" />
       <meta
         property="twitter:description"
         content={description || site.siteMetadata.description}
       />
-      <meta property="twitter:creator" content={site.siteMetadata.siteUrl} />
+      {/* <meta property="twitter:creator" content={site.siteMetadata.siteUrl} /> */}
       <meta
-        name="twitter:image:src"
+        property="twitter:image"
         content={`${site.siteMetadata.siteUrl}${site.siteMetadata.image}`}
       />
       {children}
