@@ -42,7 +42,10 @@ export default function SEO({ children, description, title, image, keywords }) {
         key="og:title "
       />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={site.siteMetadata.image} />
+      <meta
+        property="og:image"
+        content={`${site.siteMetadata.siteUrl}${site.siteMetadata.image}`}
+      />
       <meta
         property="og:site_name"
         content={site.siteMetadata.title}
@@ -66,7 +69,10 @@ export default function SEO({ children, description, title, image, keywords }) {
         content={description || site.siteMetadata.description}
       />
       <meta property="twitter:creator" content={site.siteMetadata.siteUrl} />
-      <meta name="twitter:image:src" content={site.siteMetadata.image} />
+      <meta
+        name="twitter:image:src"
+        content={`${site.siteMetadata.siteUrl}${site.siteMetadata.image}`}
+      />
       {children}
     </Helmet>
   );
