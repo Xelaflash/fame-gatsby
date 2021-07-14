@@ -11,6 +11,7 @@ export default function SEO({ children, description, title, image, keywords }) {
           description
           siteUrl
           keywords
+          image
         }
       }
     }
