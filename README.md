@@ -7,9 +7,15 @@
 
 > F.A.M.E. dedicated to food, art, music & environment organizing festivals, gatherings, charity events & pop ups in Barbados !
 
-### 🏠 [Homepage](http://welovefame.com/)
-
+### 🏠 [Homepage](http://welovefame.com/) ==> No yet deployed
 ### ✨ [Demo](https://awesome-aryabhata-e147c8.netlify.app)
+
+## Stack
+- Gatsby
+- Styled component
+- Cloudinary
+- Sanity.io ( Headless CMS)
+- Netlify
 
 ## Author
 
@@ -17,10 +23,3 @@
 
 * Website: www.alexgwebdev.com
 * Github: [@Xelaflash](https://github.com/Xelaflash)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
